@@ -38,10 +38,10 @@ Els llenguatges de programació són només un mitjà per a expressar l'algoritm
 
 En essència, tot problema es pot descriure per mitjà d'un algoritme i les característiques fonamentals que estos han de complir són:
 
-- Precís: indica què es fa i en quin ordre.
-- Finit: acaba després d'un nombre finit de passos per a les entrades previstes.
-- General: resol una classe de casos, no només un exemple aïllat.
-- Determinista, quan correspon: amb les mateixes entrades produïx el mateix resultat. No és una propietat obligatòria de tot algoritme: existixen algoritmes aleatoritzats.
+- **Precís**: indica què es fa i en quin ordre.
+- **Finit**: acaba després d'un nombre finit de passos per a les entrades previstes.
+- **General**: resol una classe de casos, no només un exemple aïllat.
+- **Determinista**, quan correspon: amb les mateixes entrades produïx el mateix resultat. No és una propietat obligatòria de tot algoritme: existixen algoritmes aleatoritzats.
 
 Però quan els problemes són complexos, és necessari descompondre'ls en subproblemes més simples i, al seu torn, en altres més menuts. Estes estratègies reben el nom de disseny descendent (metodologia de disseny de programes que consistix en la descomposició del problema en problemes més senzills de resoldre) o disseny modular (metodologia de disseny de programes que consistix a dividir la solució a un problema en mòduls més menuts o subprogrames; les solucions dels mòduls s'uniran per a obtindre la solució general del problema). Este sistema es basa en el lema «dividix i venceràs».
 

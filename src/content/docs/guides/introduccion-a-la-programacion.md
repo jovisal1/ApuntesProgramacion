@@ -39,39 +39,40 @@ Los lenguajes de programación son sólo un medio para expresar el algoritmo y e
 
 En esencia, todo problema se puede describir por medio de un algoritmo y las características fundamentales que éstos deben cumplir son:
 
-- Preciso: indica qué se hace y en qué orden.
+- **Preciso**: indica qué se hace y en qué orden.
+- **Finito**: termina tras un número finito de pasos para las entradas previstas.
+- **General**: resuelve una clase de casos, no solo un ejemplo aislado.
+- **Determinista**, cuando procede: con las mismas entradas produce el mismo resultado. No es una propiedad obligatoria de todo algoritmo: existen algoritmos aleatorizados.
 
-- Finito: termina tras un número finito de pasos para las entradas previstas.
-
-- General: resuelve una clase de casos, no solo un ejemplo aislado.
-
-- Determinista, cuando procede: con las mismas entradas produce el mismo resultado. No es una propiedad obligatoria de todo algoritmo: existen algoritmos aleatorizados.
-
-Pero cuando los problemas son complejos, es necesario descomponer éstos en subproblemas más simples y, a su vez, en otros más pequeños. Estas estrategias reciben el nombre de diseño descendente (Metodología de diseño de programas, consistente en la descomposición del problema en problemas más sencillos de resolver.) o diseño modular (Metodología de diseño de programas, que consiste en dividir la solución a un problema en módulos más pequeños o subprogramas. Las soluciones de los módulos se unirán para obtener la solución general del problema). Este sistema se basa en el lema divide y vencerás.
+Pero cuando los problemas son complejos, es necesario descomponer éstos en subproblemas más simples y, a su vez, en otros más pequeños. Estas estrategias reciben el nombre de diseño descendente (metodología de diseño de programas, consistente en la descomposición del problema en problemas más sencillos de resolver.) o diseño modular (metodología de diseño de programas, que consiste en dividir la solución a un problema en módulos más pequeños o subprogramas. Las soluciones de los módulos se unirán para obtener la solución general del problema). Este sistema se basa en el lema divide y vencerás.
 
 Para representar gráficamente los algoritmos que vamos a diseñar, tenemos a nuestra disposición diferentes herramientas que ayudarán a describir su comportamiento de una forma precisa y genérica para luego poder codificarlos con el lenguaje que nos interese. Entre otras tenemos:
 
 - Diagramas de flujo: Esta técnica utiliza símbolos gráficos para la representación del algoritmo. Suele utilizarse en las fases de análisis.
 
-![Ejemplo de representación de un algoritmo mediante un diagrama de flujo](../../../assets/introduccion/diagramas-flujo.png)
+<p align="center">
+ <img src="/src/assets/introduccion/diagramas-flujo.png" alt="Ejemplo de representación de un algoritmo mediante un diagrama de flujo" loading="lazy">
+</p>
 
 - Pseudocódigo: Esta técnica se basa en el uso de palabras clave en lenguaje natural, constantes (Estructura de datos que se utiliza en los lenguajes de programación que no puede cambiar su contenido en el transcurso del programa.), variables (Estructura de datos que, como su nombre indica, puede cambiar de contenido a lo largo de la ejecución de un programa.), otros objetos, instrucciones y estructuras de programación que expresan de forma escrita la solución del problema.
 
-![Ejemplo de representación mediante pseudocódigo](../../../assets/introduccion/pseudocodigo.png)
+<p align="center">
+ <img src="/src/assets/introduccion/pseudocodigo.png" alt="Ejemplo de representación mediante pseudocódigo" loading="lazy">
+</p>
 
 - Tablas de decisión: En una tabla son representadas las posibles condiciones del problema con sus respectivas acciones. Suele ser una técnica de apoyo al pseudocódigo cuando existen situaciones condicionales complejas.
 
-![Ejemplo de tabla de decisión](../../../assets/introduccion/tabla-decision.png)
+<p align="center">
+ <img src="/src/assets/introduccion/tabla-decision.png" alt="Ejemplo de tabla de decisión" loading="lazy">
+</p>
 
 ### Partes de un algoritmo
 
 Todo algoritmo debe constar de las siguientes partes:
 
-- Input o entrada. El ingreso de los datos que el algoritmo necesita para operar.
-
-- Proceso. Se trata de la operación lógica formal que el algoritmo emprenderá con lo recibido del input.
-
-- Output o salida. Los resultados obtenidos del proceso sobre el input, una vez terminada la ejecución del algoritmo.
+- **Input o entrada**. El ingreso de los datos que el algoritmo necesita para operar.
+- **Proceso**. Se trata de la operación lógica formal que el algoritmo emprenderá con lo recibido del input.
+- **Output o salida**. Los resultados obtenidos del proceso sobre el input, una vez terminada la ejecución del algoritmo.
 
 ### Elementos básicos de un algoritmo
 
@@ -84,13 +85,9 @@ Un dato es un campo que puede convertirse en información. Un dato puede signifi
 Los datos simples pueden ser:
 
 - Numéricos (Reales, Enteros)
-
 - Lógicos
-
 - Carácter (Char, String)
-
 - Variables y constantes
-
 - Operadores
 
 #### Variables y constantes
@@ -102,11 +99,8 @@ Son espacios de memoria creados para contener datos que de acuerdo a su naturale
 Son elementos que relacionan de forma diferente, los valores de una o más variables y/o constantes. Es decir, los operadores nos permiten manipular valores. Pueden ser de 3 tipos:
 
 - **Aritméticos** (+ Suma, - Resta, \* Multiplicación, / División, % Módulo, ++ Incremento en 1, -- Decremento en 1)
-
 - **Relacionales** (> Mayor, < Menor, >= Mayor o igual, <= Menor o igual, == Igual, != Distinto)
-
 - **Lógicos** (&& Y lógico (AND), || O lógico (OR),! Negación (NOT))
-
 - **Asignación** (+= Suma y asignación, -= Resta y asignación, \*= Multiplicación y asignación, /= División y asignación, %= Módulo y asignación)
 
 #### Instrucciones o palabras reservadas
@@ -159,7 +153,7 @@ Inicio
          1- IMPRIMIR ’Introduce la cantidad’
          2- LEER: cantidad
          3- HACER resultado = NO
-         4- Si x>0
+         4- Si cantidad>0
                    HACER resultado = SI
             Fin Si
          5- IMPRIMIR ’La cantidad introducida ’, resultado, ‘ es mayor que cero’
@@ -189,7 +183,7 @@ Inicio
          5- SI (numero1 < numero2) AND (numero2 < numero3)
                   IMPRIMIR ’Orden creciente’
             SINO
-                     IMPRIMIR ’Orden decreciente
+                  IMPRIMIR ’Orden decreciente
             Fin Si
 Fin
 ```
@@ -218,7 +212,7 @@ Inicio
          2- LEER: numero
          5- SI (numero > 0)
                   IMPRIMIR ’El número tiene signo positivo’
-           SINO, si X<0
+           SINO, si numero<0
                    IMPRIMIR ’El número tiene signo negativo’
            SINO
                    IMPRIMIR ’El número es nulo’
@@ -247,7 +241,7 @@ Dado un entero, n, calcular la suma de los n primeros números impares
           1- IMPRIMIR ’Introduce un número n’
           2- LEER: numero
           3- HACER suma=0
-          4- Para i= 1, 3, 5, ..., 2*n-1
+          4- Para i= 1, 3, 5, ..., 2*numero-1
                    HACER suma=suma+i
           Fin Para
           5- IMPRIMIR ’La suma vale : ’, suma
@@ -275,13 +269,14 @@ Su funcionamiento es el siguiente:
 Imprimir de forma ascendente los 100 primeros números naturales
 
 ```text
-Inicio
-         1- HACER final=100
-         2- Mientras que i<=100
-                  IMPRIMIR i
-                  HACER i=i+1
-            Fin Mientras
-Fin
+ Inicio
+    1- HACER i=1
+    2- HACER final=100
+    3- Mientras que i<=final
+         IMPRIMIR i
+         HACER i=i+1
+    Fin Mientras
+  Fin
 ```
 
 Existe una alternativa al WHILE que es DO-WHILE en la que el bloque de instrucciones se ejecuta al menos una vez y la comprobación de la condición es posterior a esta primera ejecución
@@ -330,7 +325,7 @@ Inicio
              Caso 6
               IMPRIMIR ’Sábado’,
              Caso 7
-              IMPRIMIR Domingo
+              IMPRIMIR ’Domingo’
             En otro caso
                IMPRIMIR ’El número introducido no está entre 1 y 7’
          Fin Elegir caso
