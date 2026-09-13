@@ -47,3 +47,12 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+
+## Idiomas
+
+El castellano es el idioma predeterminado: sus páginas están en `src/content/docs/`.
+Las versiones en valenciano están en `src/content/docs/ca/`, con el mismo nombre y ruta relativa.
+Por ejemplo, `guides/example.md` y `ca/guides/example.md` son traducciones de la misma página.
+El selector del encabezado permite cambiar de idioma. Si falta una traducción, Starlight muestra el contenido en castellano con un aviso.
+
+Las URLs públicas empiezan por `/ApuntesProgramacion/` en castellano y `/ApuntesProgramacion/ca/` en valenciano. Usa ese prefijo en los enlaces internos escritos manualmente.
