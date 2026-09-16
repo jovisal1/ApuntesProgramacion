@@ -1,0 +1,7 @@
+/* Centra las imágenes de los apuntes en ambos idiomas. */
+.sl-markdown-content img {
+  display: block;
+  margin-inline: auto;
+  max-width: 100%;
+  height: auto;
+}

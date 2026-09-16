@@ -1,0 +1,684 @@
+---
+title: "PSeInt: dels algoritmes a la pràctica"
+description: Aprén a escriure i provar algoritmes en PSeInt amb exemples de dades, expressions, instruccions, estructures de control i funcions.
+sidebar:
+  order: 3
+---
+
+En **Algoritmes i programes** hem aprés a descriure una solució mitjançant dades, operacions i instruccions. En **Estructures de control** hem vist com prendre decisions i repetir accions. Ara aplicarem eixos conceptes en **[PSeInt](https://pseint.sourceforge.net/)**: partirem del que ja coneixem, veurem com s'escriu en la ferramenta i ho provarem amb exemples.
+
+| El que ja coneixem | Com ho aplicarem en PSeInt |
+| --- | --- |
+| Un algoritme té un inici, uns passos i un final. | Escrivim els passos entre `Proceso` i `FinProceso`. |
+| Les variables guarden dades d'un tipus determinat. | Les declarem amb `Definir nombre Como Tipo;`. |
+| L'entrada proporciona dades a l'algoritme. | Arrepleguem les dades del teclat amb `Leer`. |
+| L'assignació guarda el resultat d'una expressió. | Escrivim `<-` per a guardar un valor en una variable. |
+| L'eixida comunica el resultat. | Utilitzem `Escribir` per a mostrar-lo en pantalla. |
+| Els condicionals trien quines instruccions executar. | Utilitzem `Si`, `Sino` i `Segun`. |
+| Els bucles repetixen instruccions. | Utilitzem `Mientras`, `Repetir` i `Para`. |
+
+## De l'algoritme al pseudocodi
+
+En l'apartat **Representació d'un algoritme** vam veure que el pseudocodi permet expressar una solució amb instruccions pròximes al llenguatge natural. Per a executar-lo en PSeInt, concretem eixa escriptura: l'`Inicio` i el `Fin` dels nostres exemples passen a ser `Proceso NombreDelPrograma` i `FinProceso`.
+
+**Exemple: calcular l'àrea d'un triangle.** En paper, els passos són: conéixer la base i l'altura, multiplicar-les i dividir el producte entre dos. Suposem que les mesures són positives i estan expressades en la mateixa unitat.
+
+```text
+Proceso AreaTriangulo
+    Definir base, altura, area Como Real;
+    // Mostrem un missatge a l’usuari
+    Escribir "Introduïx la base:";
+    // Arrepleguem el valor introduït i el guardem en la variable base
+    Leer base;
+    // Mostrem un altre missatge a l’usuari
+    Escribir "Introduïx l’altura:";
+    // Arrepleguem el valor introduït i el guardem en la variable altura
+    Leer altura;
+
+    // Amb les dades proporcionades per l’usuari, fem el càlcul i l’assignem a la variable area
+    area <- (base * altura) / 2;
+    // Mostrem el resultat a l’usuari
+    Escribir "L’àrea del triangle és: ", area;
+FinProceso
+```
+
+Amb base `5` i altura `8`, el resultat és `20` unitats quadrades.
+
+| Part del programa | Exemple | Per a què servix |
+| --- | --- | --- |
+| Inici i nom | `Proceso AreaTriangulo` | Identifica l'algoritme. |
+| Declaracions | `Definir base, altura, area Como Real;` | Indica les variables i els seus tipus. |
+| Instruccions | `Leer base;`, el càlcul i `Escribir` | Realitza els passos de l'algoritme. |
+| Final | `FinProceso` | Delimita el final del programa. |
+
+La sagnia ajuda a reconéixer quines instruccions pertanyen a cada bloc. Els comentaris comencen per `//` i servixen per a explicar el codi.
+
+:::tip[Una recepta que es pot executar]
+Un algoritme s'assembla a una recepta: indica què necessitem i quins passos seguim. PSeInt és l'ajudant que seguix les instruccions escrites. Per a calcular l'àrea, la base i l'altura són els ingredients; multiplicar i dividir són els passos; l'àrea és el plat acabat. Si canvies les mesures, utilitzes la mateixa recepta amb altres dades.
+:::
+
+## Dades, variables i constants
+
+### Tipus de dades i declaracions
+
+En **Dades** distingim enters, reals, valors lògics, caràcters i cadenes. En PSeInt indiquem el tipus en declarar cada variable amb `Definir`. El tipus `Caracter` permet guardar tant una lletra com un text complet: esta és una diferència respecte de la distinció conceptual entre caràcter i cadena que ja coneixem.
+
+| Tipus en PSeInt | Valors d'exemple | Ús |
+| --- | --- | --- |
+| `Entero` | `0`, `12`, `-3` | Quantitats sense decimals. |
+| `Real` | `8.5`, `0.98` | Mesures i quantitats amb decimals. |
+| `Caracter` | `"A"`, `"Ana"` | Un caràcter o una cadena de text. |
+| `Logico` | `Verdadero`, `Falso` | Indicar si es complix una condició. |
+
+```text
+Proceso FichaJugador
+    Definir monedas Como Entero;
+    Definir tiempo Como Real;
+    Definir nombre Como Caracter;
+    Definir tieneLlave Como Logico;
+
+    monedas <- 12;
+    tiempo <- 8.5;
+    nombre <- "PixelNinja";
+    tieneLlave <- Verdadero;
+
+    Escribir "Jugador: ", nombre;
+    Escribir "Monedes: ", monedas;
+    Escribir "Temps: ", tiempo;
+    Escribir "Té clau: ", tieneLlave;
+FinProceso
+```
+
+El programa mostra els quatre valors assignats. Els decimals s'escriuen amb punt i els textos entre cometes dobles.
+
+:::tip[L'inventari d'un videojoc]
+Pensa en la fitxa del teu personatge: les monedes es compten amb un `Entero`, el temps de carrera es mesura amb un `Real`, el nom es guarda com a `Caracter` i tindre clau es representa amb un `Logico`. Abans de declarar una variable, pregunta't: **què necessite guardar en esta casella?**
+:::
+
+### Variables i valors que mantenim fixos
+
+En **Variables i constants** comparem una variable amb una caixa etiquetada que guarda informació en la memòria. En PSeInt, `Definir` declara eixa variable i `<-` permet guardar o substituir el seu contingut. També vam veure que una constant representa un valor que ha de mantindre's fix. En estos exemples, els valors fixos es guarden en variables amb nom en majúscules i **no es tornen a assignar**: esta convenció expressa la nostra intenció, però no impedix que PSeInt permeta modificar-los.
+
+```text
+Proceso PremioDelCofre
+    Definir monedas, PREMIO Como Entero;
+
+    PREMIO <- 5;
+    monedas <- 10;
+    monedas <- monedas + PREMIO;
+
+    Escribir "Monedes: ", monedas;
+    Escribir "Premi de cada cofre: ", PREMIO;
+FinProceso
+```
+
+El resultat és `15` monedes i un premi de `5`. L'assignació llig el valor anterior de `monedas`, suma el premi i guarda el resultat en la mateixa variable.
+
+:::tip[La caixa conserva la seua etiqueta]
+En la nostra prestatgeria de la memòria, la caixa `monedas` conté `10`. En executar `monedas <- monedas + 5;`, consultem el que hi ha dins, calculem `15` i substituïm el contingut. L'etiqueta continua sent `monedas`. La caixa guarda el valor nou; no conserva automàticament una col·lecció dels seus valors anteriors.
+:::
+
+## Expressions i operadors
+
+En **Operadors** utilitzem expressions per a calcular valors, comparar-los i combinar condicions. En PSeInt fem les mateixes operacions; el que hem de concretar és l'escriptura d'alguns símbols. Per exemple, `(base * altura) / 2` produïx un número i `edad >= 18` produïx un valor lògic.
+
+### Expressions aritmètiques
+
+| Operació | Escriptura en PSeInt | Resultat de l'exemple |
+| --- | --- | --- |
+| Suma | `7 + 2` | `9` |
+| Resta | `7 - 2` | `5` |
+| Multiplicació | `7 * 2` | `14` |
+| Divisió | `7 / 2` | `3.5` |
+| Residu d'una divisió entera | `7 MOD 2` | `1` |
+| Potència | `2 ^ 3` | `8` |
+
+```text
+Proceso RepartirMonedas
+    Definir monedas, personas, enteras, sobrantes Como Entero;
+    Definir reparto Como Real;
+
+    monedas <- 17;
+    personas <- 5;
+    reparto <- monedas / personas;
+    enteras <- TRUNC(reparto);
+    sobrantes <- monedas MOD personas;
+
+    Escribir "Divisió: ", reparto;
+    Escribir "Monedes senceres per persona: ", enteras;
+    Escribir "En sobren: ", sobrantes;
+FinProceso
+```
+
+Els resultats són `3.4`, `3` i `2`. `TRUNC` elimina la part decimal. El divisor ha de ser diferent de zero. Els parèntesis permeten canviar l'ordre: `2 + 3 * 4` val `14`, mentre que `(2 + 3) * 4` val `20`.
+
+En l'apartat **Operadors** van aparéixer abreviatures com `+=` i `++`. Per a expressar eixes actualitzacions en els nostres exemples de PSeInt, escriurem el càlcul i l'assignació complets:
+
+| Notació abreviada | Forma que utilitzarem en PSeInt |
+| --- | --- |
+| `x += 3` | `x <- x + 3;` |
+| `x -= 3` | `x <- x - 3;` |
+| `x /= 2` | `x <- x / 2;` |
+| `x %= 2` | `x <- x MOD 2;` |
+| `x++` | `x <- x + 1;` |
+| `x--` | `x <- x - 1;` |
+
+### Expressions relacionals
+
+Comparen valors i produïxen `Verdadero` o `Falso`.
+
+| Comparació | Operador | Exemple verdader |
+| --- | --- | --- |
+| Major que | `>` | `8 > 5` |
+| Menor que | `<` | `5 < 8` |
+| Major o igual que | `>=` | `8 >= 8` |
+| Menor o igual que | `<=` | `5 <= 8` |
+| Igual que | `=` | `8 = 8` |
+| Diferent de | `<>` | `8 <> 5` |
+
+```text
+Proceso CompararEdad
+    Definir edad Como Entero;
+    Definir mayorDeEdad Como Logico;
+
+    Escribir "Introduïx la teua edat:";
+    Leer edad;
+    mayorDeEdad <- edad >= 18;
+    Escribir "És major d’edat: ", mayorDeEdad;
+FinProceso
+```
+
+Amb `18`, la comparació és verdadera; amb `17`, és falsa.
+
+:::tip[Comparar i assignar són accions diferents]
+Utilitzem `=` per a comparar i `<-` per a guardar un valor. `edad = 18` pregunta si l'edat val 18; `edad <- 18;` canvia el seu valor. Les comparacions `==` i `!=` que vam veure en **Operadors** s'escriuen ací com `=` i `<>`.
+:::
+
+### Expressions lògiques
+
+`Y` exigix que les dos condicions siguen verdaderes; `O`, que almenys una ho siga; `NO` invertix un valor lògic. Utilitzarem estes paraules en lloc de `&&`, `||` i `!`.
+
+| A | B | A Y B | A O B |
+| --- | --- | --- | --- |
+| Verdadero | Verdadero | Verdadero | Verdadero |
+| Verdadero | Falso | Falso | Verdadero |
+| Falso | Verdadero | Falso | Verdadero |
+| Falso | Falso | Falso | Falso |
+
+`NO Verdadero` és `Falso` i `NO Falso` és `Verdadero`.
+
+```text
+Proceso ComprobarNumero
+    Definir numero Como Entero;
+    Definir impar, alMenosDiez, enIntervalo Como Logico;
+
+    Escribir "Introduïx un número enter:";
+    Leer numero;
+    impar <- (numero MOD 2) <> 0;
+    alMenosDiez <- (numero > 10) O (numero = 10);
+    enIntervalo <- (numero >= 10) Y (numero <= 20);
+
+    Escribir "És senar: ", impar;
+    Escribir "És almenys 10: ", alMenosDiez;
+    Escribir "Està entre 10 i 20: ", enIntervalo;
+    Escribir "Està fora de l’interval: ", NO enIntervalo;
+FinProceso
+```
+
+Amb `15`, els tres primers resultats són verdaders i l'últim és fals. Prova també `9`, `10`, `20` i `21` per a comprovar els límits de l'interval.
+
+:::tip[Les regles d'accés a una missió]
+- **Y:** necessites una clau **i** deu monedes; s'han de complir els dos requisits.
+- **O:** pots entrar amb una clau **o** un passe; també pots entrar si tens els dos.
+- **NO:** si `puertaAbierta` és verdader, `NO puertaAbierta` és fals.
+
+Recorda: **Y ho demana tot; O accepta almenys una opció; NO invertix la resposta.**
+:::
+
+## Entrada, eixida i assignació
+
+En **Parts d'un algoritme** distingim entrada, procés i eixida; en **Instruccions i paraules reservades** les expressem amb `LEER`, assignacions i `IMPRIMIR`. En PSeInt arrepleguem les dades amb `Leer`, guardem els càlculs amb `<-` i mostrem els resultats amb `Escribir`. Les instruccions s'executen una darrere de l'altra.
+
+| Instrucció | Acció | Exemple |
+| --- | --- | --- |
+| `Leer` | Arreplega una dada del teclat i la guarda en una variable. | `Leer euros;` |
+| `Escribir` | Mostra un missatge, un valor o diversos elements. | `Escribir "Euros: ", euros;` |
+| `<-` | Calcula una expressió i guarda el seu resultat. | `dolares <- euros / EUROS_POR_DOLAR;` |
+
+**Exemple: convertir euros a dòlars.** Utilitzarem el supòsit de l'exercici: **1 dòlar equival a 0,98 euros**. És una dada fixa per a practicar, no una cotització actual.
+
+```text
+Proceso ConvertirMoneda
+    Definir euros, dolares, EUROS_POR_DOLAR Como Real;
+
+    EUROS_POR_DOLAR <- 0.98;
+    Escribir "Introduïx la quantitat en euros:";
+    Leer euros;
+    dolares <- euros / EUROS_POR_DOLAR;
+    Escribir "La quantitat en dòlars és: ", dolares;
+FinProceso
+```
+
+Amb `98` euros s'obtenen `100` dòlars. Dividim perquè cada dòlar costa `0.98` euros. `Leer` guarda l'entrada en la variable `euros`; no s'utilitza per a modificar el valor fix del canvi.
+
+:::tip[Una calculadora amb pantalla]
+Quan tecleges una quantitat, dones una **entrada**; quan la calculadora opera, realitza el **procés**; quan veus el resultat, reps l'**eixida**. En el nostre conversor, `Leer euros;` arreplega la dada, el càlcul obté els dòlars i `Escribir` els mostra. Mostrar «Introduïx els euros» no arreplega la resposta: després cal `Leer`.
+:::
+
+## Condicionals
+
+En **Estructures de control** vam veure que una condició permet triar quines instruccions executar. En PSeInt conservem eixe funcionament i escrivim cada bloc amb les seues paraules d'obertura i tancament.
+
+| Estructura que ja coneixem | Escriptura en PSeInt |
+| --- | --- |
+| `IF`: actuar si es complix una condició. | `Si condicion Entonces ... FinSi` |
+| `IF-ELSE`: triar entre dos alternatives. | `Si condicion Entonces ... Sino ... FinSi` |
+| Condicions encadenades. | Un bloc `Si` nou dins del `Sino`. |
+| `SWITCH`: triar segons el valor d'una opció. | `Segun opcion Hacer ... FinSegun` |
+
+### Condicional simple: Si
+
+**Exercici:** mostrar `Hola` únicament si el número introduït és major que 3.
+
+```text
+Proceso SaludoCondicional
+    Definir numero Como Real;
+
+    Escribir "Introduïx un número:";
+    Leer numero;
+    Si numero > 3 Entonces
+        Escribir "Hola";
+    FinSi
+FinProceso
+```
+
+Amb `4` mostra `Hola`; amb `3` no mostra la salutació. En acabar el `Si`, l'execució continua després de `FinSi`.
+
+### Condicional doble: Si i Sino
+
+**Exercici:** indicar si un enter és parell o senar.
+
+```text
+Proceso ParOImpar
+    Definir numero Como Entero;
+
+    Escribir "Introduïx un número enter:";
+    Leer numero;
+    Si numero MOD 2 = 0 Entonces
+        Escribir "El número introduït és parell.";
+    Sino
+        Escribir "El número introduït és senar.";
+    FinSi
+FinProceso
+```
+
+Amb `8` tria la primera branca i amb `7`, la segona. El `0` també és parell.
+
+### Condicional múltiple: condicions encadenades
+
+Quan hi ha diverses alternatives, podem col·locar un altre `Si` dins d'un `Sino`.
+
+**Exemple:** classificar una nota. Primer descartem valors fora de 0 a 10; després distingim suspens, aprovat i notable o excel·lent.
+
+```text
+Proceso ClasificarNota
+    Definir nota Como Real;
+
+    Escribir "Introduïx una nota de 0 a 10:";
+    Leer nota;
+    Si (nota < 0) O (nota > 10) Entonces
+        Escribir "Nota no vàlida.";
+    Sino
+        Si nota < 5 Entonces
+            Escribir "Suspens.";
+        Sino
+            Si nota < 7 Entonces
+                Escribir "Aprovat.";
+            Sino
+                Escribir "Notable o excel·lent.";
+            FinSi
+        FinSi
+    FinSi
+FinProceso
+```
+
+Amb `4` mostra `Suspens`; amb `6`, `Aprovat`; amb `9`, `Notable o excel·lent`; amb `11`, `Nota no vàlida`. Cada `Si` té el seu propi `FinSi`.
+
+:::tip[Una cua de preguntes]
+Les condicions encadenades funcionen com una persona que et fa preguntes per ordre i es deté en trobar la resposta que decidix el teu cas. En les notes: «Està fora de rang?», «És menor que 5?», «És menor que 7?». Una nota de `4` també és menor que `7`, però ja ha entrat en la branca de suspens. **L'ordre de les preguntes importa.**
+:::
+
+### Selecció entre opcions: Segun
+
+És la manera d'escriure en PSeInt l'estructura `SWITCH` que estudiem en **Estructures de control**. Resulta útil quan una opció numèrica determina l'acció.
+
+```text
+Proceso MenuTresOpciones
+    Definir opcion Como Entero;
+
+    Escribir "Selecciona una opció:";
+    Escribir "1. Opció 1";
+    Escribir "2. Opció 2";
+    Escribir "3. Opció 3";
+    Leer opcion;
+
+    Segun opcion Hacer
+        1:
+            Escribir "Has seleccionat l’opció 1.";
+        2:
+            Escribir "Has seleccionat l’opció 2.";
+        3:
+            Escribir "Has seleccionat l’opció 3.";
+        De Otro Modo:
+            Escribir "L’opció seleccionada no és vàlida.";
+    FinSegun
+FinProceso
+```
+
+Amb `2` mostra l'opció 2; amb `8`, el missatge d'opció no vàlida. Només s'executa el cas seleccionat: no cal afegir un `break`.
+
+:::tip[Els botons d'un ascensor]
+`Segun` s'assembla a triar una planta: polses un número i es realitza l'acció associada a eixe botó. En el menú, `opcion` és el botó triat i cada cas indica què fer. `De Otro Modo` atén els números que no tenen una opció prevista.
+:::
+
+## Bucles o repeticions
+
+Ja coneixem els bucles: repetixen un bloc d'instruccions i cada volta és una **iteració**. En traslladar-los a PSeInt, hem de conservar quan es comprova la condició i què fa que acabe la repetició.
+
+| Estructura que ja coneixem | Escriptura en PSeInt | Quan acaba |
+| --- | --- | --- |
+| `WHILE` | `Mientras ... Hacer ... FinMientras` | Quan la condició és falsa. |
+| Comprovació al final, com en `DO-WHILE` | `Repetir ... Hasta Que` | Quan la condició d'eixida és verdadera. |
+| `FOR` | `Para ... Hasta ... Hacer ... FinPara` | Quan es completa el recorregut indicat. |
+
+:::tip[Tres maneres d'entrenar]
+- **Mentre tingues energia**, fas una altra repetició: comproves abans i potser no en fas cap.
+- **Prova un llançament i repetix fins a encistellar**: llances almenys una vegada i comproves després.
+- **Fes cinc llançaments**: coneixes per endavant el nombre de repeticions i pots utilitzar `Para`.
+
+La pregunta per a triar és: **comprove abans, comprove després o recórrec una quantitat coneguda?**
+:::
+
+### Mientras: comprovar abans de repetir
+
+`Mientras` comprova la condició abans de cada volta i continua si és verdadera. Pot executar el seu cos zero vegades.
+
+**Exercici: multiplicar mitjançant sumes successives.** Sumarem `a` un total de `b` vegades. Per a esta versió, `a` és un enter i `b` ha de ser un enter major o igual que zero.
+
+```text
+Proceso MultiplicarConSumas
+    Definir a, b, producto, contador Como Entero;
+
+    Escribir "Introduïx el primer enter:";
+    Leer a;
+    Escribir "Introduïx el segon enter (0 o major):";
+    Leer b;
+
+    Si b < 0 Entonces
+        Escribir "El segon número no pot ser negatiu.";
+    Sino
+        producto <- 0;
+        contador <- 0;
+        Mientras contador < b Hacer
+            producto <- producto + a;
+            contador <- contador + 1;
+        FinMientras
+        Escribir "El producte és: ", producto;
+    FinSi
+FinProceso
+```
+
+Per a `a = 4` i `b = 3`:
+
+| Moment | contador | producto |
+| --- | --- | --- |
+| Abans del bucle | 0 | 0 |
+| Després de la primera volta | 1 | 4 |
+| Després de la segona volta | 2 | 8 |
+| Després de la tercera volta | 3 | 12 |
+
+Amb `b = 0` no entra en el bucle i el producte és `0`. L'increment del comptador permet arribar a una condició falsa i acabar.
+
+### Repetir: comprovar després d'executar
+
+`Repetir...Hasta Que` executa el cos almenys una vegada i acaba quan la condició final és verdadera.
+
+:::caution[La condició d'eixida]
+En **Estructures de control** vam veure que `DO-WHILE` comprova la condició al final i continua mentre siga verdadera. En PSeInt utilitzarem `Repetir...Hasta Que`, que acaba quan la seua condició és verdadera. Per a repetir un menú mentre l'opció siga diferent de 5, escrivim `Hasta Que opcion = 5`.
+:::
+
+**Exercici:** mostrar un menú de cinc opcions, repetir-lo amb les opcions 1 a 4 i acabar amb la 5.
+
+```text
+Proceso MenuRepetido
+    Definir opcion Como Entero;
+
+    Repetir
+        Escribir "1. Opció 1";
+        Escribir "2. Opció 2";
+        Escribir "3. Opció 3";
+        Escribir "4. Opció 4";
+        Escribir "5. Eixir";
+        Leer opcion;
+
+        Segun opcion Hacer
+            1, 2, 3, 4, 5:
+                Escribir "Has seleccionat l’opció ", opcion;
+            De Otro Modo:
+                Escribir "L’opció seleccionada no és vàlida.";
+        FinSegun
+    Hasta Que opcion = 5
+
+    Escribir "Adeu!";
+FinProceso
+```
+
+Prova la seqüència `2, 8, 5`: informa de l'opció 2, rebutja la 8 i, després d'anunciar l'opció 5, mostra `Adeu!` i acaba.
+
+### Para: repetir un nombre conegut de vegades
+
+`Para` utilitza una variable de control, un valor inicial, un valor final i un pas. Si no indiquem el pas, és 1. El valor final està inclòs si el recorregut hi arriba.
+
+```text
+Proceso MostrarIndices
+    Definir indice Como Entero;
+
+    Para indice <- 0 Hasta 10 Con Paso 1 Hacer
+        Escribir "El valor de l’índex és: ", indice;
+    FinPara
+FinProceso
+```
+
+Mostra del `0` al `10`: són **11 iteracions**. Per a comptar cap arrere, podem utilitzar `Para indice <- 10 Hasta 0 Con Paso -1 Hacer`.
+
+**Exercici: demanar cinc números i sumar els seus valors.**
+
+```text
+Proceso SumarCincoNumeros
+    Definir indice Como Entero;
+    Definir numero, suma Como Real;
+
+    suma <- 0;
+    Para indice <- 1 Hasta 5 Hacer
+        Escribir "Introduïx el número ", indice, ":";
+        Leer numero;
+        suma <- suma + numero;
+    FinPara
+    Escribir "La suma és: ", suma;
+FinProceso
+```
+
+Amb `2, 4, 6, 8, 10`, el resultat és `30`.
+
+## Comptadors, acumuladors i banderes
+
+Ara combinarem les **variables**, les **assignacions** i els **bucles** que ja hem estudiat. Una variable pot comptar successos, acumular quantitats o recordar si s'ha complit una condició. Són diferents usos de les variables; no són tipus de dades nous.
+
+:::tip[L'entrada d'un festival]
+Imagina el control d'accés d'un festival:
+
+| Què vols recordar | Variable que necessites | Actualització típica |
+| --- | --- | --- |
+| Quantes persones han entrat. | Un comptador. | `personas <- personas + 1;` |
+| Quants diners s'han recaptat amb entrades de diferents preus. | Un acumulador. | `recaudacion <- recaudacion + precio;` |
+| Si ha entrat alguna persona amb passe VIP. | Una bandera. | `hayVIP <- Verdadero;` |
+
+La bandera continua sent verdadera encara que després entre algú sense passe VIP: recorda que **ja ha ocorregut**.
+:::
+
+### Comptador: quantes vegades ocorre una cosa
+
+Un comptador comença normalment en zero i augmenta en u quan succeïx el que volem comptar.
+
+**Exercici:** llegir deu números i comptar quantes vegades apareix el 5.
+
+```text
+Proceso ContarCincos
+    Definir indice, numero, cantidadCincos Como Entero;
+
+    cantidadCincos <- 0;
+    Para indice <- 1 Hasta 10 Hacer
+        Escribir "Introduïx l’enter ", indice, ":";
+        Leer numero;
+        Si numero = 5 Entonces
+            cantidadCincos <- cantidadCincos + 1;
+        FinSi
+    FinPara
+    Escribir "Has introduït un 5 estes vegades: ", cantidadCincos;
+FinProceso
+```
+
+Amb `5, 2, 5, 7, 8, 5, 1, 0, 5, 3`, mostra `4`. La variable `indice` compta les lectures i `cantidadCincos` compta només les coincidències.
+
+### Acumulador: quant portem en total
+
+Un acumulador suma quantitats que poden ser diferents. En `SumarCincoNumeros`, la variable `suma` és l'acumulador i s'actualitza amb `suma <- suma + numero;`.
+
+| Número llegit | Valor de suma després d'acumular |
+| --- | --- |
+| 2 | 2 |
+| 4 | 6 |
+| 6 | 12 |
+| 8 | 20 |
+| 10 | 30 |
+
+:::tip[Inicialitzar una sola vegada]
+En una suma acumulada, escriu `suma <- 0;` abans del bucle. Si la col·loques dins, esborraràs el que has acumulat en cada volta. Un comptador suma normalment 1; este acumulador suma el valor llegit.
+:::
+
+### Bandera o flag: recordar si ha ocorregut una cosa
+
+Una bandera és una variable lògica que representa un estat. Pot servir per a recordar un succés o per a indicar que hem de finalitzar.
+
+**Exercici:** demanar números fins a introduir un 0. Utilitzarem `terminado` per a controlar l'eixida i una altra bandera per a recordar si ha aparegut algun negatiu.
+
+```text
+Proceso LeerHastaCero
+    Definir numero Como Real;
+    Definir terminado, hayNegativos Como Logico;
+
+    terminado <- Falso;
+    hayNegativos <- Falso;
+    Mientras NO terminado Hacer
+        Escribir "Introduïx un número (0 per a acabar):";
+        Leer numero;
+        Si numero = 0 Entonces
+            terminado <- Verdadero;
+        Sino
+            Si numero < 0 Entonces
+                hayNegativos <- Verdadero;
+            FinSi
+        FinSi
+    FinMientras
+
+    Si hayNegativos Entonces
+        Escribir "Has introduït algun número negatiu.";
+    Sino
+        Escribir "No has introduït números negatius.";
+    FinSi
+FinProceso
+```
+
+Amb `4, -2, 7, 0`, la bandera `hayNegativos` passa a verdadera en llegir `-2` i conserva eixe valor. Si la primera dada és `0`, el programa acaba sense registrar negatius. El `0` actua com a **sentinella**: un valor especial que indica el final de l'entrada.
+
+## Funcions i subprocessos
+
+En **Algoritmes i programes** parlem de descompondre un problema en altres més menuts. En PSeInt podem aplicar eixa idea agrupant les instruccions de cada tasca en un subprograma i utilitzant-lo mitjançant una crida. Pot rebre dades, anomenades **paràmetres**, i pot retornar un resultat.
+
+Per a definir estos blocs escrivim `SubProceso` i `FinSubProceso`, com en els [exemples oficials de subprocessos](https://pseint.sourceforge.net/index.php?cual=Subprocesos&mode=estricto&page=ejemplos.php). Distingirem els que realitzen una acció dels que retornen un valor.
+
+:::tip[Encarregar una tasca]
+Fer una crida a un subprocés s'assembla a encarregar una tasca a un company. Li dius quina és la tasca i li entregues les dades que necessita: els **paràmetres**. `Saludar("Ana")` li demana que mostre una salutació. `CalcularAreaTriangulo(5, 8)` li entrega dos mesures i espera rebre un número. **Fer una cosa i retornar un resultat són coses diferents.**
+:::
+
+### Subprocés sense valor de retorn
+
+**Exemple:** saludar una persona. El subprocés rep el nom i mostra la salutació.
+
+```text
+SubProceso Saludar(nombre)
+    Escribir "Hola, ", nombre, "!";
+FinSubProceso
+
+Proceso Saludos
+    Saludar("Ana");
+    Saludar("Pau");
+FinProceso
+```
+
+Mostra `Hola, Ana!` i `Hola, Pau!`. `nombre` és el paràmetre; `"Ana"` i `"Pau"` són les dades que entreguem en cada crida. Mostrar text en pantalla no equival a retornar un valor al programa que fa la crida.
+
+### Funció amb valor de retorn
+
+**Exemple:** calcular l'àrea d'un triangle i guardar el resultat en el programa principal.
+
+```text
+SubProceso area <- CalcularAreaTriangulo(base, altura)
+    Definir area Como Real;
+    area <- (base * altura) / 2;
+FinSubProceso
+
+Proceso UsarAreaTriangulo
+    Definir resultado Como Real;
+
+    resultado <- CalcularAreaTriangulo(5, 8);
+    Escribir "L’àrea del triangle és: ", resultado;
+FinProceso
+```
+
+1. El programa fa una crida a `CalcularAreaTriangulo` amb `5` i `8`.
+2. Dins del subprocés, `base` val `5` i `altura` val `8`.
+3. Es calcula `20` i s'assigna a `area`, la variable de retorn indicada en la capçalera.
+4. El valor retornat es guarda en `resultado` i el programa principal el mostra.
+
+La variable `area` pertany al subprocés i `resultado` al programa principal. No necessiten tindre el mateix nom.
+
+:::tip[El teu torn]
+Crea una funció `CalcularMedia` que reba dos notes i retorne la seua mitjana. Crida-la amb `6` i `8`: el resultat ha de ser `7`. Després crea un subprocés sense retorn que reba eixa mitjana i la mostre amb un missatge.
+:::
+
+:::tip[Pausa i mira el marcador]
+Executar pas a pas s'assembla a pausar un videojoc després de cada moviment per a mirar el marcador. En `monedas <- monedas + PREMIO;`, anota el valor anterior, calcula el nou i comprova què queda guardat. Si el resultat final falla, busca el primer pas en què la teua predicció deixa de coincidir amb l'execució.
+:::
+
+## Com comprovar els teus algoritmes
+
+Abans d'executar, escriu quin resultat esperes. Després utilitza l'execució pas a pas per a observar les variables i les decisions.
+
+| Què comprovar | Prova concreta |
+| --- | --- |
+| Un cas habitual | Àrea amb base 5 i altura 8: 20. |
+| El límit d'una condició | En la salutació, provar 3 i 4. |
+| Totes les alternatives | Menú amb 1, 2, 3 i una opció no vàlida. |
+| Un bucle que no entra | Multiplicació amb segon factor 0. |
+| L'eixida en la primera volta | Menú repetit amb 5 com a primera opció. |
+| Absència de coincidències | Deu números sense cap 5: comptador 0. |
+| El valor que deté la lectura | Introduir 0 com a primera dada en `LeerHastaCero`. |
+
+Si el resultat no coincidix, localitza la primera instrucció en què el valor obtingut diferix del que havies calculat en paper.
+
+## Material de consulta
+
+- [Pàgina oficial de PSeInt](https://pseint.sourceforge.net/).
+- [Referència del pseudollenguatge](https://pseint.sourceforge.net/index.php?page=pseudocodigo.php): la pàgina descriu la sintaxi original i advertix de les variacions entre perfils.
+- [Exemples oficials per a perfils flexible i estricte](https://pseint.sourceforge.net/index.php?page=ejemplos.php).

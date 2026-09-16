@@ -10,6 +10,7 @@ export default defineConfig({
   integrations: [
     starlight({
       plugins: [starlightThemeNova()],
+      customCss: ["./src/styles/custom.css"],
       title: {
         es: "Programación 1DAW-1DAM",
         ca: "Programació 1DAW-1DAM",
@@ -36,8 +37,32 @@ export default defineConfig({
           label: "Unidades",
           translations: { ca: "Unitats" },
           items: [
-            // Each item here is one entry in the navigation menu.
-            { slug: "guides/introduccion-a-la-programacion" },
+            {
+              label: "Introducción a la programación",
+              translations: { ca: "Introducció a la programació" },
+              items: [
+                {
+                  label: "Introducción",
+                  translations: { ca: "Introducció" },
+                  slug: "guides/introduccion-a-la-programacion",
+                },
+                {
+                  label: "Algoritmos y programas",
+                  translations: { ca: "Algoritmes i programes" },
+                  slug: "guides/introduccion-a-la-programacion/algoritmos-y-programas",
+                },
+                {
+                  label: "Estructuras de control",
+                  translations: { ca: "Estructures de control" },
+                  slug: "guides/introduccion-a-la-programacion/estructuras-de-control",
+                },
+                {
+                  label: "PSeInt: de los algoritmos a la práctica",
+                  translations: { ca: "PSeInt: dels algoritmes a la pràctica" },
+                  slug: "guides/introduccion-a-la-programacion/pseint",
+                },
+              ],
+            },
           ],
         },
       ],

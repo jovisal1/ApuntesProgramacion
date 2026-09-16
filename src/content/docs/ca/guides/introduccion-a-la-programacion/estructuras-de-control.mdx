@@ -1,0 +1,204 @@
+---
+title: Estructures de control
+description: Condicionals i bucles per a controlar el flux d’execució d’un algoritme.
+sidebar:
+  order: 2
+---
+
+## Estructures de control: condicionals i bucles
+
+Entre les instruccions que un algoritme pot contindre, unes de les més importants són les estructures de control. Sense elles, les instruccions d'un algoritme només podrien executar-se en l'ordre en què estan escrites (ordre seqüencial). Les estructures de control permeten modificar este ordre. Hi ha dos categories d'estructures de control:
+
+- Condicionals o bifurcacions: permeten que s'executen conjunts diferents d'instruccions, en funció que es verifique o no una condició determinada.
+- Bucles o repeticions: permeten que s'execute repetidament un conjunt d'instruccions, bé un nombre predeterminat de vegades, o bé fins que es verifique una condició determinada.
+
+### Estructura condicional simple: IF
+
+Este és el tipus més senzill d'estructura condicional. Servix per a implementar accions condicionals del tipus següent:
+
+- Si es verifica una condició determinada, executar una sèrie d'instruccions i després continuar.
+- Si la condició NO es complix, NO s'executen estes instruccions i es continua.
+
+![Esquema de l'estructura condicional simple IF](../../../../../assets/introduccion/if.png)
+
+Observeu que, en els dos casos (tant si es verifica la condició com si no), els «camins» bifurcats s'unixen posteriorment en un punt; és a dir, el flux del programa recupera el seu caràcter seqüencial i es continua executant per la instrucció següent a l'estructura IF.
+
+**Exemple d'algoritme**
+
+Determinar si una quantitat donada és major o menor que 0.
+
+```text
+Inici
+    1- IMPRIMIR 'Introduïx la quantitat'
+    2- LLEGIR: quantitat
+    3- FER resultat = NO
+    4- Si quantitat>0
+           FER resultat = SI
+       Fi Si
+    5- IMPRIMIR 'La quantitat introduïda ', resultat, ' és major que zero'
+Fi
+```
+
+### Estructura condicional doble: IF-ELSE
+
+Este tipus d'estructura permet implementar condicionals en què hi ha dos accions alternatives:
+
+- Si es verifica una condició determinada, executar una sèrie d'instruccions (bloc 1).
+- Si no, és a dir, si la condició NO es verifica, executar una altra sèrie d'instruccions (bloc 2).
+
+En altres paraules, en este tipus d'estructures hi ha una alternativa: es fa una cosa o es fa l'altra. En els dos casos, es continua per la instrucció següent a l'estructura IF - ELSE.
+
+**Exemple d'algoritme**
+
+Llegir 3 números i deduir si s'han introduït en ordre creixent o decreixent.
+
+```text
+Inici
+    1- IMPRIMIR 'Introduïx 3 números'
+    2- LLEGIR: numero1
+    3- LLEGIR: numero2
+    4- LLEGIR: numero3
+    5- SI (numero1 < numero2) AND (numero2 < numero3)
+           IMPRIMIR 'Ordre creixent'
+       SINÓ
+           IMPRIMIR 'Ordre decreixent'
+       Fi Si
+Fi
+```
+
+![Esquema de l'estructura condicional doble IF-ELSE](../../../../../assets/introduccion/if-else.png)
+
+### Estructura condicional múltiple: IF-ELSE-ELSE
+
+En la seua forma més general, l'estructura IF - ELSEIF - ELSE permet implementar condicionals més complicats, en què s'«encadenen» condicions de la forma següent:
+
+- Si es verifica la condició 1, executar les instruccions del bloc 1.
+- Si no es verifica la condició 1, però SÍ que es verifica la condició 2, executar les instruccions del bloc 2.
+- Si no, és a dir, si no s'ha verificat cap de les condicions anteriors, executar les instruccions del bloc 3.
+
+En qualsevol dels casos, el flux del programa continua per la instrucció següent a l'estructura.
+
+**Exemple d'algoritme**
+
+Determinar si un número donat és positiu, negatiu o nul.
+
+```text
+Inici
+    1- IMPRIMIR 'Introduïx un número'
+    2- LLEGIR: numero
+    5- SI (numero > 0)
+           IMPRIMIR 'El número té signe positiu'
+       SINÓ, si numero<0
+           IMPRIMIR 'El número té signe negatiu'
+       SINÓ
+           IMPRIMIR 'El número és nul'
+       Fi Si
+Fi
+```
+
+![Esquema de l'estructura condicional múltiple](../../../../../assets/introduccion/if-elseif-else.png)
+
+En l'estructura IF - ELSEIF - ELSE es pot multiplicar la clàusula ELSE IF i obtindre així una «cascada» de condicions, com es mostra en la imatge següent, el funcionament de la qual és clar. En este tipus d'estructura condicional, la clàusula ELSE juntament amb el seu bloc d'instruccions pot no estar present.
+
+![Diagrama de condicions encadenades](../../../../../assets/introduccion/condiciones-encadenadas.png)
+
+Les diferents estructures condicionals descrites es poden imbricar; és a dir, es pot incloure una estructura IF (de qualsevol tipus) com a part de les instruccions que formen el bloc d'un dels casos d'un altre IF. Com és lògic, no hi pot haver solapament. Cada estructura IF ha de tindre el seu propi final (end).
+
+### Estructura de repetició indexada: FOR
+
+Este tipus d'estructura permet implementar la repetició d'un cert conjunt d'instruccions un nombre predeterminat de vegades. Per a fer-ho, s'utilitza una variable de control del bucle, anomenada també índex, que va recorrent un conjunt prefixat de valors en un ordre determinat. Per a cada valor de l'índex en este conjunt, s'executa una vegada el mateix conjunt d'instruccions.
+
+**Exemple d'algoritme**
+
+Donat un enter, n, calcular la suma dels n primers números senars.
+
+```text
+Inici
+    1- IMPRIMIR 'Introduïx un número n'
+    2- LLEGIR: numero
+    3- FER suma=0
+    4- Per a i= 1, 3, 5, ..., 2*numero-1
+           FER suma=suma+i
+       Fi Per a
+    5- IMPRIMIR 'La suma val: ', suma
+Fi
+```
+
+![Esquema de l'estructura de repetició FOR](../../../../../assets/introduccion/for.png)
+
+### Estructura repetitiva condicional: WHILE
+
+Permet implementar la repetició d'un mateix conjunt d'instruccions mentre es verifique una condició determinada: el nombre de vegades que es repetirà el cicle no està definit a priori.
+
+![Esquema de l'estructura repetitiva WHILE](../../../../../assets/introduccion/while.png)
+
+El seu funcionament és el següent:
+
+- Al començament de cada iteració s'avalua l'expressió lògica.
+- Si el resultat és VERDADER, s'executa el conjunt d'instruccions i es torna a iterar; és a dir, es repetix el pas 1.
+- Si el resultat és FALS, es deté l'execució del cicle WHILE i el programa continua executant-se per la instrucció següent a l'END.
+
+**Exemple d'algoritme**
+
+Imprimir de forma ascendent els 100 primers números naturals.
+
+```text
+Inici
+    1- FER i=1
+    2- FER final=100
+    3- Mentre i<=final
+           IMPRIMIR i
+           FER i=i+1
+       Fi Mentre
+Fi
+```
+
+Existix una alternativa al WHILE, que és DO-WHILE, en què el bloc d'instruccions s'executa almenys una vegada i la comprovació de la condició és posterior a esta primera execució.
+
+![Esquema de l'estructura repetitiva DO-WHILE](../../../../../assets/introduccion/do-while.png)
+
+### Estructura d'elecció entre diversos casos: SWITCH
+
+Este tipus d'estructura permet decidir entre diversos camins possibles, en funció del valor que prenga una instrucció determinada.
+
+![Esquema de selecció SWITCH](../../../../../assets/introduccion/switch.png)
+
+En cadascun dels casos, el valor corresponent pot ser un sol valor o bé un conjunt de valors, i en este cas s'indiquen entre claus. La clàusula OTHERWISE i el seu conjunt d'instruccions corresponent poden no estar presents.
+
+El funcionament és el següent:
+
+- Al començament s'avalua l'expressió.
+- Si l'expressió pren el valor (o valors) especificats al costat de la primera clàusula CASE, s'executa el conjunt d'instruccions d'este cas i després s'abandona l'estructura SWITCH, continuant per la instrucció següent a l'END.
+- Es repetix el procediment anterior, de manera ordenada, per a cadascuna de les clàusules CASE que seguixen.
+- Si la clàusula OTHERWISE està present i l'expressió no ha pres cap dels valors especificats anteriorment, s'executa el conjunt d'instruccions corresponent.
+
+Observeu que s'executa, com a màxim, el conjunt d'instruccions d'un dels casos; és a dir, una vegada que s'ha verificat un cas i s'ha executat el seu conjunt d'instruccions, no es comprova la resta de casos, ja que s'abandona l'estructura. Òbviament, si la clàusula OTHERWISE no està present, pot passar que no es done cap dels casos.
+
+**Exemple d'algoritme**
+
+Demanar un número a l'usuari i mostrar el nom del dia al qual correspon (1=dilluns).
+
+```text
+Inici
+    1- IMPRIMIR 'Introduïx un número de l’1 al 7'
+    2- LLEGIR: numero
+    2- Triar cas numero
+           Cas 1
+               IMPRIMIR 'Dilluns'
+           Cas 2
+               IMPRIMIR 'Dimarts'
+           Cas 3
+               IMPRIMIR 'Dimecres'
+           Cas 4
+               IMPRIMIR 'Dijous'
+           Cas 5
+               IMPRIMIR 'Divendres'
+           Cas 6
+               IMPRIMIR 'Dissabte'
+           Cas 7
+               IMPRIMIR 'Diumenge'
+           En un altre cas
+               IMPRIMIR 'El número introduït no està entre 1 i 7'
+       Fi Triar cas
+Fi
+```

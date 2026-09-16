@@ -1,0 +1,245 @@
+---
+title: Algoritmes i programes
+description: Què és un algoritme, com es representa i quines són les seues parts i els seus elements bàsics.
+sidebar:
+  order: 1
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+## Algoritmes i programes
+
+Quan intentem trobar la solució a un problema, busquem que siga correcta, eficaç i alhora eficient. Per a aconseguir-ho, en programació, haurem de desenvolupar l'algoritme adequat. Però, què és un algoritme?
+
+:::note[Definició]
+**Algoritme:** Conjunt ordenat i finit d'operacions que permet trobar la solució d'un problema.
+:::
+
+Un **algoritme** descriu els passos necessaris per a resoldre un problema, sense dependre d'un llenguatge de programació ni d'un dispositiu concret. Per exemple, per a calcular la mitjana de dos números, sumem els dos valors i dividim el resultat entre dos. Estos passos són els mateixos tant si els fem a mà com si els executa un ordinador.
+
+Un **programa** expressa un o diversos algoritmes mitjançant les instruccions d'un llenguatge de programació. Així, podem implementar l'algoritme anterior en Java, Python o qualsevol altre llenguatge adequat. La solució que hem dissenyat és la mateixa; canvia la manera d'escriure-la.
+
+L'**execució** ocorre quan el dispositiu du a terme les instruccions del programa amb unes dades concretes. Si introduïm els números 6 i 8, el programa calcula la seua mitjana i obté 7.
+
+Un mateix problema pot resoldre's mitjançant algoritmes diferents. Dissenyar una solució requerix comprendre el problema, descompondre'l en passos i comprovar que produïx els resultats esperats. Dos solucions poden ser correctes i, així i tot, diferenciar-se en la claredat, en el temps que necessiten o en la memòria que utilitzen.
+
+| Concepte | Què significa | Exemple |
+| --- | --- | --- |
+| **Problema** | La tasca que volem resoldre. | Calcular la mitjana de dos números. |
+| **Algoritme** | Una seqüència finita i precisa de passos per a resoldre-la. | Sumar els dos números i dividir el resultat entre dos. |
+| **Programa** | La implementació de la solució en un llenguatge de programació. | Un programa que llig dos números, calcula la seua mitjana i la mostra. |
+| **Execució** | La realització de les instruccions amb unes dades concretes. | En introduir 6 i 8, el programa mostra 7. |
+
+En essència, tot problema es pot descriure per mitjà d'un algoritme i les característiques fonamentals que estos han de complir són:
+
+- **Precís**: indica què es fa i en quin ordre.
+- **Finit**: acaba després d'un nombre finit de passos per a les entrades previstes.
+- **General**: resol una classe de casos, no sols un exemple aïllat.
+- **Determinista**, quan correspon: amb les mateixes entrades produïx el mateix resultat. No és una propietat obligatòria de tot algoritme: existixen algoritmes aleatoritzats.
+
+Però quan els problemes són complexos, és necessari descompondre'ls en subproblemes més simples i, al seu torn, en altres més menuts. Estes estratègies reben el nom de disseny descendent (metodologia de disseny de programes que consistix a descompondre el problema en problemes més senzills de resoldre) o disseny modular (metodologia que consistix a dividir la solució a un problema en mòduls més menuts o subprogrames, les solucions dels quals s'uniran per a obtindre la solució general). Este sistema es basa en el lema <Badge text="dividix i venceràs." variant="note"/>
+
+## Parts d'un algoritme
+
+En un algoritme distingim tres parts: les dades de partida (**entrada**), les operacions que fem amb elles (**procés**) i el resultat que obtenim (**eixida**).
+
+![Parts d'un algoritme](../../../../../assets/introduccion/partes_algoritmo.png)
+
+**Exemple: quanta pizza ens toca?**
+
+Un grup de quatre amics demana tres pizzes. Cada pizza té huit porcions i volen repartir-les a parts iguals.
+
+| Part | Què representa | En el nostre exemple |
+| --- | --- | --- |
+| **Entrada** | Les dades necessàries per a resoldre el problema. | 3 pizzes, 8 porcions per pizza i 4 persones. |
+| **Procés** | Les operacions que fem amb les dades. | Multiplicar `3 × 8 = 24` i dividir `24 / 4 = 6`. |
+| **Eixida** | El resultat que obtenim. | A cada persona li corresponen 6 porcions. |
+
+```text
+Inicio
+    pizzas ← 3
+    porcionesPorPizza ← 8
+    personas ← 4
+    totalPorciones ← pizzas * porcionesPorPizza
+    porcionesPorPersona ← totalPorciones / personas
+    IMPRIMIR "Porcions per persona: ", porcionesPorPersona
+Fin
+```
+
+En estos exemples utilitzarem `←` per a indicar **assignació**: calcular el que hi ha a la dreta i guardar el resultat en la variable de l'esquerra.
+
+:::tip[El teu torn]
+Si s'apunta una cinquena persona, quina part canvia? Quantes porcions senceres rep cada persona i quantes en sobren?
+:::
+
+<details>
+<summary>Veure la solució</summary>
+
+Canvia l'entrada `personas`, que passa a valdre 5. Cal tornar a realitzar el procés. Si permetem tallar les porcions, en corresponen 4,8 per persona. Si les volem senceres, cada persona en rep 4 i en sobren 4: en eixe cas necessitem calcular el quocient enter i el residu.
+
+</details>
+
+## Elements bàsics d'un algoritme
+
+Construirem exemples d'un videojoc en què un personatge arreplega monedes i obri portes. Ens serviran per a conéixer els elements amb què escrivim un algoritme.
+
+### Dades
+
+Les **dades** són els valors amb què treballa un algoritme. El seu tipus indica quina classe de valors representen i quines operacions tenen sentit amb ells.
+
+| Tipus | Exemple en el videojoc | Per a què servix |
+| --- | --- | --- |
+| **Enter** | `monedas ← 12` | Comptar quantitats sense decimals. |
+| **Real** | `tiempo ← 8.5` | Representar una mesura amb decimals, com els segons d'una carrera. |
+| **Lògic o booleà** | `tieneLlave ← VERDADERO` | Representar dos possibilitats: verdader o fals. |
+| **Caràcter** | `tecla ← 'W'` | Guardar un únic caràcter. |
+| **Cadena de text** | `nombre ← "PixelNinja"` | Guardar una seqüència de caràcters. |
+
+En el pseudocodi escrivim els decimals amb punt. Utilitzem cometes simples per als caràcters i dobles per a les cadenes.
+
+:::note[Un número també pot ser text]
+`12` és un valor numèric amb què podem calcular. `"12"` és una cadena de text: per a tractar-la com un número, normalment haurem de convertir-la. Un codi de jugador com `"007"` es guarda com a text si volem conservar els zeros inicials.
+:::
+
+Les variables i les constants permeten donar nom a valors; els operadors permeten treballar amb ells. **No són tipus de dades.**
+
+### Variables i constants
+
+Una **variable** permet guardar un valor associat a un nom i actualitzar-lo durant l'execució. Una **constant** té un valor que es manté fix una vegada definit.
+
+:::tip[Una caixa en una prestatgeria]
+Imagina que la **memòria** de l'ordinador és una prestatgeria i cada **variable** és una caixa que guarda informació. El nom de la variable és l'etiqueta de la caixa i el seu valor és el que conté. En assignar-li un valor nou, substituïm el contingut de la caixa, però conservem la seua etiqueta.
+![Símil de les variables i la prestatgeria](../../../../../assets/introduccion/variables.png)
+:::
+
+**Exemple: arreplegar un cofre de monedes**
+
+```text
+CONSTANTE PREMIO_COFRE ← 5
+monedas ← 10
+monedas ← monedas + PREMIO_COFRE
+IMPRIMIR monedas
+```
+
+| Pas | Què ocorre | Valor de `monedas` després |
+| --- | --- | --- |
+| `monedas ← 10` | Inicialitzem la variable. | 10 |
+| `monedas ← monedas + PREMIO_COFRE` | Llegim el valor actual, sumem 5 i guardem el resultat. | 15 |
+| `IMPRIMIR monedas` | Mostrem el valor guardat. | 15 |
+
+La instrucció `monedas ← monedas + PREMIO_COFRE` **no és una igualtat matemàtica**. Primer calcula `10 + 5` i després substituïx el valor anterior per `15`. La constant `PREMIO_COFRE` continua valent `5`.
+
+Utilitzarem noms descriptius com `monedas` o `tieneLlave`. Escriurem les constants en majúscules com a convenció per a reconéixer-les fàcilment.
+
+:::tip[El teu torn]
+Si obrim un altre cofre i executem de nou `monedas ← monedas + PREMIO_COFRE`, quant valen ara `monedas` i `PREMIO_COFRE`?
+:::
+
+<details>
+<summary>Veure la solució</summary>
+
+`monedas` passa a valdre `20`. `PREMIO_COFRE` continua valent `5`: s'actualitza la variable, no la constant.
+
+</details>
+
+### Operadors
+
+Els **operadors** permeten calcular valors nous, comparar-los o combinar condicions. Una **expressió** combina valors, variables i operadors per a obtindre un resultat; per exemple, `monedas + 5`.
+
+| Tipus | Operadors | Exemple | Resultat o efecte |
+| --- | --- | --- | --- |
+| **Aritmètics** | `+`, `-`, `*`, `/`, `%` | `17 % 5` | Obté `2`, el residu de dividir 17 entre 5. |
+| **Relacionals** | `>`, `<`, `>=`, `<=`, `==`, `!=` | `12 >= 10` | Obté `VERDADERO`. |
+| **Lògics** | `Y`, `O`, `NO` | `VERDADERO Y FALSO` | Obté `FALSO`. |
+| **Assignació** | `←` en el nostre pseudocodi | `monedas ← 12` | Guarda `12` en `monedas`. |
+
+En molts llenguatges, l'assignació s'escriu `=` i els operadors lògics s'escriuen `&&`, `||` i `!`. També existixen formes abreviades com `+=` o `++`; la seua disponibilitat i el seu comportament depenen del llenguatge.
+
+**Exemple: obrir la porta del castell**
+
+Per a obrir una porta necessitem **tindre la clau i almenys deu monedes**.
+
+```text
+monedas ← 12
+tieneLlave ← VERDADERO
+puedeAbrir ← tieneLlave Y (monedas >= 10)
+IMPRIMIR puedeAbrir
+```
+
+Primer, `monedas >= 10` produïx `VERDADERO`. Després, `VERDADERO Y VERDADERO` produïx `VERDADERO`, que es guarda en `puedeAbrir`. Esta expressió comprova el requisit; no descompta monedes ni obri la porta per si sola.
+
+- **Y** exigix que les dos condicions siguen verdaderes: tindre clau **i** monedes suficients.
+- **O** exigix que almenys una siga verdadera: tindre clau **o** tindre un passe màgic.
+- **NO** invertix el valor lògic: si `tieneLlave` és verdader, `NO tieneLlave` és fals.
+
+**Exemple: preparar paquets de premis**
+
+Tenim 17 monedes i cada paquet en conté 5. Podem preparar 3 paquets complets i en sobren `17 % 5`, és a dir, 2 monedes. L'operador `%` calcula el **residu**, no un percentatge.
+
+:::tip[L'ordre importa]
+`2 + 3 * 4` dona `14`, perquè la multiplicació es fa abans que la suma. `(2 + 3) * 4` dona `20`. Utilitza parèntesis per a deixar clar què vols calcular primer.
+:::
+
+### Instruccions i paraules reservades
+
+Una **instrucció** indica una acció: llegir una dada, guardar un valor, mostrar un resultat o decidir quin pas executar. Les **paraules reservades** són termes amb un significat especial en un llenguatge; poden formar part d'una instrucció, però no són el mateix que una instrucció completa.
+
+En el nostre pseudocodi utilitzarem paraules com `LEER` i `IMPRIMIR` per a expressar estes accions.
+
+**Exemple: el marcador d'una partida**
+
+Cada moneda arreplegada val 10 punts. L'algoritme demana el nom del jugador i quantes monedes ha arreplegat, calcula la puntuació i la mostra. Suposem que s'introduïx un nombre enter de monedes major o igual que zero.
+
+```text
+Inicio
+    CONSTANTE PUNTOS_POR_MONEDA ← 10
+    IMPRIMIR "Com es diu el teu personatge?"
+    LEER nombre
+    IMPRIMIR "Quantes monedes has arreplegat?"
+    LEER monedas
+    puntos ← monedas * PUNTOS_POR_MONEDA
+    IMPRIMIR "Jugador: ", nombre
+    IMPRIMIR "Puntuació: ", puntos
+Fin
+```
+
+Si introduïm `PixelNinja` i `7`, l'eixida serà:
+
+```text
+Jugador: PixelNinja
+Puntuació: 70
+```
+
+Ací apareixen tots els elements que hem vist: **dades** de text i numèriques, **variables** (`nombre`, `monedas`, `puntos`), una **constant** (`PUNTOS_POR_MONEDA`), un **operador** de multiplicació i **instruccions** d'entrada, assignació i eixida.
+
+:::tip[Prova una modificació]
+Afig una bonificació fixa de 50 punts per acabar la partida. Quina constant afegiries i com canviaries el càlcul? Quina puntuació obtindria PixelNinja amb les seues 7 monedes?
+:::
+
+<details>
+<summary>Veure la solució</summary>
+
+```text
+CONSTANTE BONUS_FINAL ← 50
+puntos ← monedas * PUNTOS_POR_MONEDA + BONUS_FINAL
+```
+
+Obtindria `7 * 10 + 50 = 120` punts. Estem suposant que el marcador es calcula en acabar la partida i que sempre es concedix eixa bonificació.
+
+</details>
+
+## Representació d'un algoritme
+
+Per a representar gràficament els algoritmes que dissenyarem, tenim a la nostra disposició diferents ferramentes que ajudaran a descriure el seu comportament d'una manera precisa i genèrica per a després poder codificar-los amb el llenguatge que ens interesse. Entre altres tenim:
+
+- **Diagrames de flux**: esta tècnica utilitza símbols gràfics per a representar l'algoritme. Sol utilitzar-se en les fases d'anàlisi.
+
+![Exemple de representació d'un algoritme mitjançant un diagrama de flux](../../../../../assets/introduccion/diagramas-flujo.png)
+
+- Pseudocodi: esta tècnica es basa en l'ús de paraules clau en llenguatge natural, constants (estructures de dades que no poden canviar el contingut durant el programa), variables (estructures de dades que poden canviar el contingut al llarg de l'execució), altres objectes, instruccions i estructures de programació que expressen per escrit la solució del problema.
+
+![Exemple de representació mitjançant pseudocodi](../../../../../assets/introduccion/pseudocodigo.png)
+
+- Taules de decisió: en una taula es representen les possibles condicions del problema amb les seues accions respectives. Sol ser una tècnica de suport al pseudocodi quan existixen situacions condicionals complexes.
+
+![Exemple de taula de decisió](../../../../../assets/introduccion/tabla-decision.png)

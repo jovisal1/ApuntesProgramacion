@@ -1,0 +1,214 @@
+---
+title: Introducción a la programación
+description: Qué es un algoritmo, cómo se representa y cuáles son sus partes y elementos básicos.
+sidebar:
+  order: 1
+---
+
+## Estructuras de control: condicionales y bucles
+
+Entre las instrucciones que un algoritmo puede contener, unas de las más importantes son las estructuras de control. Sin ellas, las instrucciones de un algoritmo sólo podrían ejecutarse en el orden en que están escritas (orden secuencial). Las estructuras de control permiten modificar este orden. Hay dos categorías de estructuras de control:
+
+- Condicionales o bifurcaciones: permiten que se ejecuten conjuntos distintos de instrucciones, en función de que se verifique o no determinada condición.
+
+- Bucles o repeticiones: permiten que se ejecute repetidamente un conjunto de instrucciones, bien un número pre-determinado de veces, o bien hasta que se verifique una determinada condición.
+
+### Estructura condicional simple: IF
+
+Este es el tipo más sencillo de estructura condicional. Sirve para implementar acciones condicionales del tipo siguiente:
+
+- Si se verifica una determinada condición, ejecutar una serie de instrucciones y luego seguir adelante.
+
+- Si la condición NO se cumple, NO se ejecutan dichas instrucciones y se sigue adelante.
+
+![Esquema de la estructura condicional simple IF](../../../../assets/introduccion/if.png)
+
+Obsérvese que, en ambos casos (que se verifique o no la condición), los “caminos” bifurcados se unen posteriormente en un punto, es decir, el flujo del programa recupera su carácter secuencial, y se continúa ejecutando por la instrucción siguiente a la estructura IF.
+
+**Ejemplo de algoritmo**
+
+Determinar si una cantidad dada es mayor o menor que 0
+
+```text
+Inicio
+         1- IMPRIMIR ’Introduce la cantidad’
+         2- LEER: cantidad
+         3- HACER resultado = NO
+         4- Si cantidad>0
+                   HACER resultado = SI
+            Fin Si
+         5- IMPRIMIR ’La cantidad introducida ’, resultado, ‘ es mayor que cero’
+Fin
+```
+
+### Estructura condicional doble: IF-ELSE
+
+Este tipo de estructura permite implementar condicionales en los que hay dos acciones alternativas:
+
+- Si se verifica una determinada condición, ejecutar una serie de instrucciones (bloque 1).
+
+- Si no, esto es, si la condición NO se verifica, ejecutar otra serie de instrucciones (bloque 2).
+
+En otras palabras, en este tipo de estructuras hay una alternativa: se hace una cosa o se hace la otra. En ambos casos, se sigue por la instrucción siguiente a la estructura IF - ELSE.
+
+**Ejemplo de algoritmo**
+
+Leer 3 números y deducir si se han introducido en orden creciente o decreciente
+
+```text
+Inicio
+         1- IMPRIMIR ’Introduce 3 números’
+         2- LEER: numero1
+         3- LEER: numero2
+         4- LEER: numero3
+         5- SI (numero1 < numero2) AND (numero2 < numero3)
+                  IMPRIMIR ’Orden creciente’
+            SINO
+                  IMPRIMIR ’Orden decreciente
+            Fin Si
+Fin
+```
+
+![Esquema de la estructura condicional doble IF-ELSE](../../../../assets/introduccion/if-else.png)
+
+### Estructura condicional múltiple: IF-ELSE-ELSE
+
+En su forma más general, la estructura IF - ELSEIF - ELSE permite implementar condicionales más complicados, en los que se “encadenan” condiciones en la forma siguiente:
+
+- Si se verifica la condición 1, ejecutar las instrucciones del bloque 1.
+
+- Si no se verifica la condición 1, pero SI se verifica la condición 2 , ejecutar las instrucciones del bloque 2.
+
+- Si no, esto es, si no se ha verificado ninguna de las condiciones anteriores, ejecutar las instrucciones del bloque 3.
+
+En cualquiera de los casos, el flujo del programa continúa por la instrucción siguiente a la estructura.
+
+**Ejemplo de algoritmo**
+
+Determinar si un número dado es positivo, negativo o nulo
+
+```text
+Inicio
+         1- IMPRIMIR ’Introduce un número’
+         2- LEER: numero
+         5- SI (numero > 0)
+                  IMPRIMIR ’El número tiene signo positivo’
+           SINO, si numero<0
+                   IMPRIMIR ’El número tiene signo negativo’
+           SINO
+                   IMPRIMIR ’El número es nulo’
+           Fin Si
+Fin
+```
+
+![Esquema de la estructura condicional múltiple](../../../../assets/introduccion/if-elseif-else.png)
+
+En la estructura IF - ELSEIF - ELSE se puede multiplicar la cláusula ELSE IF, obteniéndose así una “cascada” de condiciones, como se muestra en la siguiente imagen, cuyo funcionamiento es claro. En este tipo de estructura condicional, la cláusula ELSE junto con su bloque de instrucciones puede no estar presente.
+
+![Diagrama de condiciones encadenadas](../../../../assets/introduccion/condiciones-encadenadas.png)
+
+Las distintas estructuras condicionales descritas pueden ser anidadas, es decir, puede incluirse una estructura IF (de cualquier tipo), como parte de las instrucciones que forman el bloque de uno de los casos de otro IF. Como es lógico, no puede haber solapamiento. Cada estructura IF debe tener su propio fin (end).
+
+### Estructura de repetición indexada: FOR
+
+Este tipo de estructura permite implementar la repetición de un cierto conjunto de instrucciones un número pre-determinado de veces. Para ello se utiliza una variable de control del bucle, llamada también índice, que va recorriendo un conjunto pre-fijado de valores en un orden determinado. Para cada valor del índice en dicho conjunto, se ejecuta una vez el mismo conjunto de instrucciones.
+
+**Ejemplo de algoritmo**
+
+Dado un entero, n, calcular la suma de los n primeros números impares
+
+```text
+ Inicio
+          1- IMPRIMIR ’Introduce un número n’
+          2- LEER: numero
+          3- HACER suma=0
+          4- Para i= 1, 3, 5, ..., 2*numero-1
+                   HACER suma=suma+i
+          Fin Para
+          5- IMPRIMIR ’La suma vale : ’, suma
+Fin
+```
+
+![Esquema de la estructura de repetición FOR](../../../../assets/introduccion/for.png)
+
+### Estructura repetitiva condicional: WHILE
+
+Permite implementar la repetición de un mismo conjunto de instrucciones mientras que se verifique una determinada condición: el número de veces que se repetirá el ciclo no está definido a priori.
+
+![Esquema de la estructura repetitiva WHILE](../../../../assets/introduccion/while.png)
+
+Su funcionamiento es el siguiente:
+
+- Al comienzo de cada iteración se evalúa la expresión-lógica.
+
+- Si el resultado es VERDADERO, se ejecuta el conjunto de instrucciones y se vuelve a iterar, es decir, se repite el paso 1.
+
+- Si el resultado es FALSO, se detiene la ejecución del ciclo WHILE y el programa se sigue ejecutando por la instrucción siguiente al END.
+
+**Ejemplo de algoritmo**
+
+Imprimir de forma ascendente los 100 primeros números naturales
+
+```text
+ Inicio
+    1- HACER i=1
+    2- HACER final=100
+    3- Mientras que i<=final
+         IMPRIMIR i
+         HACER i=i+1
+    Fin Mientras
+  Fin
+```
+
+Existe una alternativa al WHILE que es DO-WHILE en la que el bloque de instrucciones se ejecuta al menos una vez y la comprobación de la condición es posterior a esta primera ejecución
+
+![Esquema de la estructura repetitiva DO-WHILE](../../../../assets/introduccion/do-while.png)
+
+### Estructura de elección entre varios casos: SWITCH
+
+Este tipo de estructura permite decidir entre varios caminos posibles, en función del valor que tome una determinada instrucción.
+
+![Esquema de selección SWITCH](../../../../assets/introduccion/switch.png)
+
+En cada uno de los casos, el valor correspondiente puede ser o bien un solo valor, o bien un conjunto de valores, en cuyo caso se indican entre llaves. La cláusula OTHERWISE y su correspondiente conjunto de instrucciones puede no estar presente.
+
+El funcionamiento es el siguiente:
+
+- Al comienzo se evalúa la expresión.
+
+- Si la expresión toma el valor (o valores) especificados junto a la primera cláusula CASE, se ejecuta el conjunto de instrucciones de este caso y después se abandona la estructura SWITCH, continuando por la instrucción siguiente al END.
+
+- Se repite el procedimiento anterior, de forma ordenada, para cada una de las cláusulas CASE que siguen.
+
+- Si la cláusula OTHERWISE está presente y la expresión no ha tomado ninguno de los valores anteriormente especificados, se ejecuta el conjunto de instrucciones correspondiente.
+
+Observad que se ejecuta, como máximo el conjunto de instrucciones de uno de los casos, es decir, una vez que se ha verificado un caso y se ha ejecutado su conjunto de instrucciones, no se testea el resto de casos, ya que se abandona la estructura. Obviamente, si la cláusula OTHERWISE no está presente, puede ocurrir que no se dé ninguno de los casos.
+
+**Ejemplo de algoritmo**
+
+Pedir un número al usuario y mostrar el nombre del día al corresponde (1=lunes)
+
+```text
+Inicio
+         1- IMPRIMIR ’Introduce un número del 1 al 7’
+         2- LEER: numero
+         2- Elegir caso numero
+             Caso 1
+              IMPRIMIR ’Lunes’,
+             Caso 2
+              IMPRIMIR ’Martes’,
+             Caso 3
+              IMPRIMIR ’Miércoles’,
+             Caso 4
+              IMPRIMIR ’Jueves’,
+             Caso 5
+              IMPRIMIR ’Viernes’,
+             Caso 6
+              IMPRIMIR ’Sábado’,
+             Caso 7
+              IMPRIMIR ’Domingo’
+            En otro caso
+               IMPRIMIR ’El número introducido no está entre 1 y 7’
+         Fin Elegir caso
+Fin
+```
