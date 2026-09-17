@@ -9,7 +9,7 @@ En **Algoritmos y programas** hemos aprendido a describir una solución mediante
 
 | Lo que ya conocemos | Cómo lo aplicaremos en PSeInt |
 | --- | --- |
-| Un algoritmo tiene un inicio, unos pasos y un final. | Escribimos los pasos entre `Proceso` y `FinProceso`. |
+| Un algoritmo tiene un inicio, unos pasos y un final. | Escribimos los pasos entre `Algoritmo` y `FinAlgoritmo`. |
 | Las variables guardan datos de un tipo determinado. | Las declaramos con `Definir nombre Como Tipo;`. |
 | La entrada proporciona datos al algoritmo. | Recogemos los datos del teclado con `Leer`. |
 | La asignación guarda el resultado de una expresión. | Escribimos `<-` para guardar un valor en una variable. |
@@ -19,12 +19,12 @@ En **Algoritmos y programas** hemos aprendido a describir una solución mediante
 
 ## Del algoritmo al pseudocódigo
 
-En el apartado **Representación de un algoritmo** vimos que el pseudocódigo permite expresar una solución con instrucciones cercanas al lenguaje natural. Para ejecutarlo en PSeInt, concretamos esa escritura: el `Inicio` y el `Fin` de nuestros ejemplos pasan a ser `Proceso NombreDelPrograma` y `FinProceso`.
+En el apartado **Representación de un algoritmo** vimos que el pseudocódigo permite expresar una solución con instrucciones cercanas al lenguaje natural. Para ejecutarlo en PSeInt, concretamos esa escritura: el `Inicio` y el `Fin` de nuestros ejemplos pasan a ser `Algoritmo NombreDelPrograma` y `FinAlgoritmo`.
 
 **Ejemplo: calcular el área de un triángulo.** En papel, los pasos son: conocer la base y la altura, multiplicarlas y dividir el producto entre dos. Suponemos que las medidas son positivas y están expresadas en la misma unidad.
 
 ```text
-Proceso AreaTriangulo
+Algoritmo AreaTriangulo
     Definir base, altura, area Como Real;
     //Mostramos un mensaje al usuario
     Escribir "Introduce la base:";
@@ -39,23 +39,23 @@ Proceso AreaTriangulo
     area <- (base * altura) / 2;
     //Mostramos el resultado al usuario
     Escribir "El area del triangulo es: ", area;
-FinProceso
+FinAlgoritmo
 ```
 
 Con base `5` y altura `8`, el resultado es `20` unidades cuadradas.
 
 | Parte del programa | Ejemplo | Para qué sirve |
 | --- | --- | --- |
-| Inicio y nombre | `Proceso AreaTriangulo` | Identifica el algoritmo. |
+| Inicio y nombre | `Algoritmo AreaTriangulo` | Identifica el algoritmo. |
 | Declaraciones | `Definir base, altura, area Como Real;` | Indica las variables y sus tipos. |
 | Instrucciones | `Leer base;`, el cálculo y `Escribir` | Realiza los pasos del algoritmo. |
-| Final | `FinProceso` | Delimita el final del programa. |
+| Final | `FinAlgoritmo` | Delimita el final del programa. |
 
 La sangría ayuda a reconocer qué instrucciones pertenecen a cada bloque. Los comentarios empiezan por `//` y sirven para explicar el código.
 
 ### Palabras reservadas de PSeInt
 
-Las **palabras reservadas** tienen un significado especial en PSeInt y forman parte de su forma de escribir los algoritmos. Por ejemplo, `Algoritmo` y `FinAlgoritmo` delimitan uno; `Definir` y `Como` declaran variables; `Si` y `Entonces` introducen una condición; y `Mientras` inicia una repetición. En los ejemplos de esta guía usamos también `Proceso` y `FinProceso` para delimitar los algoritmos. No podemos usar estas palabras como nombres de variables.
+Las **palabras reservadas** tienen un significado especial en PSeInt y forman parte de su forma de escribir los algoritmos. Por ejemplo, `Algoritmo` y `FinAlgoritmo` delimitan uno; `Definir` y `Como` declaran variables; `Si` y `Entonces` introducen una condición; y `Mientras` inicia una repetición. No podemos usar estas palabras como nombres de variables.
 
 :::tip[Una receta que se puede ejecutar]
 Un algoritmo se parece a una receta: indica qué necesitamos y qué pasos seguimos. PSeInt es el ayudante que sigue las instrucciones escritas. Para calcular el área, la base y la altura son los ingredientes; multiplicar y dividir son los pasos; el área es el plato terminado. Si cambias las medidas, utilizas la misma receta con otros datos.
@@ -75,7 +75,7 @@ En **Datos** distinguimos enteros, reales, valores lógicos, caracteres y cadena
 | `Logico` | `Verdadero`, `Falso` | Indicar si se cumple una condición. |
 
 ```text
-Proceso FichaJugador
+Algoritmo FichaJugador
     Definir monedas Como Entero;
     Definir tiempo Como Real;
     Definir nombre Como Caracter;
@@ -90,7 +90,7 @@ Proceso FichaJugador
     Escribir "Monedas: ", monedas;
     Escribir "Tiempo: ", tiempo;
     Escribir "Tiene llave: ", tieneLlave;
-FinProceso
+FinAlgoritmo
 ```
 
 El programa muestra los cuatro valores asignados. Los decimales se escriben con punto y los textos entre comillas dobles.
@@ -104,7 +104,7 @@ Piensa en la ficha de tu personaje: las monedas se cuentan con un `Entero`, el t
 En **Variables y constantes** comparamos una variable con una caja etiquetada que guarda información en la memoria. En PSeInt, `Definir` declara esa variable y `<-` permite guardar o sustituir su contenido. También vimos que una constante representa un valor que debe mantenerse fijo. En estos ejemplos, los valores fijos se guardan en variables con nombre en mayúsculas y **no se vuelven a asignar**: esta convención expresa nuestra intención, pero no impide que PSeInt permita modificarlos.
 
 ```text
-Proceso PremioDelCofre
+Algoritmo PremioDelCofre
     Definir monedas, PREMIO Como Entero;
 
     PREMIO <- 5;
@@ -113,7 +113,7 @@ Proceso PremioDelCofre
 
     Escribir "Monedas: ", monedas;
     Escribir "Premio de cada cofre: ", PREMIO;
-FinProceso
+FinAlgoritmo
 ```
 
 El resultado es `15` monedas y un premio de `5`. La asignación lee el valor anterior de `monedas`, suma el premio y guarda el resultado en la misma variable.
@@ -138,7 +138,7 @@ En **Operadores** utilizamos expresiones para calcular valores, compararlos y co
 | Potencia | `2 ^ 3` | `8` |
 
 ```text
-Proceso RepartirMonedas
+Algoritmo RepartirMonedas
     Definir monedas, personas, enteras, sobrantes Como Entero;
     Definir reparto Como Real;
 
@@ -151,7 +151,7 @@ Proceso RepartirMonedas
     Escribir "Division: ", reparto;
     Escribir "Monedas enteras por persona: ", enteras;
     Escribir "Sobran: ", sobrantes;
-FinProceso
+FinAlgoritmo
 ```
 
 Los resultados son `3.4`, `3` y `2`. `TRUNC` elimina la parte decimal. El divisor debe ser distinto de cero. Los paréntesis permiten cambiar el orden: `2 + 3 * 4` vale `14`, mientras que `(2 + 3) * 4` vale `20`.
@@ -181,7 +181,7 @@ Comparan valores y producen `Verdadero` o `Falso`.
 | Distinto de | `<>` | `8 <> 5` |
 
 ```text
-Proceso CompararEdad
+Algoritmo CompararEdad
     Definir edad Como Entero;
     Definir mayorDeEdad Como Logico;
 
@@ -189,7 +189,7 @@ Proceso CompararEdad
     Leer edad;
     mayorDeEdad <- edad >= 18;
     Escribir "Es mayor de edad: ", mayorDeEdad;
-FinProceso
+FinAlgoritmo
 ```
 
 Con `18`, la comparación es verdadera; con `17`, es falsa.
@@ -212,7 +212,7 @@ Usamos `=` para comparar y `<-` para guardar un valor. `edad = 18` pregunta si l
 `NO Verdadero` es `Falso` y `NO Falso` es `Verdadero`.
 
 ```text
-Proceso ComprobarNumero
+Algoritmo ComprobarNumero
     Definir numero Como Entero;
     Definir impar, alMenosDiez, enIntervalo Como Logico;
 
@@ -226,7 +226,7 @@ Proceso ComprobarNumero
     Escribir "Es al menos 10: ", alMenosDiez;
     Escribir "Esta entre 10 y 20: ", enIntervalo;
     Escribir "Esta fuera del intervalo: ", NO enIntervalo;
-FinProceso
+FinAlgoritmo
 ```
 
 Con `15`, los tres primeros resultados son verdaderos y el último es falso. Prueba también `9`, `10`, `20` y `21` para comprobar los límites del intervalo.
@@ -252,7 +252,7 @@ En **Partes de un algoritmo** distinguimos entrada, proceso y salida; en **Instr
 **Ejemplo: convertir euros a dólares.** Usaremos el supuesto del ejercicio: **1 dólar equivale a 0,98 euros**. Es un dato fijo para practicar, no una cotización actual.
 
 ```text
-Proceso ConvertirMoneda
+Algoritmo ConvertirMoneda
     Definir euros, dolares, EUROS_POR_DOLAR Como Real;
 
     EUROS_POR_DOLAR <- 0.98;
@@ -260,7 +260,7 @@ Proceso ConvertirMoneda
     Leer euros;
     dolares <- euros / EUROS_POR_DOLAR;
     Escribir "La cantidad en dolares es: ", dolares;
-FinProceso
+FinAlgoritmo
 ```
 
 Con `98` euros se obtienen `100` dólares. Dividimos porque cada dólar cuesta `0.98` euros. `Leer` guarda la entrada en la variable `euros`; no se utiliza para modificar el valor fijo del cambio.
@@ -285,7 +285,7 @@ Una condición permite elegir qué instrucciones ejecutar. En PSeInt escribimos 
 **Ejercicio:** mostrar `Hola` únicamente si el número introducido es mayor que 3.
 
 ```text
-Proceso SaludoCondicional
+Algoritmo SaludoCondicional
     Definir numero Como Real;
 
     Escribir "Introduce un numero:";
@@ -293,7 +293,7 @@ Proceso SaludoCondicional
     Si numero > 3 Entonces
         Escribir "Hola";
     FinSi
-FinProceso
+FinAlgoritmo
 ```
 
 Con `4` muestra `Hola`; con `3` no muestra el saludo. Al terminar el `Si`, la ejecución continúa después de `FinSi`.
@@ -307,7 +307,7 @@ Modifica el programa para que muestre «¡Nivel secreto desbloqueado!» solo si 
 **Ejercicio:** indicar si un entero es par o impar.
 
 ```text
-Proceso ParOImpar
+Algoritmo ParOImpar
     Definir numero Como Entero;
 
     Escribir "Introduce un numero entero:";
@@ -317,7 +317,7 @@ Proceso ParOImpar
     Sino
         Escribir "El numero introducido es impar.";
     FinSi
-FinProceso
+FinAlgoritmo
 ```
 
 Con `8` elige la primera rama y con `7`, la segunda. El `0` también es par.
@@ -333,7 +333,7 @@ Cuando hay varias alternativas, podemos colocar otro `Si` dentro de un `Sino`.
 **Ejemplo:** clasificar una nota. Primero descartamos valores fuera de 0 a 10; después distinguimos suspenso, aprobado y notable o sobresaliente.
 
 ```text
-Proceso ClasificarNota
+Algoritmo ClasificarNota
     Definir nota Como Real;
 
     Escribir "Introduce una nota de 0 a 10:";
@@ -351,7 +351,7 @@ Proceso ClasificarNota
             FinSi
         FinSi
     FinSi
-FinProceso
+FinAlgoritmo
 ```
 
 Con `4` muestra `Suspenso`; con `6`, `Aprobado`; con `9`, `Notable o sobresaliente`; con `11`, `Nota no valida`. Cada `Si` tiene su propio `FinSi`.
@@ -369,7 +369,7 @@ Clasifica la puntuación de un aprendiz de mago: menos de `0` es «Puntuación i
 `Segun` permite elegir entre varios casos. Resulta útil cuando una opción numérica determina la acción.
 
 ```text
-Proceso MenuTresOpciones
+Algoritmo MenuTresOpciones
     Definir opcion Como Entero;
 
     Escribir "Selecciona una opcion:";
@@ -388,7 +388,7 @@ Proceso MenuTresOpciones
         De Otro Modo:
             Escribir "La opcion seleccionada no es valida.";
     FinSegun
-FinProceso
+FinAlgoritmo
 ```
 
 Con `2` muestra la opción 2; con `8`, el mensaje de opción no válida. Solo se ejecuta el caso seleccionado: no hay que añadir un `break`.
@@ -426,7 +426,7 @@ La pregunta para elegir es: **¿compruebo antes, compruebo después o recorro un
 **Ejercicio: multiplicar mediante sumas sucesivas.** Sumaremos `a` un total de `b` veces. Para esta versión, `a` es un entero y `b` debe ser un entero mayor o igual que cero.
 
 ```text
-Proceso MultiplicarConSumas
+Algoritmo MultiplicarConSumas
     Definir a, b, producto, contador Como Entero;
 
     Escribir "Introduce el primer entero:";
@@ -445,7 +445,7 @@ Proceso MultiplicarConSumas
         FinMientras
         Escribir "El producto es: ", producto;
     FinSi
-FinProceso
+FinAlgoritmo
 ```
 
 Para `a = 4` y `b = 3`:
@@ -470,7 +470,7 @@ En PSeInt, `Repetir...Hasta Que` comprueba la condición al final y termina cuan
 **Ejercicio:** mostrar un menú de cinco opciones, repetirlo con las opciones 1 a 4 y terminar con la 5.
 
 ```text
-Proceso MenuRepetido
+Algoritmo MenuRepetido
     Definir opcion Como Entero;
 
     Repetir
@@ -490,7 +490,7 @@ Proceso MenuRepetido
     Hasta Que opcion = 5
 
     Escribir "Adios!";
-FinProceso
+FinAlgoritmo
 ```
 
 Prueba la secuencia `2, 8, 5`: informa de la opción 2, rechaza la 8 y, tras anunciar la opción 5, muestra `Adios!` y termina.
@@ -500,13 +500,13 @@ Prueba la secuencia `2, 8, 5`: informa de la opción 2, rechaza la 8 y, tras anu
 `Para` utiliza una variable de control, un valor inicial, un valor final y un paso. Si no indicamos el paso, es 1. El valor final está incluido si el recorrido llega a él.
 
 ```text
-Proceso MostrarIndices
+Algoritmo MostrarIndices
     Definir indice Como Entero;
 
     Para indice <- 0 Hasta 10 Con Paso 1 Hacer
         Escribir "El valor del indice es: ", indice;
     FinPara
-FinProceso
+FinAlgoritmo
 ```
 
 Muestra del `0` al `10`: son **11 iteraciones**. Para contar hacia atrás, podemos usar `Para indice <- 10 Hasta 0 Con Paso -1 Hacer`.
@@ -514,7 +514,7 @@ Muestra del `0` al `10`: son **11 iteraciones**. Para contar hacia atrás, podem
 **Ejercicio: pedir cinco números y sumar sus valores.**
 
 ```text
-Proceso SumarCincoNumeros
+Algoritmo SumarCincoNumeros
     Definir indice Como Entero;
     Definir numero, suma Como Real;
 
@@ -525,7 +525,7 @@ Proceso SumarCincoNumeros
         suma <- suma + numero;
     FinPara
     Escribir "La suma es: ", suma;
-FinProceso
+FinAlgoritmo
 ```
 
 Con `2, 4, 6, 8, 10`, el resultado es `30`.
@@ -553,7 +553,7 @@ Un contador empieza normalmente en cero y aumenta en uno cuando sucede lo que qu
 **Ejercicio:** leer diez números y contar cuántas veces aparece el 5.
 
 ```text
-Proceso ContarCincos
+Algoritmo ContarCincos
     Definir indice, numero, cantidadCincos Como Entero;
 
     cantidadCincos <- 0;
@@ -565,7 +565,7 @@ Proceso ContarCincos
         FinSi
     FinPara
     Escribir "Has introducido un 5 estas veces: ", cantidadCincos;
-FinProceso
+FinAlgoritmo
 ```
 
 Con `5, 2, 5, 7, 8, 5, 1, 0, 5, 3`, muestra `4`. La variable `indice` cuenta las lecturas y `cantidadCincos` cuenta solo las coincidencias.
@@ -593,7 +593,7 @@ Una bandera es una variable lógica que representa un estado. Puede servir para 
 **Ejercicio:** pedir números hasta introducir un 0. Usaremos `terminado` para controlar la salida y otra bandera para recordar si apareció algún negativo.
 
 ```text
-Proceso LeerHastaCero
+Algoritmo LeerHastaCero
     Definir numero Como Real;
     Definir terminado, hayNegativos Como Logico;
 
@@ -616,7 +616,7 @@ Proceso LeerHastaCero
     Sino
         Escribir "No has introducido numeros negativos.";
     FinSi
-FinProceso
+FinAlgoritmo
 ```
 
 Con `4, -2, 7, 0`, la bandera `hayNegativos` pasa a verdadera al leer `-2` y conserva ese valor. Si el primer dato es `0`, el programa termina sin registrar negativos. El `0` actúa como **centinela**: un valor especial que indica el final de la entrada.
@@ -625,7 +625,7 @@ Con `4, -2, 7, 0`, la bandera `hayNegativos` pasa a verdadera al leer `-2` y con
 
 En **Algoritmos y programas** hablamos de descomponer un problema en otros más pequeños. En PSeInt podemos aplicar esa idea agrupando las instrucciones de cada tarea en un subprograma y utilizándolo mediante una llamada. Puede recibir datos, llamados **parámetros**, y puede devolver un resultado.
 
-Para definir estos bloques escribimos `SubProceso` y `FinSubProceso`, como en los [ejemplos oficiales de subprocesos](https://pseint.sourceforge.net/index.php?cual=Subprocesos&mode=estricto&page=ejemplos.php). Distinguiremos los que realizan una acción de los que devuelven un valor.
+Para definir estos bloques escribimos `Funcion` y `FinFuncion`. PSeInt también admite `SubProceso` y `FinSubProceso`, como en los [ejemplos oficiales](https://pseint.sourceforge.net/index.php?cual=Subprocesos&mode=estricto&page=ejemplos.php). Distinguiremos los que realizan una acción de los que devuelven un valor.
 
 :::tip[Encargar una tarea]
 Llamar a un subproceso se parece a encargar una tarea a un compañero. Le dices cuál es la tarea y le entregas los datos que necesita: los **parámetros**. `Saludar("Ana")` le pide que muestre un saludo. `CalcularAreaTriangulo(5, 8)` le entrega dos medidas y espera un número de vuelta. **Hacer algo y devolver un resultado son cosas distintas.**
@@ -636,14 +636,14 @@ Llamar a un subproceso se parece a encargar una tarea a un compañero. Le dices 
 **Ejemplo:** saludar a una persona. El subproceso recibe el nombre y muestra el saludo.
 
 ```text
-SubProceso Saludar(nombre)
+Funcion Saludar(nombre)
     Escribir "Hola, ", nombre, "!";
-FinSubProceso
+FinFuncion
 
-Proceso Saludos
+Algoritmo Saludos
     Saludar("Ana");
     Saludar("Pau");
-FinProceso
+FinAlgoritmo
 ```
 
 Muestra `Hola, Ana!` y `Hola, Pau!`. `nombre` es el parámetro; `"Ana"` y `"Pau"` son los datos que entregamos en cada llamada. Mostrar texto en pantalla no equivale a devolver un valor al programa que llama.
@@ -653,17 +653,17 @@ Muestra `Hola, Ana!` y `Hola, Pau!`. `nombre` es el parámetro; `"Ana"` y `"Pau"
 **Ejemplo:** calcular el área de un triángulo y guardar el resultado en el programa principal.
 
 ```text
-SubProceso area <- CalcularAreaTriangulo(base, altura)
+Funcion area <- CalcularAreaTriangulo(base, altura)
     Definir area Como Real;
     area <- (base * altura) / 2;
-FinSubProceso
+FinFuncion
 
-Proceso UsarAreaTriangulo
+Algoritmo UsarAreaTriangulo
     Definir resultado Como Real;
 
     resultado <- CalcularAreaTriangulo(5, 8);
     Escribir "El area del triangulo es: ", resultado;
-FinProceso
+FinAlgoritmo
 ```
 
 1. El programa llama a `CalcularAreaTriangulo` con `5` y `8`.
