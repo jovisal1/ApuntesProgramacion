@@ -81,7 +81,7 @@ Canvia l'entrada `personas`, que passa a valdre 5. Cal tornar a realitzar el pro
 
 ## Elements bàsics d'un algoritme
 
-Construirem exemples d'un videojoc en què un personatge arreplega monedes i obri portes. Ens serviran per a conéixer els elements amb què escrivim un algoritme.
+Construirem exemples d'un videojoc en què un personatge arreplega monedes i obri portes. Ens serviran per a conéixer els cinc elements amb què descrivim un algoritme: dades, variables i constants, operadors i expressions, instruccions i estructures de control. Les paraules reservades depenen del llenguatge triat i les veurem en escriure algoritmes en PSeInt.
 
 ### Dades
 
@@ -89,13 +89,15 @@ Les **dades** són els valors amb què treballa un algoritme. El seu tipus indic
 
 | Tipus | Exemple en el videojoc | Per a què servix |
 | --- | --- | --- |
-| **Enter** | `monedas ← 12` | Comptar quantitats sense decimals. |
-| **Real** | `tiempo ← 8.5` | Representar una mesura amb decimals, com els segons d'una carrera. |
-| **Lògic o booleà** | `tieneLlave ← VERDADERO` | Representar dos possibilitats: verdader o fals. |
-| **Caràcter** | `tecla ← 'W'` | Guardar un únic caràcter. |
-| **Cadena de text** | `nombre ← "PixelNinja"` | Guardar una seqüència de caràcters. |
+| **Enter** | `12` | Comptar quantitats sense decimals. |
+| **Real** | `8.5` | Representar una mesura amb decimals, com els segons d'una carrera. |
+| **Lògic o booleà** | `VERDADERO` | Representar dos possibilitats: verdader o fals. |
+| **Caràcter** | `'W'` | Guardar un únic caràcter. |
+| **Cadena de text** | `"PixelNinja"` | Guardar una seqüència de caràcters. |
 
 En el pseudocodi escrivim els decimals amb punt. Utilitzem cometes simples per als caràcters i dobles per a les cadenes.
+
+Estos exemples són valors. En escriure `monedas ← 12`, guardem la dada `12` en una variable.
 
 :::note[Un número també pot ser text]
 `12` és un valor numèric amb què podem calcular. `"12"` és una cadena de text: per a tractar-la com un número, normalment haurem de convertir-la. Un codi de jugador com `"007"` es guarda com a text si volem conservar els zeros inicials.
@@ -142,9 +144,11 @@ Si obrim un altre cofre i executem de nou `monedas ← monedas + PREMIO_COFRE`, 
 
 </details>
 
-### Operadors
+### Operadors i expressions
 
 Els **operadors** permeten calcular valors nous, comparar-los o combinar condicions. Una **expressió** combina valors, variables i operadors per a obtindre un resultat; per exemple, `monedas + 5`.
+
+També és una expressió `edad >= 18 Y tieneEntrada`: el resultat és verdader només quan es complixen les dos condicions.
 
 | Tipus | Operadors | Exemple | Resultat o efecte |
 | --- | --- | --- | --- |
@@ -180,9 +184,9 @@ Tenim 17 monedes i cada paquet en conté 5. Podem preparar 3 paquets complets i 
 `2 + 3 * 4` dona `14`, perquè la multiplicació es fa abans que la suma. `(2 + 3) * 4` dona `20`. Utilitza parèntesis per a deixar clar què vols calcular primer.
 :::
 
-### Instruccions i paraules reservades
+### Instruccions
 
-Una **instrucció** indica una acció: llegir una dada, guardar un valor, mostrar un resultat o decidir quin pas executar. Les **paraules reservades** són termes amb un significat especial en un llenguatge; poden formar part d'una instrucció, però no són el mateix que una instrucció completa.
+Una **instrucció** indica una acció que executa l'algoritme: assignar un valor, llegir una dada, escriure un resultat, seleccionar una opció o repetir uns passos.
 
 En el nostre pseudocodi utilitzarem paraules com `LEER` i `IMPRIMIR` per a expressar estes accions.
 
@@ -227,6 +231,88 @@ puntos ← monedas * PUNTOS_POR_MONEDA + BONUS_FINAL
 Obtindria `7 * 10 + 50 = 120` punts. Estem suposant que el marcador es calcula en acabar la partida i que sempre es concedix eixa bonificació.
 
 </details>
+
+### Estructures de control
+
+Les **estructures de control** organitzen l'orde en què s'executen les instruccions. Encara que també són instruccions, convé estudiar-les per separat perquè permeten expressar decisions i repeticions.
+
+| Estructura | Què fa | Exemple |
+| --- | --- | --- |
+| **Seqüencial** | Executa els passos un darrere de l'altre. | Llegir `monedas` i després mostrar-ne el valor. |
+| **Selecció** | Tria quins passos executar segons una condició o un cas. | `Si` té clau, obrir la porta; `Segun` l'opció triada, mostrar un premi. |
+| **Repetició** | Torna a executar uns passos. | `Para` recórrer cinc cofres; `Mientras` queden vides, continuar jugant; `Repetir` fins a encertar. |
+
+#### Seqüència
+
+En una **seqüència**, cada instrucció s'executa després de l'anterior: llegir les monedes, calcular els punts i mostrar el resultat. És l'orde normal d'execució. Les altres estructures poden canviar quines instruccions s'executen o quantes vegades es repetixen.
+
+:::tip[Exemple]
+Per a preparar una poció d'invisibilitat, l'alquimista arreplega un bolet lluminós, el tritura i després el barreja amb aigua de lluna. Canviar l'orde podria donar-li una sopa brillant en lloc d'una poció.
+:::
+
+#### Selecció: decidir quin camí seguir
+
+En una **selecció simple** (`Si`), el bloc s'executa només si la condició és verdadera. Si és falsa, es continua després del bloc. Per exemple, si `tieneLlave` és verdader, obrim la porta.
+
+![Esquema de selecció simple: si es complix la condició, s'executa el bloc](../../../../../assets/introduccion/if.png)
+
+:::tip[Exemple]
+Si l'heroi porta un casc antidragons, el drac li entrega un adhesiu de «visitant preparat». Si no el porta, el drac no fa res especial i l'aventura continua.
+:::
+
+En una **selecció doble** (`Si`...`Sino`), s'executa un de dos blocs: el primer si es complix la condició i el segon si no es complix. Per exemple, mostrem «porta oberta» o «necessites una clau». Després, els dos camins s'unixen.
+
+![Esquema de selecció doble amb dos camins alternatius](../../../../../assets/introduccion/if-else.png)
+
+:::tip[Exemple]
+Si el robot té bateria, balla per a saludar; si no, mostra un cartell que diu «ball ajornat». Només fa una de les dos accions.
+:::
+
+Podem **encadenar condicions** quan hi ha més de dos possibilitats. Es comproven en orde i s'executa el bloc de la primera condició verdadera; si cap es complix, pot executar-se un bloc final. Per exemple, una puntuació pot donar lloc a un premi d'or, plata o bronze.
+
+![Esquema de selecció amb diverses condicions](../../../../../assets/introduccion/if-elseif-else.png)
+
+![Esquema de condicions encadenades que es comproven en orde](../../../../../assets/introduccion/condiciones-encadenadas.png)
+
+:::tip[Exemple]
+El gremi de mags revisa la puntuació d'un aprenent: amb 90 punts o més li concedix una vareta llegendària; amb 60 o més, una capa que canvia de color; amb menys, un barret que conta acudits roïns. L'orde de les preguntes evita donar-li dos premis.
+:::
+
+Quan triem entre diversos **valors d'una mateixa opció**, utilitzem una selecció per casos (`Segun`): per exemple, l'opció `1` obri l'inventari i la `2` mostra el mapa. Pot haver-hi un cas per als altres valors. S'executa, com a màxim, el bloc del cas triat.
+
+![Esquema de selecció entre diversos casos](../../../../../assets/introduccion/switch.png)
+
+:::tip[Exemple]
+Una màquina expenedora intergalàctica entrega pizza de Mart si tries l'opció 1, gelat de Saturn si tries la 2 i galetes lunars si tries la 3. Per a qualsevol altre número mostra «planeta desconegut».
+:::
+
+#### Repetició: executar passos diverses vegades
+
+Un bucle `Para` repetix un bloc un nombre previst de vegades. Una variable de control recorre els valors indicats: per exemple, del cofre `1` al `5`, processem cada cofre una vegada.
+
+![Esquema d'un bucle amb comptador](../../../../../assets/introduccion/for.png)
+
+:::tip[Exemple]
+Un explorador ha de revisar exactament cinc cofres d'una masmorra. Obri el primer, després el segon i així fins al cinqué, i anota el botí de cadascun.
+:::
+
+Un bucle `Mientras` comprova la condició **abans** de cada volta. Si és verdadera, executa el bloc i torna a comprovar-la; si és falsa, continua després del bucle. Per exemple, continuem jugant mentre queden vides. Si ja no en queda cap en començar, el bloc no s'executa.
+
+![Esquema d'un bucle que comprova la condició abans d'executar-se](../../../../../assets/introduccion/while.png)
+
+:::tip[Exemple]
+Un vampir s'emprova capes mentre en queden de netes a l'armari. Cada vegada n'agafa una i comprova si en queden més; si l'armari està buit des del principi, no se n'emprova cap.
+:::
+
+En una repetició que comprova la condició **al final**, el bloc s'executa almenys una vegada. Per exemple, demanem una resposta i repetim fins que siga correcta. En PSeInt escriurem esta forma amb `Repetir...Hasta Que`: acaba quan la condició final és verdadera.
+
+![Esquema d'un bucle que comprova la condició després d'executar-se](../../../../../assets/introduccion/do-while.png)
+
+:::tip[Exemple]
+Un guardià pregunta a l'aventurer la contrasenya secreta i, després de cada resposta, comprova si l'ha encertada. Pregunta almenys una vegada i torna a fer-ho fins que sent «creïlles còsmiques».
+:::
+
+En la guia següent veurem l'escriptura concreta d'estes estructures en PSeInt.
 
 ## Representació d'un algoritme
 

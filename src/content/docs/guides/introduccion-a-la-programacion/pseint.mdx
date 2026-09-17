@@ -5,7 +5,7 @@ sidebar:
   order: 3
 ---
 
-En **Algoritmos y programas** hemos aprendido a describir una solución mediante datos, operaciones e instrucciones. En **Estructuras de control** hemos visto cómo tomar decisiones y repetir acciones. Ahora aplicaremos esos conceptos en **[PSeInt](https://pseint.sourceforge.net/)**: partiremos de lo que ya conocemos, veremos cómo se escribe en la herramienta y lo probaremos con ejemplos.
+En **Algoritmos y programas** hemos aprendido a describir una solución mediante datos, operaciones, instrucciones y estructuras de control. Ahora aplicaremos esos conceptos en **[PSeInt](https://pseint.sourceforge.net/)**: partiremos de lo que ya conocemos, veremos cómo se escribe en la herramienta y lo probaremos con ejemplos.
 
 | Lo que ya conocemos | Cómo lo aplicaremos en PSeInt |
 | --- | --- |
@@ -52,6 +52,10 @@ Con base `5` y altura `8`, el resultado es `20` unidades cuadradas.
 | Final | `FinProceso` | Delimita el final del programa. |
 
 La sangría ayuda a reconocer qué instrucciones pertenecen a cada bloque. Los comentarios empiezan por `//` y sirven para explicar el código.
+
+### Palabras reservadas de PSeInt
+
+Las **palabras reservadas** tienen un significado especial en PSeInt y forman parte de su forma de escribir los algoritmos. Por ejemplo, `Algoritmo` y `FinAlgoritmo` delimitan uno; `Definir` y `Como` declaran variables; `Si` y `Entonces` introducen una condición; y `Mientras` inicia una repetición. En los ejemplos de esta guía usamos también `Proceso` y `FinProceso` para delimitar los algoritmos. No podemos usar estas palabras como nombres de variables.
 
 :::tip[Una receta que se puede ejecutar]
 Un algoritmo se parece a una receta: indica qué necesitamos y qué pasos seguimos. PSeInt es el ayudante que sigue las instrucciones escritas. Para calcular el área, la base y la altura son los ingredientes; multiplicar y dividir son los pasos; el área es el plato terminado. Si cambias las medidas, utilizas la misma receta con otros datos.
@@ -237,7 +241,7 @@ Recuerda: **Y pide todo; O acepta al menos una opción; NO invierte la respuesta
 
 ## Entrada, salida y asignación
 
-En **Partes de un algoritmo** distinguimos entrada, proceso y salida; en **Instrucciones y palabras reservadas** las expresamos con `LEER`, asignaciones e `IMPRIMIR`. En PSeInt recogemos los datos con `Leer`, guardamos los cálculos con `<-` y mostramos los resultados con `Escribir`. Las instrucciones se ejecutan una detrás de otra.
+En **Partes de un algoritmo** distinguimos entrada, proceso y salida; en **Instrucciones** las expresamos con `LEER`, asignaciones e `IMPRIMIR`. En PSeInt recogemos los datos con `Leer`, guardamos los cálculos con `<-` y mostramos los resultados con `Escribir`. Las instrucciones se ejecutan una detrás de otra.
 
 | Instrucción | Acción | Ejemplo |
 | --- | --- | --- |
@@ -267,7 +271,7 @@ Cuando tecleas una cantidad, das una **entrada**; cuando la calculadora opera, r
 
 ## Condicionales
 
-En **Estructuras de control** vimos que una condición permite elegir qué instrucciones ejecutar. En PSeInt conservamos ese funcionamiento y escribimos cada bloque con sus palabras de apertura y cierre.
+Una condición permite elegir qué instrucciones ejecutar. En PSeInt escribimos cada bloque con sus palabras de apertura y cierre.
 
 | Estructura que ya conocemos | Escritura en PSeInt |
 | --- | --- |
@@ -294,6 +298,10 @@ FinProceso
 
 Con `4` muestra `Hola`; con `3` no muestra el saludo. Al terminar el `Si`, la ejecución continúa después de `FinSi`.
 
+:::tip[Minirreto]
+Modifica el programa para que muestre «¡Nivel secreto desbloqueado!» solo si el número introducido es exactamente `42`. Prueba con `42` y `41`: el segundo no debe mostrar el mensaje.
+:::
+
 ### Condicional doble: Si y Sino
 
 **Ejercicio:** indicar si un entero es par o impar.
@@ -313,6 +321,10 @@ FinProceso
 ```
 
 Con `8` elige la primera rama y con `7`, la segunda. El `0` también es par.
+
+:::tip[Minirreto]
+Crea un programa que lea la energía de un robot. Si tiene `20` unidades o más, debe mostrar «Puede despegar»; en caso contrario, «Necesita recargarse». Prueba con `20` y `19`.
+:::
 
 ### Condicional múltiple: condiciones encadenadas
 
@@ -348,9 +360,13 @@ Con `4` muestra `Suspenso`; con `6`, `Aprobado`; con `9`, `Notable o sobresalien
 Las condiciones encadenadas funcionan como una persona que te hace preguntas por orden y se detiene al encontrar la respuesta que decide tu caso. En las notas: «¿Está fuera de rango?», «¿Es menor que 5?», «¿Es menor que 7?». Una nota de `4` también es menor que `7`, pero ya ha entrado en la rama de suspenso. **El orden de las preguntas importa.**
 :::
 
+:::tip[Minirreto]
+Clasifica la puntuación de un aprendiz de mago: menos de `0` es «Puntuación imposible»; de `0` a `49`, «Novato»; de `50` a `79`, «Hechicero»; y `80` o más, «Archimago». Usa condiciones encadenadas y comprueba los límites `-1`, `0`, `50` y `80`.
+:::
+
 ### Selección entre opciones: Segun
 
-Es la forma de escribir en PSeInt la estructura `SWITCH` que estudiamos en **Estructuras de control**. Resulta útil cuando una opción numérica determina la acción.
+`Segun` permite elegir entre varios casos. Resulta útil cuando una opción numérica determina la acción.
 
 ```text
 Proceso MenuTresOpciones
@@ -379,6 +395,10 @@ Con `2` muestra la opción 2; con `8`, el mensaje de opción no válida. Solo se
 
 :::tip[Los botones de un ascensor]
 `Segun` se parece a elegir una planta: pulsas un número y se realiza la acción asociada a ese botón. En el menú, `opcion` es el botón elegido y cada caso indica qué hacer. `De Otro Modo` atiende los números que no tienen una opción prevista.
+:::
+
+:::tip[Minirreto]
+Transforma el menú en una máquina expendedora espacial: la opción `1` entrega pizza marciana, la `2` helado de Saturno y la `3` galletas lunares. Para cualquier otra opción, muestra «Planeta desconocido». Prueba las opciones `2` y `9`.
 :::
 
 ## Bucles o repeticiones
@@ -444,7 +464,7 @@ Con `b = 0` no entra en el bucle y el producto es `0`. El incremento del contado
 `Repetir...Hasta Que` ejecuta el cuerpo al menos una vez y termina cuando la condición final es verdadera.
 
 :::caution[La condición de salida]
-En **Estructuras de control** vimos que `DO-WHILE` comprueba la condición al final y continúa mientras sea verdadera. En PSeInt usaremos `Repetir...Hasta Que`, que termina cuando su condición es verdadera. Para repetir un menú mientras la opción sea distinta de 5, escribimos `Hasta Que opcion = 5`.
+En PSeInt, `Repetir...Hasta Que` comprueba la condición al final y termina cuando esta es verdadera. Para repetir un menú mientras la opción sea distinta de 5, escribimos `Hasta Que opcion = 5`.
 :::
 
 **Ejercicio:** mostrar un menú de cinco opciones, repetirlo con las opciones 1 a 4 y terminar con la 5.

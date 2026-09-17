@@ -5,7 +5,7 @@ sidebar:
   order: 3
 ---
 
-En **Algoritmes i programes** hem aprés a descriure una solució mitjançant dades, operacions i instruccions. En **Estructures de control** hem vist com prendre decisions i repetir accions. Ara aplicarem eixos conceptes en **[PSeInt](https://pseint.sourceforge.net/)**: partirem del que ja coneixem, veurem com s'escriu en la ferramenta i ho provarem amb exemples.
+En **Algoritmes i programes** hem aprés a descriure una solució mitjançant dades, operacions, instruccions i estructures de control. Ara aplicarem eixos conceptes en **[PSeInt](https://pseint.sourceforge.net/)**: partirem del que ja coneixem, veurem com s'escriu en la ferramenta i ho provarem amb exemples.
 
 | El que ja coneixem | Com ho aplicarem en PSeInt |
 | --- | --- |
@@ -52,6 +52,10 @@ Amb base `5` i altura `8`, el resultat és `20` unitats quadrades.
 | Final | `FinProceso` | Delimita el final del programa. |
 
 La sagnia ajuda a reconéixer quines instruccions pertanyen a cada bloc. Els comentaris comencen per `//` i servixen per a explicar el codi.
+
+### Paraules reservades de PSeInt
+
+Les **paraules reservades** tenen un significat especial en PSeInt i formen part de la seua manera d'escriure els algoritmes. Per exemple, `Algoritmo` i `FinAlgoritmo` en delimiten un; `Definir` i `Como` declaren variables; `Si` i `Entonces` introduïxen una condició; i `Mientras` inicia una repetició. En els exemples d'esta guia també utilitzem `Proceso` i `FinProceso` per a delimitar els algoritmes. No podem utilitzar estes paraules com a noms de variables.
 
 :::tip[Una recepta que es pot executar]
 Un algoritme s'assembla a una recepta: indica què necessitem i quins passos seguim. PSeInt és l'ajudant que seguix les instruccions escrites. Per a calcular l'àrea, la base i l'altura són els ingredients; multiplicar i dividir són els passos; l'àrea és el plat acabat. Si canvies les mesures, utilitzes la mateixa recepta amb altres dades.
@@ -237,7 +241,7 @@ Recorda: **Y ho demana tot; O accepta almenys una opció; NO invertix la respost
 
 ## Entrada, eixida i assignació
 
-En **Parts d'un algoritme** distingim entrada, procés i eixida; en **Instruccions i paraules reservades** les expressem amb `LEER`, assignacions i `IMPRIMIR`. En PSeInt arrepleguem les dades amb `Leer`, guardem els càlculs amb `<-` i mostrem els resultats amb `Escribir`. Les instruccions s'executen una darrere de l'altra.
+En **Parts d'un algoritme** distingim entrada, procés i eixida; en **Instruccions** les expressem amb `LEER`, assignacions i `IMPRIMIR`. En PSeInt arrepleguem les dades amb `Leer`, guardem els càlculs amb `<-` i mostrem els resultats amb `Escribir`. Les instruccions s'executen una darrere de l'altra.
 
 | Instrucció | Acció | Exemple |
 | --- | --- | --- |
@@ -267,7 +271,7 @@ Quan tecleges una quantitat, dones una **entrada**; quan la calculadora opera, r
 
 ## Condicionals
 
-En **Estructures de control** vam veure que una condició permet triar quines instruccions executar. En PSeInt conservem eixe funcionament i escrivim cada bloc amb les seues paraules d'obertura i tancament.
+Una condició permet triar quines instruccions executar. En PSeInt escrivim cada bloc amb les seues paraules d'obertura i tancament.
 
 | Estructura que ja coneixem | Escriptura en PSeInt |
 | --- | --- |
@@ -294,6 +298,10 @@ FinProceso
 
 Amb `4` mostra `Hola`; amb `3` no mostra la salutació. En acabar el `Si`, l'execució continua després de `FinSi`.
 
+:::tip[Minirepte]
+Modifica el programa perquè mostre «Nivell secret desbloquejat!» només si el número introduït és exactament `42`. Prova amb `42` i `41`: el segon no ha de mostrar el missatge.
+:::
+
 ### Condicional doble: Si i Sino
 
 **Exercici:** indicar si un enter és parell o senar.
@@ -313,6 +321,10 @@ FinProceso
 ```
 
 Amb `8` tria la primera branca i amb `7`, la segona. El `0` també és parell.
+
+:::tip[Minirepte]
+Crea un programa que llija l'energia d'un robot. Si té `20` unitats o més, ha de mostrar «Pot enlairar-se»; en cas contrari, «Necessita recarregar-se». Prova amb `20` i `19`.
+:::
 
 ### Condicional múltiple: condicions encadenades
 
@@ -348,9 +360,13 @@ Amb `4` mostra `Suspens`; amb `6`, `Aprovat`; amb `9`, `Notable o excel·lent`; 
 Les condicions encadenades funcionen com una persona que et fa preguntes per ordre i es deté en trobar la resposta que decidix el teu cas. En les notes: «Està fora de rang?», «És menor que 5?», «És menor que 7?». Una nota de `4` també és menor que `7`, però ja ha entrat en la branca de suspens. **L'ordre de les preguntes importa.**
 :::
 
+:::tip[Minirepte]
+Classifica la puntuació d'un aprenent de mag: menys de `0` és «Puntuació impossible»; de `0` a `49`, «Novell»; de `50` a `79`, «Fetiller»; i `80` o més, «Arximag». Utilitza condicions encadenades i comprova els límits `-1`, `0`, `50` i `80`.
+:::
+
 ### Selecció entre opcions: Segun
 
-És la manera d'escriure en PSeInt l'estructura `SWITCH` que estudiem en **Estructures de control**. Resulta útil quan una opció numèrica determina l'acció.
+`Segun` permet triar entre diversos casos. Resulta útil quan una opció numèrica determina l'acció.
 
 ```text
 Proceso MenuTresOpciones
@@ -379,6 +395,10 @@ Amb `2` mostra l'opció 2; amb `8`, el missatge d'opció no vàlida. Només s'ex
 
 :::tip[Els botons d'un ascensor]
 `Segun` s'assembla a triar una planta: polses un número i es realitza l'acció associada a eixe botó. En el menú, `opcion` és el botó triat i cada cas indica què fer. `De Otro Modo` atén els números que no tenen una opció prevista.
+:::
+
+:::tip[Minirepte]
+Transforma el menú en una màquina expenedora espacial: l'opció `1` entrega pizza marciana, la `2` gelat de Saturn i la `3` galetes lunars. Per a qualsevol altra opció, mostra «Planeta desconegut». Prova les opcions `2` i `9`.
 :::
 
 ## Bucles o repeticions
@@ -444,7 +464,7 @@ Amb `b = 0` no entra en el bucle i el producte és `0`. L'increment del comptado
 `Repetir...Hasta Que` executa el cos almenys una vegada i acaba quan la condició final és verdadera.
 
 :::caution[La condició d'eixida]
-En **Estructures de control** vam veure que `DO-WHILE` comprova la condició al final i continua mentre siga verdadera. En PSeInt utilitzarem `Repetir...Hasta Que`, que acaba quan la seua condició és verdadera. Per a repetir un menú mentre l'opció siga diferent de 5, escrivim `Hasta Que opcion = 5`.
+En PSeInt, `Repetir...Hasta Que` comprova la condició al final i acaba quan esta és verdadera. Per a repetir un menú mentre l'opció siga diferent de 5, escrivim `Hasta Que opcion = 5`.
 :::
 
 **Exercici:** mostrar un menú de cinc opcions, repetir-lo amb les opcions 1 a 4 i acabar amb la 5.

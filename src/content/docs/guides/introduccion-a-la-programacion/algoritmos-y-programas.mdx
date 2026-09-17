@@ -81,7 +81,7 @@ Cambia la entrada `personas`, que pasa a valer 5. Hay que volver a realizar el p
 
 ## Elementos básicos de un algoritmo
 
-Vamos a construir ejemplos de un videojuego en el que un personaje recoge monedas y abre puertas. Nos servirán para conocer los elementos con los que escribimos un algoritmo.
+Vamos a construir ejemplos de un videojuego en el que un personaje recoge monedas y abre puertas. Nos servirán para conocer los cinco elementos con los que describimos un algoritmo: datos, variables y constantes, operadores y expresiones, instrucciones y estructuras de control. Las palabras reservadas dependen del lenguaje elegido y las veremos al escribir algoritmos en PSeInt.
 
 ### Datos
 
@@ -89,13 +89,15 @@ Los **datos** son los valores con los que trabaja un algoritmo. Su tipo indica q
 
 | Tipo | Ejemplo en el videojuego | Para qué sirve |
 | --- | --- | --- |
-| **Entero** | `monedas ← 12` | Contar cantidades sin decimales. |
-| **Real** | `tiempo ← 8.5` | Representar una medida con decimales, como los segundos de una carrera. |
-| **Lógico o booleano** | `tieneLlave ← VERDADERO` | Representar dos posibilidades: verdadero o falso. |
-| **Carácter** | `tecla ← 'W'` | Guardar un único carácter. |
-| **Cadena de texto** | `nombre ← "PixelNinja"` | Guardar una secuencia de caracteres. |
+| **Entero** | `12` | Contar cantidades sin decimales. |
+| **Real** | `8.5` | Representar una medida con decimales, como los segundos de una carrera. |
+| **Lógico o booleano** | `VERDADERO` | Representar dos posibilidades: verdadero o falso. |
+| **Carácter** | `'W'` | Guardar un único carácter. |
+| **Cadena de texto** | `"PixelNinja"` | Guardar una secuencia de caracteres. |
 
 En el pseudocódigo escribimos los decimales con punto. Usamos comillas simples para los caracteres y dobles para las cadenas.
+
+Estos ejemplos son valores. Al escribir `monedas ← 12`, guardamos el dato `12` en una variable.
 
 :::note[Un número también puede ser texto]
 `12` es un valor numérico con el que podemos calcular. `"12"` es una cadena de texto: para tratarla como un número, normalmente tendremos que convertirla. Un código de jugador como `"007"` se guarda como texto si queremos conservar los ceros iniciales.
@@ -142,9 +144,11 @@ Si abrimos otro cofre y ejecutamos de nuevo `monedas ← monedas + PREMIO_COFRE`
 
 </details>
 
-### Operadores
+### Operadores y expresiones
 
 Los **operadores** permiten calcular nuevos valores, compararlos o combinar condiciones. Una **expresión** combina valores, variables y operadores para obtener un resultado; por ejemplo, `monedas + 5`.
+
+También es una expresión `edad >= 18 Y tieneEntrada`: su resultado es verdadero solo cuando se cumplen las dos condiciones.
 
 | Tipo | Operadores | Ejemplo | Resultado o efecto |
 | --- | --- | --- | --- |
@@ -180,9 +184,9 @@ Tenemos 17 monedas y cada paquete contiene 5. Podemos preparar 3 paquetes comple
 `2 + 3 * 4` da `14`, porque la multiplicación se realiza antes que la suma. `(2 + 3) * 4` da `20`. Usa paréntesis para dejar claro qué quieres calcular primero.
 :::
 
-### Instrucciones y palabras reservadas
+### Instrucciones
 
-Una **instrucción** indica una acción: leer un dato, guardar un valor, mostrar un resultado o decidir qué paso ejecutar. Las **palabras reservadas** son términos con un significado especial en un lenguaje; pueden formar parte de una instrucción, pero no son lo mismo que una instrucción completa.
+Una **instrucción** indica una acción que ejecuta el algoritmo: asignar un valor, leer un dato, escribir un resultado, seleccionar una opción o repetir unos pasos.
 
 En nuestro pseudocódigo utilizaremos palabras como `LEER` e `IMPRIMIR` para expresar estas acciones.
 
@@ -228,6 +232,87 @@ Obtendría `7 * 10 + 50 = 120` puntos. Estamos suponiendo que el marcador se cal
 
 </details>
 
+### Estructuras de control
+
+Las **estructuras de control** organizan el orden en que se ejecutan las instrucciones. Aunque también son instrucciones, conviene estudiarlas por separado porque permiten expresar decisiones y repeticiones.
+
+| Estructura | Qué hace | Ejemplo |
+| --- | --- | --- |
+| **Secuencial** | Ejecuta los pasos uno detrás de otro. | Leer `monedas` y después mostrar su valor. |
+| **Selección** | Elige qué pasos ejecutar según una condición o un caso. | `Si` tiene llave, abrir la puerta; `Segun` la opción elegida, mostrar un premio. |
+| **Repetición** | Vuelve a ejecutar unos pasos. | `Para` recorrer cinco cofres; `Mientras` queden vidas, seguir jugando; `Repetir` hasta acertar. |
+
+#### Secuencia
+
+En una **secuencia**, cada instrucción se ejecuta después de la anterior: leer las monedas, calcular los puntos y mostrar el resultado. Es el orden normal de ejecución. Las demás estructuras pueden cambiar qué instrucciones se ejecutan o cuántas veces se repiten.
+
+:::tip[Ejemplo]
+Para preparar una poción de invisibilidad, el alquimista recoge una seta luminosa, la tritura y después la mezcla con agua de luna. Cambiar el orden podría darle una sopa brillante en vez de una poción.
+:::
+
+#### Selección: decidir qué camino seguir
+
+En una **selección simple** (`Si`), el bloque se ejecuta solo si la condición es verdadera. Si es falsa, se continúa después del bloque. Por ejemplo, si `tieneLlave` es verdadero, abrimos la puerta.
+
+![Esquema de selección simple: si se cumple la condición, se ejecuta el bloque](../../../../assets/introduccion/if.png)
+
+:::tip[Ejemplo]
+Si el héroe lleva un casco antidragon, el dragón le entrega una pegatina de «visitante preparado». Si no lo lleva, el dragón no hace nada especial y la aventura continúa.
+:::
+
+En una **selección doble** (`Si`...`Sino`), se ejecuta uno de dos bloques: el primero si se cumple la condición y el segundo si no se cumple. Por ejemplo, mostramos «puerta abierta» o «necesitas una llave». Después, ambos caminos se unen.
+
+![Esquema de selección doble con dos caminos alternativos](../../../../assets/introduccion/if-else.png)
+
+:::tip[Ejemplo]
+Si el robot tiene batería, baila para saludar; si no, muestra un cartel que dice «baile aplazado». Solo realiza una de las dos acciones.
+:::
+
+Podemos **encadenar condiciones** cuando hay más de dos posibilidades. Se comprueban en orden y se ejecuta el bloque de la primera condición verdadera; si ninguna se cumple, puede ejecutarse un bloque final. Por ejemplo, una puntuación puede dar lugar a un premio de oro, plata o bronce.
+
+![Esquema de selección con varias condiciones](../../../../assets/introduccion/if-elseif-else.png)
+
+![Esquema de condiciones encadenadas que se comprueban en orden](../../../../assets/introduccion/condiciones-encadenadas.png)
+
+:::tip[Ejemplo]
+El gremio de magos revisa la puntuación de un aprendiz: con 90 puntos o más le concede una varita legendaria; con 60 o más, una capa que cambia de color; con menos, un sombrero que cuenta chistes malos. El orden de las preguntas evita darle dos premios.
+:::
+
+Cuando elegimos entre varios **valores de una misma opción**, usamos una selección por casos (`Segun`): por ejemplo, la opción `1` abre el inventario y la `2` muestra el mapa. Puede existir un caso para los demás valores. Se ejecuta, como máximo, el bloque del caso elegido.
+
+![Esquema de selección entre varios casos](../../../../assets/introduccion/switch.png)
+
+:::tip[Ejemplo]
+Una máquina expendedora intergaláctica entrega pizza de Marte si eliges la opción 1, helado de Saturno si eliges la 2 y galletas lunares si eliges la 3. Para cualquier otro número muestra «planeta desconocido».
+:::
+
+#### Repetición: ejecutar pasos varias veces
+
+Un bucle `Para` repite un bloque un número previsto de veces. Una variable de control recorre los valores indicados: por ejemplo, del cofre `1` al `5`, procesamos cada cofre una vez.
+
+![Esquema de un bucle con contador](../../../../assets/introduccion/for.png)
+
+:::tip[Ejemplo]
+Un explorador debe revisar exactamente cinco cofres de una mazmorra. Abre el primero, luego el segundo y así hasta el quinto, anotando el botín de cada uno.
+:::
+
+Un bucle `Mientras` comprueba la condición **antes** de cada vuelta. Si es verdadera, ejecuta el bloque y vuelve a comprobarla; si es falsa, continúa después del bucle. Por ejemplo, seguimos jugando mientras queden vidas. Si ya no queda ninguna al empezar, el bloque no se ejecuta.
+
+![Esquema de un bucle que comprueba la condición antes de ejecutarse](../../../../assets/introduccion/while.png)
+
+:::tip[Ejemplo]
+Un vampiro se prueba capas mientras queden capas limpias en el armario. Cada vez toma una y comprueba si quedan más; si el armario está vacío desde el principio, no se prueba ninguna.
+:::
+
+En una repetición que comprueba la condición **al final**, el bloque se ejecuta al menos una vez. Por ejemplo, pedimos una respuesta y repetimos hasta que sea correcta. En PSeInt escribiremos esta forma con `Repetir...Hasta Que`: termina cuando la condición final es verdadera.
+
+![Esquema de un bucle que comprueba la condición después de ejecutarse](../../../../assets/introduccion/do-while.png)
+
+:::tip[Ejemplo]
+Un guardián pregunta al aventurero la contraseña secreta y, tras cada respuesta, comprueba si ha acertado. Pregunta al menos una vez y vuelve a hacerlo hasta oír «patatas cósmicas».
+:::
+
+En la siguiente guía veremos la escritura concreta de estas estructuras en PSeInt.
 
 ## Representación de un algoritmo
 
@@ -244,4 +329,3 @@ Para representar gráficamente los algoritmos que vamos a diseñar, tenemos a nu
 - Tablas de decisión: En una tabla son representadas las posibles condiciones del problema con sus respectivas acciones. Suele ser una técnica de apoyo al pseudocódigo cuando existen situaciones condicionales complejas.
 
 ![Ejemplo de tabla de decisión](../../../../assets/introduccion/tabla-decision.png)
-

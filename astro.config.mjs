@@ -52,11 +52,6 @@ export default defineConfig({
                   slug: "guides/introduccion-a-la-programacion/algoritmos-y-programas",
                 },
                 {
-                  label: "Estructuras de control",
-                  translations: { ca: "Estructures de control" },
-                  slug: "guides/introduccion-a-la-programacion/estructuras-de-control",
-                },
-                {
                   label: "PSeInt: de los algoritmos a la práctica",
                   translations: { ca: "PSeInt: dels algoritmes a la pràctica" },
                   slug: "guides/introduccion-a-la-programacion/pseint",
