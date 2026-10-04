@@ -621,6 +621,79 @@ FinAlgoritmo
 
 Con `4, -2, 7, 0`, la bandera `hayNegativos` pasa a verdadera al leer `-2` y conserva ese valor. Si el primer dato es `0`, el programa termina sin registrar negativos. El `0` actúa como **centinela**: un valor especial que indica el final de la entrada.
 
+## Arrays o arreglos: guardar varios datos
+
+Un **array**, también llamado **arreglo** o **vector** cuando tiene una dimensión, guarda varios valores del mismo tipo bajo un único nombre. En lugar de declarar `nota1`, `nota2` y `nota3`, podemos utilizar `notas` y acceder a cada elemento mediante su **índice**, escrito entre corchetes.
+
+### Declarar, dimensionar y acceder a un elemento
+
+`Definir` indica el tipo de los elementos y `Dimension` reserva el número de posiciones:
+
+```text
+Definir notas Como Real;
+Dimension notas[3];
+
+notas[0] <- 6;
+notas[1] <- 8;
+notas[2] <- 7;
+Escribir notas[1];
+```
+
+| Índice | 0 | 1 | 2 |
+| --- | --- | --- | --- |
+| Valor guardado | 6 | 8 | 7 |
+
+`notas[1]` muestra `8`: el índice identifica la posición, no el valor. Podemos modificar solo esa posición con `notas[1] <- 9;` sin cambiar las demás.
+
+<aside class="java-document-note">
+<p><strong>EL PRIMER ÍNDICE DEPENDE DEL PERFIL</strong></p>
+<p>Estos ejemplos utilizan <strong>base 0</strong>: un array de 3 elementos tiene índices de 0 a 2. PSeInt también permite perfiles con <strong>base 1</strong>, donde los índices serían de 1 a 3. Revisa las opciones del lenguaje en el menú <strong>Configurar</strong>. Con base 0, <code>notas[3]</code> queda fuera del array; dimensionar 3 posiciones no crea una cuarta.</p>
+</aside>
+
+### Recorrer un array con un bucle
+
+Un bucle `Para` permite leer o procesar todos los elementos cambiando el índice en cada vuelta. **Ejemplo:** guardar cinco notas y calcular su media.
+
+```text
+Algoritmo MediaDeNotas
+    Definir notas, suma, media Como Real;
+    Definir i Como Entero;
+    Dimension notas[5];
+
+    suma <- 0;
+    Para i <- 0 Hasta 4 Hacer
+        Escribir "Introduce la nota ", i + 1, ":";
+        Leer notas[i];
+        suma <- suma + notas[i];
+    FinPara
+    media <- suma / 5;
+
+    Para i <- 0 Hasta 4 Hacer
+        Escribir "Nota ", i + 1, ": ", notas[i];
+    FinPara
+    Escribir "La media es: ", media;
+FinAlgoritmo
+```
+
+Con las notas `6, 8, 7, 9, 5`, la suma es `35` y la media es `7`. Mostramos `i + 1` para numerar las notas del 1 al 5, aunque sus índices van del 0 al 4. Guardar las notas permite volver a consultarlas después del primer bucle. Asigna o lee cada elemento antes de utilizarlo en un cálculo.
+
+Si utilizas base 1, cambia **los dos recorridos** a `Para i <- 1 Hasta 5 Hacer` y muestra `i` en los mensajes. La dimensión sigue siendo `5`.
+
+### Arrays de dos dimensiones: matrices
+
+Una **matriz** organiza los datos en filas y columnas. `Dimension tablero[2, 3];` reserva 2 filas y 3 columnas: 6 elementos. En base 0, las filas van de 0 a 1 y las columnas de 0 a 2.
+
+```text
+Definir tablero Como Entero;
+Dimension tablero[2, 3];
+tablero[0, 2] <- 9;
+Escribir tablero[0, 2];
+```
+
+El primer índice indica la fila y el segundo la columna. Para recorrer toda una matriz podemos utilizar dos bucles anidados: uno para las filas y otro para las columnas.
+
+**Tu turno:** guarda cinco números en un array y, en un segundo recorrido, muestra cuántos son mayores que su media. Prueba también con cinco números iguales: el contador debe ser `0`.
+
 ## Funciones y subprocesos
 
 En **Algoritmos y programas** hablamos de descomponer un problema en otros más pequeños. En PSeInt podemos aplicar esa idea agrupando las instrucciones de cada tarea en un subprograma y utilizándolo mediante una llamada. Puede recibir datos, llamados **parámetros**, y puede devolver un resultado.
@@ -680,6 +753,79 @@ Crea una función `CalcularMedia` que reciba dos notas y devuelva su media. Llá
 :::tip[Pausa y mira el marcador]
 Ejecutar paso a paso se parece a pausar un videojuego después de cada movimiento para mirar el marcador. En `monedas <- monedas + PREMIO;`, anota el valor anterior, calcula el nuevo y comprueba qué queda guardado. Si el resultado final falla, busca el primer paso en el que tu predicción deja de coincidir con la ejecución.
 :::
+
+## Funciones e instrucciones útiles de PSeInt
+
+PSeInt incorpora funciones que podemos llamar sin definirlas nosotros. **Una función devuelve un valor**, como `Azar(6)`; **una instrucción realiza una acción**, como `Limpiar Pantalla`. Por eso guardamos el resultado de la primera con una asignación, mientras escribimos la segunda directamente.
+
+### Generar un número aleatorio
+
+`Azar(n)` devuelve un entero entre `0` y `n - 1`, ambos incluidos; `n` debe ser un entero positivo. Para simular un dado usamos `Azar(6) + 1`: primero obtenemos un número de 0 a 5 y después sumamos 1.
+
+```text
+Algoritmo LanzarDado
+    Definir dado Como Entero;
+    dado <- Azar(6) + 1;
+    Escribir "Has sacado: ", dado;
+FinAlgoritmo
+```
+
+También puedes utilizar `Aleatorio(1, 6)`, que incluye los dos extremos. Para un intervalo de enteros con `minimo <= maximo`, la fórmula equivalente es `Azar(maximo - minimo + 1) + minimo`. Por ejemplo, `Azar(11) + 10` genera valores del 10 al 20. El resultado puede repetirse: aleatorio no significa distinto en cada llamada.
+
+### Pasar un texto a mayúsculas o minúsculas
+
+| Función | Ejemplo | Resultado |
+| --- | --- | --- |
+| `Mayusculas(texto)` | `Mayusculas("Hola")` | `"HOLA"` |
+| `Minusculas(texto)` | `Minusculas("Hola")` | `"hola"` |
+
+Estas funciones devuelven el texto convertido. Para modificar la variable original, asigna el resultado: `nombre <- Mayusculas(nombre);`.
+
+```text
+Algoritmo ComprobarRespuesta
+    Definir respuesta Como Caracter;
+    Escribir "Quieres continuar? (SI/NO)";
+    Leer respuesta;
+    respuesta <- Minusculas(respuesta);
+    Si respuesta = "si" Entonces
+        Escribir "Continuamos!";
+    Sino
+        Escribir "No has respondido si.";
+    FinSi
+FinAlgoritmo
+```
+
+Así aceptamos `SI`, `Si` o `si` con una sola comparación. La conversión no elimina espacios ni tildes: `" sí "` sigue siendo diferente de `"si"`. Si el perfil rechaza las funciones de cadenas, habilítalas en las opciones del lenguaje del menú **Configurar**, como indica el [ejemplo oficial de cadenas](https://pseint.sourceforge.net/index.php?cual=Cadenas&mode=estricto&page=ejemplos.php).
+
+### Limpiar la pantalla y hacer pausas
+
+| Instrucción | Para qué sirve |
+| --- | --- |
+| `Limpiar Pantalla;` | Borra el texto mostrado; también se puede escribir `Borrar Pantalla;`. |
+| `Esperar 2 Segundos;` | Detiene la ejecución durante dos segundos y después continúa. |
+| `Esperar 500 Milisegundos;` | Espera medio segundo: 1000 milisegundos equivalen a un segundo. |
+| `Esperar Tecla;` | Espera hasta que el usuario pulse una tecla. |
+
+Limpiar la pantalla no borra las variables. `Esperar Tecla` permite que el usuario lea un mensaje antes de borrarlo; una espera de segundos continúa automáticamente.
+
+```text
+Algoritmo CuentaAtras
+    Definir i Como Entero;
+    Escribir "Pulsa una tecla para empezar.";
+    Esperar Tecla;
+    Para i <- 3 Hasta 1 Con Paso -1 Hacer
+        Limpiar Pantalla;
+        Escribir i;
+        Esperar 1 Segundos;
+    FinPara
+    Limpiar Pantalla;
+    Escribir "Adelante!";
+FinAlgoritmo
+```
+
+La pantalla muestra `3`, `2` y `1`, dejando un segundo entre ellos, y finalmente `Adelante!`. El [ejemplo oficial Misil](https://pseint.sourceforge.net/index.php?cual=Misil&mode=estricto&page=ejemplos.php) combina estas instrucciones para crear una animación.
+
+**Tu turno:** pide el nombre del jugador, muéstralo en mayúsculas, espera una tecla y limpia la pantalla. Después lanza un dado, espera dos segundos y muestra el resultado.
 
 ## Cómo comprobar tus algoritmos
 
