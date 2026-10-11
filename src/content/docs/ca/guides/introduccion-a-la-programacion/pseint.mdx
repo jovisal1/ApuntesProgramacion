@@ -57,9 +57,10 @@ La sagnia ajuda a reconéixer quines instruccions pertanyen a cada bloc. Els com
 
 Les **paraules reservades** tenen un significat especial en PSeInt i formen part de la seua manera d'escriure els algoritmes. Per exemple, `Algoritmo` i `FinAlgoritmo` en delimiten un; `Definir` i `Como` declaren variables; `Si` i `Entonces` introduïxen una condició; i `Mientras` inicia una repetició. No podem utilitzar estes paraules com a noms de variables.
 
-:::tip[Una recepta que es pot executar]
-Un algoritme s'assembla a una recepta: indica què necessitem i quins passos seguim. PSeInt és l'ajudant que seguix les instruccions escrites. Per a calcular l'àrea, la base i l'altura són els ingredients; multiplicar i dividir són els passos; l'àrea és el plat acabat. Si canvies les mesures, utilitzes la mateixa recepta amb altres dades.
-:::
+<aside class="java-document-note">
+<p><strong>UNA RECEPTA QUE ES POT EXECUTAR</strong></p>
+<p>Un algoritme s'assembla a una recepta: indica què necessitem i quins passos seguim. PSeInt és l'ajudant que seguix les instruccions escrites. Per a calcular l'àrea, la base i l'altura són els ingredients; multiplicar i dividir són els passos; l'àrea és el plat acabat. Si canvies les mesures, utilitzes la mateixa recepta amb altres dades.</p>
+</aside>
 
 ## Dades, variables i constants
 
@@ -95,9 +96,10 @@ FinAlgoritmo
 
 El programa mostra els quatre valors assignats. Els decimals s'escriuen amb punt i els textos entre cometes dobles.
 
-:::tip[L'inventari d'un videojoc]
-Pensa en la fitxa del teu personatge: les monedes es compten amb un `Entero`, el temps de carrera es mesura amb un `Real`, el nom es guarda com a `Caracter` i tindre clau es representa amb un `Logico`. Abans de declarar una variable, pregunta't: **què necessite guardar en esta casella?**
-:::
+<aside class="java-document-note">
+<p><strong>L'INVENTARI D'UN VIDEOJOC</strong></p>
+<p>Pensa en la fitxa del teu personatge: les monedes es compten amb un <code>Entero</code>, el temps de carrera es mesura amb un <code>Real</code>, el nom es guarda com a <code>Caracter</code> i tindre clau es representa amb un <code>Logico</code>. Abans de declarar una variable, pregunta't: <strong>què necessite guardar en esta casella?</strong></p>
+</aside>
 
 ### Variables i valors que mantenim fixos
 
@@ -118,9 +120,10 @@ FinAlgoritmo
 
 El resultat és `15` monedes i un premi de `5`. L'assignació llig el valor anterior de `monedas`, suma el premi i guarda el resultat en la mateixa variable.
 
-:::tip[La caixa conserva la seua etiqueta]
-En la nostra prestatgeria de la memòria, la caixa `monedas` conté `10`. En executar `monedas <- monedas + 5;`, consultem el que hi ha dins, calculem `15` i substituïm el contingut. L'etiqueta continua sent `monedas`. La caixa guarda el valor nou; no conserva automàticament una col·lecció dels seus valors anteriors.
-:::
+<aside class="java-document-note">
+<p><strong>LA CAIXA CONSERVA LA SEUA ETIQUETA</strong></p>
+<p>En la nostra prestatgeria de la memòria, la caixa <code>monedas</code> conté <code>10</code>. En executar <code>monedas &lt;- monedas + 5;</code>, consultem el que hi ha dins, calculem <code>15</code> i substituïm el contingut. L'etiqueta continua sent <code>monedas</code>. La caixa guarda el valor nou; no conserva automàticament una col·lecció dels seus valors anteriors.</p>
+</aside>
 
 ## Expressions i operadors
 
@@ -194,9 +197,10 @@ FinAlgoritmo
 
 Amb `18`, la comparació és verdadera; amb `17`, és falsa.
 
-:::tip[Comparar i assignar són accions diferents]
-Utilitzem `=` per a comparar i `<-` per a guardar un valor. `edad = 18` pregunta si l'edat val 18; `edad <- 18;` canvia el seu valor. Les comparacions `==` i `!=` que vam veure en **Operadors** s'escriuen ací com `=` i `<>`.
-:::
+<aside class="java-document-note">
+<p><strong>COMPARAR I ASSIGNAR SÓN ACCIONS DIFERENTS</strong></p>
+<p>Utilitzem <code>=</code> per a comparar i <code>&lt;-</code> per a guardar un valor. <code>edad = 18</code> pregunta si l'edat val 18; <code>edad &lt;- 18;</code> canvia el seu valor. Les comparacions <code>==</code> i <code>!=</code> que vam veure en <strong>Operadors</strong> s'escriuen ací com <code>=</code> i <code>&lt;&gt;</code>.</p>
+</aside>
 
 ### Expressions lògiques
 
@@ -231,13 +235,15 @@ FinAlgoritmo
 
 Amb `15`, els tres primers resultats són verdaders i l'últim és fals. Prova també `9`, `10`, `20` i `21` per a comprovar els límits de l'interval.
 
-:::tip[Les regles d'accés a una missió]
-- **Y:** necessites una clau **i** deu monedes; s'han de complir els dos requisits.
-- **O:** pots entrar amb una clau **o** un passe; també pots entrar si tens els dos.
-- **NO:** si `puertaAbierta` és verdader, `NO puertaAbierta` és fals.
-
-Recorda: **Y ho demana tot; O accepta almenys una opció; NO invertix la resposta.**
-:::
+<aside class="java-document-note">
+<p><strong>LES REGLES D'ACCÉS A UNA MISSIÓ</strong></p>
+<ul>
+<li><strong>Y:</strong> necessites una clau <strong>i</strong> deu monedes; s'han de complir els dos requisits.</li>
+<li><strong>O:</strong> pots entrar amb una clau <strong>o</strong> un passe; també pots entrar si tens els dos.</li>
+<li><strong>NO:</strong> si <code>puertaAbierta</code> és verdader, <code>NO puertaAbierta</code> és fals.</li>
+</ul>
+<p>Recorda: <strong>Y ho demana tot; O accepta almenys una opció; NO invertix la resposta.</strong></p>
+</aside>
 
 ## Entrada, eixida i assignació
 
@@ -265,9 +271,10 @@ FinAlgoritmo
 
 Amb `98` euros s'obtenen `100` dòlars. Dividim perquè cada dòlar costa `0.98` euros. `Leer` guarda l'entrada en la variable `euros`; no s'utilitza per a modificar el valor fix del canvi.
 
-:::tip[Una calculadora amb pantalla]
-Quan tecleges una quantitat, dones una **entrada**; quan la calculadora opera, realitza el **procés**; quan veus el resultat, reps l'**eixida**. En el nostre conversor, `Leer euros;` arreplega la dada, el càlcul obté els dòlars i `Escribir` els mostra. Mostrar «Introduïx els euros» no arreplega la resposta: després cal `Leer`.
-:::
+<aside class="java-document-note">
+<p><strong>UNA CALCULADORA AMB PANTALLA</strong></p>
+<p>Quan tecleges una quantitat, dones una <strong>entrada</strong>; quan la calculadora opera, realitza el <strong>procés</strong>; quan veus el resultat, reps l'<strong>eixida</strong>. En el nostre conversor, <code>Leer euros;</code> arreplega la dada, el càlcul obté els dòlars i <code>Escribir</code> els mostra. Mostrar «Introduïx els euros» no arreplega la resposta: després cal <code>Leer</code>.</p>
+</aside>
 
 ## Condicionals
 
@@ -298,9 +305,10 @@ FinAlgoritmo
 
 Amb `4` mostra `Hola`; amb `3` no mostra la salutació. En acabar el `Si`, l'execució continua després de `FinSi`.
 
-:::tip[Minirepte]
-Modifica el programa perquè mostre «Nivell secret desbloquejat!» només si el número introduït és exactament `42`. Prova amb `42` i `41`: el segon no ha de mostrar el missatge.
-:::
+<aside class="java-document-note">
+<p><strong>MINIREPTE</strong></p>
+<p>Modifica el programa perquè mostre «Nivell secret desbloquejat!» només si el número introduït és exactament <code>42</code>. Prova amb <code>42</code> i <code>41</code>: el segon no ha de mostrar el missatge.</p>
+</aside>
 
 ### Condicional doble: Si i Sino
 
@@ -322,9 +330,10 @@ FinAlgoritmo
 
 Amb `8` tria la primera branca i amb `7`, la segona. El `0` també és parell.
 
-:::tip[Minirepte]
-Crea un programa que llija l'energia d'un robot. Si té `20` unitats o més, ha de mostrar «Pot enlairar-se»; en cas contrari, «Necessita recarregar-se». Prova amb `20` i `19`.
-:::
+<aside class="java-document-note">
+<p><strong>MINIREPTE</strong></p>
+<p>Crea un programa que llija l'energia d'un robot. Si té <code>20</code> unitats o més, ha de mostrar «Pot enlairar-se»; en cas contrari, «Necessita recarregar-se». Prova amb <code>20</code> i <code>19</code>.</p>
+</aside>
 
 ### Condicional múltiple: condicions encadenades
 
@@ -356,13 +365,15 @@ FinAlgoritmo
 
 Amb `4` mostra `Suspens`; amb `6`, `Aprovat`; amb `9`, `Notable o excel·lent`; amb `11`, `Nota no vàlida`. Cada `Si` té el seu propi `FinSi`.
 
-:::tip[Una cua de preguntes]
-Les condicions encadenades funcionen com una persona que et fa preguntes per ordre i es deté en trobar la resposta que decidix el teu cas. En les notes: «Està fora de rang?», «És menor que 5?», «És menor que 7?». Una nota de `4` també és menor que `7`, però ja ha entrat en la branca de suspens. **L'ordre de les preguntes importa.**
-:::
+<aside class="java-document-note">
+<p><strong>UNA CUA DE PREGUNTES</strong></p>
+<p>Les condicions encadenades funcionen com una persona que et fa preguntes per ordre i es deté en trobar la resposta que decidix el teu cas. En les notes: «Està fora de rang?», «És menor que 5?», «És menor que 7?». Una nota de <code>4</code> també és menor que <code>7</code>, però ja ha entrat en la branca de suspens. <strong>L'ordre de les preguntes importa.</strong></p>
+</aside>
 
-:::tip[Minirepte]
-Classifica la puntuació d'un aprenent de mag: menys de `0` és «Puntuació impossible»; de `0` a `49`, «Novell»; de `50` a `79`, «Fetiller»; i `80` o més, «Arximag». Utilitza condicions encadenades i comprova els límits `-1`, `0`, `50` i `80`.
-:::
+<aside class="java-document-note">
+<p><strong>MINIREPTE</strong></p>
+<p>Classifica la puntuació d'un aprenent de mag: menys de <code>0</code> és «Puntuació impossible»; de <code>0</code> a <code>49</code>, «Novell»; de <code>50</code> a <code>79</code>, «Fetiller»; i <code>80</code> o més, «Arximag». Utilitza condicions encadenades i comprova els límits <code>-1</code>, <code>0</code>, <code>50</code> i <code>80</code>.</p>
+</aside>
 
 ### Selecció entre opcions: Segun
 
@@ -393,13 +404,15 @@ FinAlgoritmo
 
 Amb `2` mostra l'opció 2; amb `8`, el missatge d'opció no vàlida. Només s'executa el cas seleccionat: no cal afegir un `break`.
 
-:::tip[Els botons d'un ascensor]
-`Segun` s'assembla a triar una planta: polses un número i es realitza l'acció associada a eixe botó. En el menú, `opcion` és el botó triat i cada cas indica què fer. `De Otro Modo` atén els números que no tenen una opció prevista.
-:::
+<aside class="java-document-note">
+<p><strong>ELS BOTONS D'UN ASCENSOR</strong></p>
+<p><code>Segun</code> s'assembla a triar una planta: polses un número i es realitza l'acció associada a eixe botó. En el menú, <code>opcion</code> és el botó triat i cada cas indica què fer. <code>De Otro Modo</code> atén els números que no tenen una opció prevista.</p>
+</aside>
 
-:::tip[Minirepte]
-Transforma el menú en una màquina expenedora espacial: l'opció `1` entrega pizza marciana, la `2` gelat de Saturn i la `3` galetes lunars. Per a qualsevol altra opció, mostra «Planeta desconegut». Prova les opcions `2` i `9`.
-:::
+<aside class="java-document-note">
+<p><strong>MINIREPTE</strong></p>
+<p>Transforma el menú en una màquina expenedora espacial: l'opció <code>1</code> entrega pizza marciana, la <code>2</code> gelat de Saturn i la <code>3</code> galetes lunars. Per a qualsevol altra opció, mostra «Planeta desconegut». Prova les opcions <code>2</code> i <code>9</code>.</p>
+</aside>
 
 ## Bucles o repeticions
 
@@ -411,13 +424,15 @@ Ja coneixem els bucles: repetixen un bloc d'instruccions i cada volta és una **
 | Comprovació al final, com en `DO-WHILE` | `Repetir ... Hasta Que` | Quan la condició d'eixida és verdadera. |
 | `FOR` | `Para ... Hasta ... Hacer ... FinPara` | Quan es completa el recorregut indicat. |
 
-:::tip[Tres maneres d'entrenar]
-- **Mentre tingues energia**, fas una altra repetició: comproves abans i potser no en fas cap.
-- **Prova un llançament i repetix fins a encistellar**: llances almenys una vegada i comproves després.
-- **Fes cinc llançaments**: coneixes per endavant el nombre de repeticions i pots utilitzar `Para`.
-
-La pregunta per a triar és: **comprove abans, comprove després o recórrec una quantitat coneguda?**
-:::
+<aside class="java-document-note">
+<p><strong>TRES MANERES D'ENTRENAR</strong></p>
+<ul>
+<li><strong>Mentre tingues energia</strong>, fas una altra repetició: comproves abans i potser no en fas cap.</li>
+<li><strong>Prova un llançament i repetix fins a encistellar</strong>: llances almenys una vegada i comproves després.</li>
+<li><strong>Fes cinc llançaments</strong>: coneixes per endavant el nombre de repeticions i pots utilitzar <code>Para</code>.</li>
+</ul>
+<p>La pregunta per a triar és: <strong>comprove abans, comprove després o recórrec una quantitat coneguda?</strong></p>
+</aside>
 
 ### Mientras: comprovar abans de repetir
 
@@ -463,9 +478,10 @@ Amb `b = 0` no entra en el bucle i el producte és `0`. L'increment del comptado
 
 `Repetir...Hasta Que` executa el cos almenys una vegada i acaba quan la condició final és verdadera.
 
-:::caution[La condició d'eixida]
-En PSeInt, `Repetir...Hasta Que` comprova la condició al final i acaba quan esta és verdadera. Per a repetir un menú mentre l'opció siga diferent de 5, escrivim `Hasta Que opcion = 5`.
-:::
+<aside class="java-document-note">
+<p><strong>LA CONDICIÓ D'EIXIDA</strong></p>
+<p>En PSeInt, <code>Repetir...Hasta Que</code> comprova la condició al final i acaba quan esta és verdadera. Per a repetir un menú mentre l'opció siga diferent de 5, escrivim <code>Hasta Que opcion = 5</code>.</p>
+</aside>
 
 **Exercici:** mostrar un menú de cinc opcions, repetir-lo amb les opcions 1 a 4 i acabar amb la 5.
 
@@ -534,17 +550,39 @@ Amb `2, 4, 6, 8, 10`, el resultat és `30`.
 
 Ara combinarem les **variables**, les **assignacions** i els **bucles** que ja hem estudiat. Una variable pot comptar successos, acumular quantitats o recordar si s'ha complit una condició. Són diferents usos de les variables; no són tipus de dades nous.
 
-:::tip[L'entrada d'un festival]
-Imagina el control d'accés d'un festival:
-
-| Què vols recordar | Variable que necessites | Actualització típica |
-| --- | --- | --- |
-| Quantes persones han entrat. | Un comptador. | `personas <- personas + 1;` |
-| Quants diners s'han recaptat amb entrades de diferents preus. | Un acumulador. | `recaudacion <- recaudacion + precio;` |
-| Si ha entrat alguna persona amb passe VIP. | Una bandera. | `hayVIP <- Verdadero;` |
-
-La bandera continua sent verdadera encara que després entre algú sense passe VIP: recorda que **ja ha ocorregut**.
-:::
+<aside class="java-document-note">
+<p><strong>L'ENTRADA D'UN FESTIVAL</strong></p>
+<p>Imagina el control d'accés d'un festival:</p>
+<div class="java-document-table">
+<table>
+<thead>
+<tr>
+<th scope="col">Què vols recordar</th>
+<th scope="col">Variable que necessites</th>
+<th scope="col">Actualització típica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quantes persones han entrat.</td>
+<td>Un comptador.</td>
+<td><code>personas &lt;- personas + 1;</code></td>
+</tr>
+<tr>
+<td>Quants diners s'han recaptat amb entrades de diferents preus.</td>
+<td>Un acumulador.</td>
+<td><code>recaudacion &lt;- recaudacion + precio;</code></td>
+</tr>
+<tr>
+<td>Si ha entrat alguna persona amb passe VIP.</td>
+<td>Una bandera.</td>
+<td><code>hayVIP &lt;- Verdadero;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La bandera continua sent verdadera encara que després entre algú sense passe VIP: recorda que <strong>ja ha ocorregut</strong>.</p>
+</aside>
 
 ### Comptador: quantes vegades ocorre una cosa
 
@@ -582,9 +620,10 @@ Un acumulador suma quantitats que poden ser diferents. En `SumarCincoNumeros`, l
 | 8 | 20 |
 | 10 | 30 |
 
-:::tip[Inicialitzar una sola vegada]
-En una suma acumulada, escriu `suma <- 0;` abans del bucle. Si la col·loques dins, esborraràs el que has acumulat en cada volta. Un comptador suma normalment 1; este acumulador suma el valor llegit.
-:::
+<aside class="java-document-note">
+<p><strong>INICIALITZAR UNA SOLA VEGADA</strong></p>
+<p>En una suma acumulada, escriu <code>suma &lt;- 0;</code> abans del bucle. Si la col·loques dins, esborraràs el que has acumulat en cada volta. Un comptador suma normalment 1; este acumulador suma el valor llegit.</p>
+</aside>
 
 ### Bandera o flag: recordar si ha ocorregut una cosa
 
@@ -700,9 +739,10 @@ En **Algoritmes i programes** parlem de descompondre un problema en altres més 
 
 Per a definir estos blocs escrivim `Funcion` i `FinFuncion`. PSeInt també admet `SubProceso` i `FinSubProceso`, com en els [exemples oficials](https://pseint.sourceforge.net/index.php?cual=Subprocesos&mode=estricto&page=ejemplos.php). Distingirem els que realitzen una acció dels que retornen un valor.
 
-:::tip[Encarregar una tasca]
-Fer una crida a un subprocés s'assembla a encarregar una tasca a un company. Li dius quina és la tasca i li entregues les dades que necessita: els **paràmetres**. `Saludar("Ana")` li demana que mostre una salutació. `CalcularAreaTriangulo(5, 8)` li entrega dos mesures i espera rebre un número. **Fer una cosa i retornar un resultat són coses diferents.**
-:::
+<aside class="java-document-note">
+<p><strong>ENCARREGAR UNA TASCA</strong></p>
+<p>Fer una crida a un subprocés s'assembla a encarregar una tasca a un company. Li dius quina és la tasca i li entregues les dades que necessita: els <strong>paràmetres</strong>. <code>Saludar("Ana")</code> li demana que mostre una salutació. <code>CalcularAreaTriangulo(5, 8)</code> li entrega dos mesures i espera rebre un número. <strong>Fer una cosa i retornar un resultat són coses diferents.</strong></p>
+</aside>
 
 ### Subprocés sense valor de retorn
 
@@ -746,13 +786,15 @@ FinAlgoritmo
 
 La variable `area` pertany al subprocés i `resultado` al programa principal. No necessiten tindre el mateix nom.
 
-:::tip[El teu torn]
-Crea una funció `CalcularMedia` que reba dos notes i retorne la seua mitjana. Crida-la amb `6` i `8`: el resultat ha de ser `7`. Després crea un subprocés sense retorn que reba eixa mitjana i la mostre amb un missatge.
-:::
+<aside class="java-document-note">
+<p><strong>EL TEU TORN</strong></p>
+<p>Crea una funció <code>CalcularMedia</code> que reba dos notes i retorne la seua mitjana. Crida-la amb <code>6</code> i <code>8</code>: el resultat ha de ser <code>7</code>. Després crea un subprocés sense retorn que reba eixa mitjana i la mostre amb un missatge.</p>
+</aside>
 
-:::tip[Pausa i mira el marcador]
-Executar pas a pas s'assembla a pausar un videojoc després de cada moviment per a mirar el marcador. En `monedas <- monedas + PREMIO;`, anota el valor anterior, calcula el nou i comprova què queda guardat. Si el resultat final falla, busca el primer pas en què la teua predicció deixa de coincidir amb l'execució.
-:::
+<aside class="java-document-note">
+<p><strong>PAUSA I MIRA EL MARCADOR</strong></p>
+<p>Executar pas a pas s'assembla a pausar un videojoc després de cada moviment per a mirar el marcador. En <code>monedas &lt;- monedas + PREMIO;</code>, anota el valor anterior, calcula el nou i comprova què queda guardat. Si el resultat final falla, busca el primer pas en què la teua predicció deixa de coincidir amb l'execució.</p>
+</aside>
 
 ## Funcions i instruccions útils de PSeInt
 

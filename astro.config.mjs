@@ -58,6 +58,41 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              label: "Introducción a Java",
+              translations: { ca: "Introducció a Java" },
+              items: [
+                {
+                  label: "Introducción",
+                  translations: { ca: "Introducció" },
+                  slug: "guides/introduccion-a-java",
+                },
+                {
+                  label: "Historia y características de Java",
+                  translations: { ca: "Història i característiques de Java" },
+                  slug: "guides/introduccion-a-java/historia-y-caracteristicas",
+                },
+                {
+                  label: "Tipos de datos, variables y más",
+                  translations: { ca: "Tipus de dades, variables i més" },
+                  slug: "guides/introduccion-a-java/tipos-de-datos-variables-y-mas",
+                },
+                {
+                  label: "Estructuras de control",
+                  translations: { ca: "Estructures de control" },
+                  slug: "guides/introduccion-a-java/estructuras-de-control",
+                },
+                {
+                  label: "Entrada y salida de datos",
+                  translations: { ca: "Entrada i eixida de dades" },
+                  slug: "guides/introduccion-a-java/entrada-y-salida-de-datos",
+                },
+                {
+                  label: "Arrays",
+                  slug: "guides/introduccion-a-java/arrays",
+                },
+              ],
+            },
           ],
         },
       ],

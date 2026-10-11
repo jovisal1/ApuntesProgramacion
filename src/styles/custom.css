@@ -5,3 +5,62 @@
   max-width: 100%;
   height: auto;
 }
+
+/* Tamaño del logo de Java en la introducción. */
+.sl-markdown-content .java-logo img {
+  width: 200px;
+}
+
+/* Retrato y atribución de la historia de Java, también en pantallas pequeñas. */
+.sl-markdown-content .java-history-portrait {
+  max-width: 24rem;
+  margin: 1.5rem auto;
+}
+
+.sl-markdown-content .java-history-portrait img {
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+.sl-markdown-content .java-history-portrait figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Maquetación del dossier de Java, conservando sus textos e imágenes. */
+.sl-markdown-content .java-document-image {
+  margin: 1.5rem auto;
+}
+
+.sl-markdown-content .java-document-table {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-block: 1.5rem;
+}
+
+.sl-markdown-content .java-document-table table {
+  margin: 0;
+}
+
+.sl-markdown-content .java-document-table p {
+  margin: 0;
+}
+
+.sl-markdown-content .java-document-note {
+  padding: 1rem 1.25rem;
+  margin-block: 1.5rem;
+  border-inline-start: 0.25rem solid var(--sl-color-accent);
+  background: var(--sl-color-accent-low);
+  border-radius: 0.25rem;
+}
+
+.sl-markdown-content .java-document-note > :first-child {
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.sl-markdown-content .java-document-note > :last-child {
+  margin-bottom: 0;
+}

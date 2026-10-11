@@ -57,9 +57,10 @@ La sangría ayuda a reconocer qué instrucciones pertenecen a cada bloque. Los c
 
 Las **palabras reservadas** tienen un significado especial en PSeInt y forman parte de su forma de escribir los algoritmos. Por ejemplo, `Algoritmo` y `FinAlgoritmo` delimitan uno; `Definir` y `Como` declaran variables; `Si` y `Entonces` introducen una condición; y `Mientras` inicia una repetición. No podemos usar estas palabras como nombres de variables.
 
-:::tip[Una receta que se puede ejecutar]
-Un algoritmo se parece a una receta: indica qué necesitamos y qué pasos seguimos. PSeInt es el ayudante que sigue las instrucciones escritas. Para calcular el área, la base y la altura son los ingredientes; multiplicar y dividir son los pasos; el área es el plato terminado. Si cambias las medidas, utilizas la misma receta con otros datos.
-:::
+<aside class="java-document-note">
+<p><strong>UNA RECETA QUE SE PUEDE EJECUTAR</strong></p>
+<p>Un algoritmo se parece a una receta: indica qué necesitamos y qué pasos seguimos. PSeInt es el ayudante que sigue las instrucciones escritas. Para calcular el área, la base y la altura son los ingredientes; multiplicar y dividir son los pasos; el área es el plato terminado. Si cambias las medidas, utilizas la misma receta con otros datos.</p>
+</aside>
 
 ## Datos, variables y constantes
 
@@ -95,9 +96,10 @@ FinAlgoritmo
 
 El programa muestra los cuatro valores asignados. Los decimales se escriben con punto y los textos entre comillas dobles.
 
-:::tip[El inventario de un videojuego]
-Piensa en la ficha de tu personaje: las monedas se cuentan con un `Entero`, el tiempo de carrera se mide con un `Real`, el nombre se guarda como `Caracter` y tener llave se representa con un `Logico`. Antes de declarar una variable, pregúntate: **¿qué necesito guardar en esta casilla?**
-:::
+<aside class="java-document-note">
+<p><strong>EL INVENTARIO DE UN VIDEOJUEGO</strong></p>
+<p>Piensa en la ficha de tu personaje: las monedas se cuentan con un <code>Entero</code>, el tiempo de carrera se mide con un <code>Real</code>, el nombre se guarda como <code>Caracter</code> y tener llave se representa con un <code>Logico</code>. Antes de declarar una variable, pregúntate: <strong>¿qué necesito guardar en esta casilla?</strong></p>
+</aside>
 
 ### Variables y valores que mantenemos fijos
 
@@ -118,9 +120,10 @@ FinAlgoritmo
 
 El resultado es `15` monedas y un premio de `5`. La asignación lee el valor anterior de `monedas`, suma el premio y guarda el resultado en la misma variable.
 
-:::tip[La caja conserva su etiqueta]
-En nuestra estantería de la memoria, la caja `monedas` contiene `10`. Al ejecutar `monedas <- monedas + 5;`, consultamos lo que hay dentro, calculamos `15` y sustituimos el contenido. La etiqueta sigue siendo `monedas`. La caja guarda el valor nuevo; no conserva automáticamente una colección de sus valores anteriores.
-:::
+<aside class="java-document-note">
+<p><strong>LA CAJA CONSERVA SU ETIQUETA</strong></p>
+<p>En nuestra estantería de la memoria, la caja <code>monedas</code> contiene <code>10</code>. Al ejecutar <code>monedas &lt;- monedas + 5;</code>, consultamos lo que hay dentro, calculamos <code>15</code> y sustituimos el contenido. La etiqueta sigue siendo <code>monedas</code>. La caja guarda el valor nuevo; no conserva automáticamente una colección de sus valores anteriores.</p>
+</aside>
 
 ## Expresiones y operadores
 
@@ -194,9 +197,10 @@ FinAlgoritmo
 
 Con `18`, la comparación es verdadera; con `17`, es falsa.
 
-:::tip[Comparar y asignar son acciones diferentes]
-Usamos `=` para comparar y `<-` para guardar un valor. `edad = 18` pregunta si la edad vale 18; `edad <- 18;` cambia su valor. Las comparaciones `==` y `!=` que vimos en **Operadores** se escriben aquí como `=` y `<>`.
-:::
+<aside class="java-document-note">
+<p><strong>COMPARAR Y ASIGNAR SON ACCIONES DIFERENTES</strong></p>
+<p>Usamos <code>=</code> para comparar y <code>&lt;-</code> para guardar un valor. <code>edad = 18</code> pregunta si la edad vale 18; <code>edad &lt;- 18;</code> cambia su valor. Las comparaciones <code>==</code> y <code>!=</code> que vimos en <strong>Operadores</strong> se escriben aquí como <code>=</code> y <code>&lt;&gt;</code>.</p>
+</aside>
 
 ### Expresiones lógicas
 
@@ -231,13 +235,15 @@ FinAlgoritmo
 
 Con `15`, los tres primeros resultados son verdaderos y el último es falso. Prueba también `9`, `10`, `20` y `21` para comprobar los límites del intervalo.
 
-:::tip[Las reglas de acceso a una misión]
-- **Y:** necesitas una llave **y** diez monedas; deben cumplirse los dos requisitos.
-- **O:** puedes entrar con una llave **o** un pase; también puedes entrar si tienes ambos.
-- **NO:** si `puertaAbierta` es verdadero, `NO puertaAbierta` es falso.
-
-Recuerda: **Y pide todo; O acepta al menos una opción; NO invierte la respuesta.**
-:::
+<aside class="java-document-note">
+<p><strong>LAS REGLAS DE ACCESO A UNA MISIÓN</strong></p>
+<ul>
+<li><strong>Y:</strong> necesitas una llave <strong>y</strong> diez monedas; deben cumplirse los dos requisitos.</li>
+<li><strong>O:</strong> puedes entrar con una llave <strong>o</strong> un pase; también puedes entrar si tienes ambos.</li>
+<li><strong>NO:</strong> si <code>puertaAbierta</code> es verdadero, <code>NO puertaAbierta</code> es falso.</li>
+</ul>
+<p>Recuerda: <strong>Y pide todo; O acepta al menos una opción; NO invierte la respuesta.</strong></p>
+</aside>
 
 ## Entrada, salida y asignación
 
@@ -265,9 +271,10 @@ FinAlgoritmo
 
 Con `98` euros se obtienen `100` dólares. Dividimos porque cada dólar cuesta `0.98` euros. `Leer` guarda la entrada en la variable `euros`; no se utiliza para modificar el valor fijo del cambio.
 
-:::tip[Una calculadora con pantalla]
-Cuando tecleas una cantidad, das una **entrada**; cuando la calculadora opera, realiza el **proceso**; cuando ves el resultado, recibes la **salida**. En nuestro conversor, `Leer euros;` recoge el dato, el cálculo obtiene los dólares y `Escribir` los muestra. Mostrar «Introduce los euros» no recoge la respuesta: después hace falta `Leer`.
-:::
+<aside class="java-document-note">
+<p><strong>UNA CALCULADORA CON PANTALLA</strong></p>
+<p>Cuando tecleas una cantidad, das una <strong>entrada</strong>; cuando la calculadora opera, realiza el <strong>proceso</strong>; cuando ves el resultado, recibes la <strong>salida</strong>. En nuestro conversor, <code>Leer euros;</code> recoge el dato, el cálculo obtiene los dólares y <code>Escribir</code> los muestra. Mostrar «Introduce los euros» no recoge la respuesta: después hace falta <code>Leer</code>.</p>
+</aside>
 
 ## Condicionales
 
@@ -298,9 +305,10 @@ FinAlgoritmo
 
 Con `4` muestra `Hola`; con `3` no muestra el saludo. Al terminar el `Si`, la ejecución continúa después de `FinSi`.
 
-:::tip[Minirreto]
-Modifica el programa para que muestre «¡Nivel secreto desbloqueado!» solo si el número introducido es exactamente `42`. Prueba con `42` y `41`: el segundo no debe mostrar el mensaje.
-:::
+<aside class="java-document-note">
+<p><strong>MINIRRETO</strong></p>
+<p>Modifica el programa para que muestre «¡Nivel secreto desbloqueado!» solo si el número introducido es exactamente <code>42</code>. Prueba con <code>42</code> y <code>41</code>: el segundo no debe mostrar el mensaje.</p>
+</aside>
 
 ### Condicional doble: Si y Sino
 
@@ -322,9 +330,10 @@ FinAlgoritmo
 
 Con `8` elige la primera rama y con `7`, la segunda. El `0` también es par.
 
-:::tip[Minirreto]
-Crea un programa que lea la energía de un robot. Si tiene `20` unidades o más, debe mostrar «Puede despegar»; en caso contrario, «Necesita recargarse». Prueba con `20` y `19`.
-:::
+<aside class="java-document-note">
+<p><strong>MINIRRETO</strong></p>
+<p>Crea un programa que lea la energía de un robot. Si tiene <code>20</code> unidades o más, debe mostrar «Puede despegar»; en caso contrario, «Necesita recargarse». Prueba con <code>20</code> y <code>19</code>.</p>
+</aside>
 
 ### Condicional múltiple: condiciones encadenadas
 
@@ -356,13 +365,15 @@ FinAlgoritmo
 
 Con `4` muestra `Suspenso`; con `6`, `Aprobado`; con `9`, `Notable o sobresaliente`; con `11`, `Nota no valida`. Cada `Si` tiene su propio `FinSi`.
 
-:::tip[Una cola de preguntas]
-Las condiciones encadenadas funcionan como una persona que te hace preguntas por orden y se detiene al encontrar la respuesta que decide tu caso. En las notas: «¿Está fuera de rango?», «¿Es menor que 5?», «¿Es menor que 7?». Una nota de `4` también es menor que `7`, pero ya ha entrado en la rama de suspenso. **El orden de las preguntas importa.**
-:::
+<aside class="java-document-note">
+<p><strong>UNA COLA DE PREGUNTAS</strong></p>
+<p>Las condiciones encadenadas funcionan como una persona que te hace preguntas por orden y se detiene al encontrar la respuesta que decide tu caso. En las notas: «¿Está fuera de rango?», «¿Es menor que 5?», «¿Es menor que 7?». Una nota de <code>4</code> también es menor que <code>7</code>, pero ya ha entrado en la rama de suspenso. <strong>El orden de las preguntas importa.</strong></p>
+</aside>
 
-:::tip[Minirreto]
-Clasifica la puntuación de un aprendiz de mago: menos de `0` es «Puntuación imposible»; de `0` a `49`, «Novato»; de `50` a `79`, «Hechicero»; y `80` o más, «Archimago». Usa condiciones encadenadas y comprueba los límites `-1`, `0`, `50` y `80`.
-:::
+<aside class="java-document-note">
+<p><strong>MINIRRETO</strong></p>
+<p>Clasifica la puntuación de un aprendiz de mago: menos de <code>0</code> es «Puntuación imposible»; de <code>0</code> a <code>49</code>, «Novato»; de <code>50</code> a <code>79</code>, «Hechicero»; y <code>80</code> o más, «Archimago». Usa condiciones encadenadas y comprueba los límites <code>-1</code>, <code>0</code>, <code>50</code> y <code>80</code>.</p>
+</aside>
 
 ### Selección entre opciones: Segun
 
@@ -393,13 +404,15 @@ FinAlgoritmo
 
 Con `2` muestra la opción 2; con `8`, el mensaje de opción no válida. Solo se ejecuta el caso seleccionado: no hay que añadir un `break`.
 
-:::tip[Los botones de un ascensor]
-`Segun` se parece a elegir una planta: pulsas un número y se realiza la acción asociada a ese botón. En el menú, `opcion` es el botón elegido y cada caso indica qué hacer. `De Otro Modo` atiende los números que no tienen una opción prevista.
-:::
+<aside class="java-document-note">
+<p><strong>LOS BOTONES DE UN ASCENSOR</strong></p>
+<p><code>Segun</code> se parece a elegir una planta: pulsas un número y se realiza la acción asociada a ese botón. En el menú, <code>opcion</code> es el botón elegido y cada caso indica qué hacer. <code>De Otro Modo</code> atiende los números que no tienen una opción prevista.</p>
+</aside>
 
-:::tip[Minirreto]
-Transforma el menú en una máquina expendedora espacial: la opción `1` entrega pizza marciana, la `2` helado de Saturno y la `3` galletas lunares. Para cualquier otra opción, muestra «Planeta desconocido». Prueba las opciones `2` y `9`.
-:::
+<aside class="java-document-note">
+<p><strong>MINIRRETO</strong></p>
+<p>Transforma el menú en una máquina expendedora espacial: la opción <code>1</code> entrega pizza marciana, la <code>2</code> helado de Saturno y la <code>3</code> galletas lunares. Para cualquier otra opción, muestra «Planeta desconocido». Prueba las opciones <code>2</code> y <code>9</code>.</p>
+</aside>
 
 ## Bucles o repeticiones
 
@@ -411,13 +424,15 @@ Ya conocemos los bucles: repiten un bloque de instrucciones y cada vuelta es una
 | Comprobación al final, como en `DO-WHILE` | `Repetir ... Hasta Que` | Cuando la condición de salida es verdadera. |
 | `FOR` | `Para ... Hasta ... Hacer ... FinPara` | Cuando se completa el recorrido indicado. |
 
-:::tip[Tres formas de entrenar]
-- **Mientras tengas energía**, haces otra repetición: compruebas antes y quizá no hagas ninguna.
-- **Prueba un lanzamiento y repite hasta encestar**: lanzas al menos una vez y compruebas después.
-- **Haz cinco lanzamientos**: conoces de antemano el número de repeticiones y puedes usar `Para`.
-
-La pregunta para elegir es: **¿compruebo antes, compruebo después o recorro una cantidad conocida?**
-:::
+<aside class="java-document-note">
+<p><strong>TRES FORMAS DE ENTRENAR</strong></p>
+<ul>
+<li><strong>Mientras tengas energía</strong>, haces otra repetición: compruebas antes y quizá no hagas ninguna.</li>
+<li><strong>Prueba un lanzamiento y repite hasta encestar</strong>: lanzas al menos una vez y compruebas después.</li>
+<li><strong>Haz cinco lanzamientos</strong>: conoces de antemano el número de repeticiones y puedes usar <code>Para</code>.</li>
+</ul>
+<p>La pregunta para elegir es: <strong>¿compruebo antes, compruebo después o recorro una cantidad conocida?</strong></p>
+</aside>
 
 ### Mientras: comprobar antes de repetir
 
@@ -463,9 +478,10 @@ Con `b = 0` no entra en el bucle y el producto es `0`. El incremento del contado
 
 `Repetir...Hasta Que` ejecuta el cuerpo al menos una vez y termina cuando la condición final es verdadera.
 
-:::caution[La condición de salida]
-En PSeInt, `Repetir...Hasta Que` comprueba la condición al final y termina cuando esta es verdadera. Para repetir un menú mientras la opción sea distinta de 5, escribimos `Hasta Que opcion = 5`.
-:::
+<aside class="java-document-note">
+<p><strong>LA CONDICIÓN DE SALIDA</strong></p>
+<p>En PSeInt, <code>Repetir...Hasta Que</code> comprueba la condición al final y termina cuando esta es verdadera. Para repetir un menú mientras la opción sea distinta de 5, escribimos <code>Hasta Que opcion = 5</code>.</p>
+</aside>
 
 **Ejercicio:** mostrar un menú de cinco opciones, repetirlo con las opciones 1 a 4 y terminar con la 5.
 
@@ -534,17 +550,39 @@ Con `2, 4, 6, 8, 10`, el resultado es `30`.
 
 Ahora combinaremos las **variables**, las **asignaciones** y los **bucles** que ya hemos estudiado. Una variable puede contar sucesos, acumular cantidades o recordar si se ha cumplido una condición. Son distintos usos de las variables; no son tipos de datos nuevos.
 
-:::tip[La entrada de un festival]
-Imagina el control de acceso de un festival:
-
-| Qué quieres recordar | Variable que necesitas | Actualización típica |
-| --- | --- | --- |
-| Cuántas personas han entrado. | Un contador. | `personas <- personas + 1;` |
-| Cuánto dinero se ha recaudado con entradas de distintos precios. | Un acumulador. | `recaudacion <- recaudacion + precio;` |
-| Si ha entrado alguna persona con pase VIP. | Una bandera. | `hayVIP <- Verdadero;` |
-
-La bandera sigue siendo verdadera aunque después entre alguien sin pase VIP: recuerda que **ya ocurrió**.
-:::
+<aside class="java-document-note">
+<p><strong>LA ENTRADA DE UN FESTIVAL</strong></p>
+<p>Imagina el control de acceso de un festival:</p>
+<div class="java-document-table">
+<table>
+<thead>
+<tr>
+<th scope="col">Qué quieres recordar</th>
+<th scope="col">Variable que necesitas</th>
+<th scope="col">Actualización típica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cuántas personas han entrado.</td>
+<td>Un contador.</td>
+<td><code>personas &lt;- personas + 1;</code></td>
+</tr>
+<tr>
+<td>Cuánto dinero se ha recaudado con entradas de distintos precios.</td>
+<td>Un acumulador.</td>
+<td><code>recaudacion &lt;- recaudacion + precio;</code></td>
+</tr>
+<tr>
+<td>Si ha entrado alguna persona con pase VIP.</td>
+<td>Una bandera.</td>
+<td><code>hayVIP &lt;- Verdadero;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La bandera sigue siendo verdadera aunque después entre alguien sin pase VIP: recuerda que <strong>ya ocurrió</strong>.</p>
+</aside>
 
 ### Contador: cuántas veces ocurre algo
 
@@ -582,9 +620,10 @@ Un acumulador suma cantidades que pueden ser distintas. En `SumarCincoNumeros`, 
 | 8 | 20 |
 | 10 | 30 |
 
-:::tip[Inicializar una sola vez]
-En una suma acumulada, escribe `suma <- 0;` antes del bucle. Si la colocas dentro, borrarás lo acumulado en cada vuelta. Un contador suma normalmente 1; este acumulador suma el valor leído.
-:::
+<aside class="java-document-note">
+<p><strong>INICIALIZAR UNA SOLA VEZ</strong></p>
+<p>En una suma acumulada, escribe <code>suma &lt;- 0;</code> antes del bucle. Si la colocas dentro, borrarás lo acumulado en cada vuelta. Un contador suma normalmente 1; este acumulador suma el valor leído.</p>
+</aside>
 
 ### Bandera o flag: recordar si ha ocurrido algo
 
@@ -700,9 +739,10 @@ En **Algoritmos y programas** hablamos de descomponer un problema en otros más 
 
 Para definir estos bloques escribimos `Funcion` y `FinFuncion`. PSeInt también admite `SubProceso` y `FinSubProceso`, como en los [ejemplos oficiales](https://pseint.sourceforge.net/index.php?cual=Subprocesos&mode=estricto&page=ejemplos.php). Distinguiremos los que realizan una acción de los que devuelven un valor.
 
-:::tip[Encargar una tarea]
-Llamar a un subproceso se parece a encargar una tarea a un compañero. Le dices cuál es la tarea y le entregas los datos que necesita: los **parámetros**. `Saludar("Ana")` le pide que muestre un saludo. `CalcularAreaTriangulo(5, 8)` le entrega dos medidas y espera un número de vuelta. **Hacer algo y devolver un resultado son cosas distintas.**
-:::
+<aside class="java-document-note">
+<p><strong>ENCARGAR UNA TAREA</strong></p>
+<p>Llamar a un subproceso se parece a encargar una tarea a un compañero. Le dices cuál es la tarea y le entregas los datos que necesita: los <strong>parámetros</strong>. <code>Saludar("Ana")</code> le pide que muestre un saludo. <code>CalcularAreaTriangulo(5, 8)</code> le entrega dos medidas y espera un número de vuelta. <strong>Hacer algo y devolver un resultado son cosas distintas.</strong></p>
+</aside>
 
 ### Subproceso sin valor de retorno
 
@@ -746,13 +786,15 @@ FinAlgoritmo
 
 La variable `area` pertenece al subproceso y `resultado` al programa principal. No necesitan tener el mismo nombre.
 
-:::tip[Tu turno]
-Crea una función `CalcularMedia` que reciba dos notas y devuelva su media. Llámala con `6` y `8`: el resultado debe ser `7`. Después crea un subproceso sin retorno que reciba esa media y la muestre con un mensaje.
-:::
+<aside class="java-document-note">
+<p><strong>TU TURNO</strong></p>
+<p>Crea una función <code>CalcularMedia</code> que reciba dos notas y devuelva su media. Llámala con <code>6</code> y <code>8</code>: el resultado debe ser <code>7</code>. Después crea un subproceso sin retorno que reciba esa media y la muestre con un mensaje.</p>
+</aside>
 
-:::tip[Pausa y mira el marcador]
-Ejecutar paso a paso se parece a pausar un videojuego después de cada movimiento para mirar el marcador. En `monedas <- monedas + PREMIO;`, anota el valor anterior, calcula el nuevo y comprueba qué queda guardado. Si el resultado final falla, busca el primer paso en el que tu predicción deja de coincidir con la ejecución.
-:::
+<aside class="java-document-note">
+<p><strong>PAUSA Y MIRA EL MARCADOR</strong></p>
+<p>Ejecutar paso a paso se parece a pausar un videojuego después de cada movimiento para mirar el marcador. En <code>monedas &lt;- monedas + PREMIO;</code>, anota el valor anterior, calcula el nuevo y comprueba qué queda guardado. Si el resultado final falla, busca el primer paso en el que tu predicción deja de coincidir con la ejecución.</p>
+</aside>
 
 ## Funciones e instrucciones útiles de PSeInt
 

@@ -11,9 +11,10 @@ import { Badge } from '@astrojs/starlight/components';
 
 Quan intentem trobar la solució a un problema, busquem que siga correcta, eficaç i alhora eficient. Per a aconseguir-ho, en programació, haurem de desenvolupar l'algoritme adequat. Però, què és un algoritme?
 
-:::note[Definició]
-**Algoritme:** Conjunt ordenat i finit d'operacions que permet trobar la solució d'un problema.
-:::
+<aside class="java-document-note">
+<p><strong>DEFINICIÓ</strong></p>
+<p><strong>Algoritme:</strong> Conjunt ordenat i finit d'operacions que permet trobar la solució d'un problema.</p>
+</aside>
 
 Un **algoritme** descriu els passos necessaris per a resoldre un problema, sense dependre d'un llenguatge de programació ni d'un dispositiu concret. Per exemple, per a calcular la mitjana de dos números, sumem els dos valors i dividim el resultat entre dos. Estos passos són els mateixos tant si els fem a mà com si els executa un ordinador.
 
@@ -68,9 +69,10 @@ Fin
 
 En estos exemples utilitzarem `←` per a indicar **assignació**: calcular el que hi ha a la dreta i guardar el resultat en la variable de l'esquerra.
 
-:::tip[El teu torn]
-Si s'apunta una cinquena persona, quina part canvia? Quantes porcions senceres rep cada persona i quantes en sobren?
-:::
+<aside class="java-document-note">
+<p><strong>EL TEU TORN</strong></p>
+<p>Si s'apunta una cinquena persona, quina part canvia? Quantes porcions senceres rep cada persona i quantes en sobren?</p>
+</aside>
 
 <details>
 <summary>Veure la solució</summary>
@@ -99,9 +101,10 @@ En el pseudocodi escrivim els decimals amb punt. Utilitzem cometes simples per a
 
 Estos exemples són valors. En escriure `monedas ← 12`, guardem la dada `12` en una variable.
 
-:::note[Un número també pot ser text]
-`12` és un valor numèric amb què podem calcular. `"12"` és una cadena de text: per a tractar-la com un número, normalment haurem de convertir-la. Un codi de jugador com `"007"` es guarda com a text si volem conservar els zeros inicials.
-:::
+<aside class="java-document-note">
+<p><strong>UN NÚMERO TAMBÉ POT SER TEXT</strong></p>
+<p><code>12</code> és un valor numèric amb què podem calcular. <code>"12"</code> és una cadena de text: per a tractar-la com un número, normalment haurem de convertir-la. Un codi de jugador com <code>"007"</code> es guarda com a text si volem conservar els zeros inicials.</p>
+</aside>
 
 Les variables i les constants permeten donar nom a valors; els operadors permeten treballar amb ells. **No són tipus de dades.**
 
@@ -109,10 +112,13 @@ Les variables i les constants permeten donar nom a valors; els operadors permete
 
 Una **variable** permet guardar un valor associat a un nom i actualitzar-lo durant l'execució. Una **constant** té un valor que es manté fix una vegada definit.
 
-:::tip[Una caixa en una prestatgeria]
-Imagina que la **memòria** de l'ordinador és una prestatgeria i cada **variable** és una caixa que guarda informació. El nom de la variable és l'etiqueta de la caixa i el seu valor és el que conté. En assignar-li un valor nou, substituïm el contingut de la caixa, però conservem la seua etiqueta.
+<aside class="java-document-note">
+<p><strong>UNA CAIXA EN UNA PRESTATGERIA</strong></p>
+<p>Imagina que la <strong>memòria</strong> de l'ordinador és una prestatgeria i cada <strong>variable</strong> és una caixa que guarda informació. El nom de la variable és l'etiqueta de la caixa i el seu valor és el que conté. En assignar-li un valor nou, substituïm el contingut de la caixa, però conservem la seua etiqueta.</p>
+
 ![Símil de les variables i la prestatgeria](../../../../../assets/introduccion/variables.png)
-:::
+
+</aside>
 
 **Exemple: arreplegar un cofre de monedes**
 
@@ -133,9 +139,10 @@ La instrucció `monedas ← monedas + PREMIO_COFRE` **no és una igualtat matem�
 
 Utilitzarem noms descriptius com `monedas` o `tieneLlave`. Escriurem les constants en majúscules com a convenció per a reconéixer-les fàcilment.
 
-:::tip[El teu torn]
-Si obrim un altre cofre i executem de nou `monedas ← monedas + PREMIO_COFRE`, quant valen ara `monedas` i `PREMIO_COFRE`?
-:::
+<aside class="java-document-note">
+<p><strong>EL TEU TORN</strong></p>
+<p>Si obrim un altre cofre i executem de nou <code>monedas ← monedas + PREMIO_COFRE</code>, quant valen ara <code>monedas</code> i <code>PREMIO_COFRE</code>?</p>
+</aside>
 
 <details>
 <summary>Veure la solució</summary>
@@ -180,9 +187,10 @@ Primer, `monedas >= 10` produïx `VERDADERO`. Després, `VERDADERO Y VERDADERO` 
 
 Tenim 17 monedes i cada paquet en conté 5. Podem preparar 3 paquets complets i en sobren `17 % 5`, és a dir, 2 monedes. L'operador `%` calcula el **residu**, no un percentatge.
 
-:::tip[L'ordre importa]
-`2 + 3 * 4` dona `14`, perquè la multiplicació es fa abans que la suma. `(2 + 3) * 4` dona `20`. Utilitza parèntesis per a deixar clar què vols calcular primer.
-:::
+<aside class="java-document-note">
+<p><strong>L'ORDRE IMPORTA</strong></p>
+<p><code>2 + 3 * 4</code> dona <code>14</code>, perquè la multiplicació es fa abans que la suma. <code>(2 + 3) * 4</code> dona <code>20</code>. Utilitza parèntesis per a deixar clar què vols calcular primer.</p>
+</aside>
 
 ### Instruccions
 
@@ -216,9 +224,10 @@ Puntuació: 70
 
 Ací apareixen tots els elements que hem vist: **dades** de text i numèriques, **variables** (`nombre`, `monedas`, `puntos`), una **constant** (`PUNTOS_POR_MONEDA`), un **operador** de multiplicació i **instruccions** d'entrada, assignació i eixida.
 
-:::tip[Prova una modificació]
-Afig una bonificació fixa de 50 punts per acabar la partida. Quina constant afegiries i com canviaries el càlcul? Quina puntuació obtindria PixelNinja amb les seues 7 monedes?
-:::
+<aside class="java-document-note">
+<p><strong>PROVA UNA MODIFICACIÓ</strong></p>
+<p>Afig una bonificació fixa de 50 punts per acabar la partida. Quina constant afegiries i com canviaries el càlcul? Quina puntuació obtindria PixelNinja amb les seues 7 monedes?</p>
+</aside>
 
 <details>
 <summary>Veure la solució</summary>
@@ -246,9 +255,10 @@ Les **estructures de control** organitzen l'orde en què s'executen les instrucc
 
 En una **seqüència**, cada instrucció s'executa després de l'anterior: llegir les monedes, calcular els punts i mostrar el resultat. És l'orde normal d'execució. Les altres estructures poden canviar quines instruccions s'executen o quantes vegades es repetixen.
 
-:::tip[Exemple]
-Per a preparar una poció d'invisibilitat, l'alquimista arreplega un bolet lluminós, el tritura i després el barreja amb aigua de lluna. Canviar l'orde podria donar-li una sopa brillant en lloc d'una poció.
-:::
+<aside class="java-document-note">
+<p><strong>EXEMPLE</strong></p>
+<p>Per a preparar una poció d'invisibilitat, l'alquimista arreplega un bolet lluminós, el tritura i després el barreja amb aigua de lluna. Canviar l'orde podria donar-li una sopa brillant en lloc d'una poció.</p>
+</aside>
 
 #### Selecció: decidir quin camí seguir
 
@@ -256,17 +266,19 @@ En una **selecció simple** (`Si`), el bloc s'executa només si la condició és
 
 ![Esquema de selecció simple: si es complix la condició, s'executa el bloc](../../../../../assets/introduccion/if.png)
 
-:::tip[Exemple]
-Si l'heroi porta un casc antidragons, el drac li entrega un adhesiu de «visitant preparat». Si no el porta, el drac no fa res especial i l'aventura continua.
-:::
+<aside class="java-document-note">
+<p><strong>EXEMPLE</strong></p>
+<p>Si l'heroi porta un casc antidragons, el drac li entrega un adhesiu de «visitant preparat». Si no el porta, el drac no fa res especial i l'aventura continua.</p>
+</aside>
 
 En una **selecció doble** (`Si`...`Sino`), s'executa un de dos blocs: el primer si es complix la condició i el segon si no es complix. Per exemple, mostrem «porta oberta» o «necessites una clau». Després, els dos camins s'unixen.
 
 ![Esquema de selecció doble amb dos camins alternatius](../../../../../assets/introduccion/if-else.png)
 
-:::tip[Exemple]
-Si el robot té bateria, balla per a saludar; si no, mostra un cartell que diu «ball ajornat». Només fa una de les dos accions.
-:::
+<aside class="java-document-note">
+<p><strong>EXEMPLE</strong></p>
+<p>Si el robot té bateria, balla per a saludar; si no, mostra un cartell que diu «ball ajornat». Només fa una de les dos accions.</p>
+</aside>
 
 Podem **encadenar condicions** quan hi ha més de dos possibilitats. Es comproven en orde i s'executa el bloc de la primera condició verdadera; si cap es complix, pot executar-se un bloc final. Per exemple, una puntuació pot donar lloc a un premi d'or, plata o bronze.
 
@@ -274,17 +286,19 @@ Podem **encadenar condicions** quan hi ha més de dos possibilitats. Es comprove
 
 ![Esquema de condicions encadenades que es comproven en orde](../../../../../assets/introduccion/condiciones-encadenadas.png)
 
-:::tip[Exemple]
-El gremi de mags revisa la puntuació d'un aprenent: amb 90 punts o més li concedix una vareta llegendària; amb 60 o més, una capa que canvia de color; amb menys, un barret que conta acudits roïns. L'orde de les preguntes evita donar-li dos premis.
-:::
+<aside class="java-document-note">
+<p><strong>EXEMPLE</strong></p>
+<p>El gremi de mags revisa la puntuació d'un aprenent: amb 90 punts o més li concedix una vareta llegendària; amb 60 o més, una capa que canvia de color; amb menys, un barret que conta acudits roïns. L'orde de les preguntes evita donar-li dos premis.</p>
+</aside>
 
 Quan triem entre diversos **valors d'una mateixa opció**, utilitzem una selecció per casos (`Segun`): per exemple, l'opció `1` obri l'inventari i la `2` mostra el mapa. Pot haver-hi un cas per als altres valors. S'executa, com a màxim, el bloc del cas triat.
 
 ![Esquema de selecció entre diversos casos](../../../../../assets/introduccion/switch.png)
 
-:::tip[Exemple]
-Una màquina expenedora intergalàctica entrega pizza de Mart si tries l'opció 1, gelat de Saturn si tries la 2 i galetes lunars si tries la 3. Per a qualsevol altre número mostra «planeta desconegut».
-:::
+<aside class="java-document-note">
+<p><strong>EXEMPLE</strong></p>
+<p>Una màquina expenedora intergalàctica entrega pizza de Mart si tries l'opció 1, gelat de Saturn si tries la 2 i galetes lunars si tries la 3. Per a qualsevol altre número mostra «planeta desconegut».</p>
+</aside>
 
 #### Repetició: executar passos diverses vegades
 
@@ -292,25 +306,28 @@ Un bucle `Para` repetix un bloc un nombre previst de vegades. Una variable de co
 
 ![Esquema d'un bucle amb comptador](../../../../../assets/introduccion/for.png)
 
-:::tip[Exemple]
-Un explorador ha de revisar exactament cinc cofres d'una masmorra. Obri el primer, després el segon i així fins al cinqué, i anota el botí de cadascun.
-:::
+<aside class="java-document-note">
+<p><strong>EXEMPLE</strong></p>
+<p>Un explorador ha de revisar exactament cinc cofres d'una masmorra. Obri el primer, després el segon i així fins al cinqué, i anota el botí de cadascun.</p>
+</aside>
 
 Un bucle `Mientras` comprova la condició **abans** de cada volta. Si és verdadera, executa el bloc i torna a comprovar-la; si és falsa, continua després del bucle. Per exemple, continuem jugant mentre queden vides. Si ja no en queda cap en començar, el bloc no s'executa.
 
 ![Esquema d'un bucle que comprova la condició abans d'executar-se](../../../../../assets/introduccion/while.png)
 
-:::tip[Exemple]
-Un vampir s'emprova capes mentre en queden de netes a l'armari. Cada vegada n'agafa una i comprova si en queden més; si l'armari està buit des del principi, no se n'emprova cap.
-:::
+<aside class="java-document-note">
+<p><strong>EXEMPLE</strong></p>
+<p>Un vampir s'emprova capes mentre en queden de netes a l'armari. Cada vegada n'agafa una i comprova si en queden més; si l'armari està buit des del principi, no se n'emprova cap.</p>
+</aside>
 
 En una repetició que comprova la condició **al final**, el bloc s'executa almenys una vegada. Per exemple, demanem una resposta i repetim fins que siga correcta. En PSeInt escriurem esta forma amb `Repetir...Hasta Que`: acaba quan la condició final és verdadera.
 
 ![Esquema d'un bucle que comprova la condició després d'executar-se](../../../../../assets/introduccion/do-while.png)
 
-:::tip[Exemple]
-Un guardià pregunta a l'aventurer la contrasenya secreta i, després de cada resposta, comprova si l'ha encertada. Pregunta almenys una vegada i torna a fer-ho fins que sent «creïlles còsmiques».
-:::
+<aside class="java-document-note">
+<p><strong>EXEMPLE</strong></p>
+<p>Un guardià pregunta a l'aventurer la contrasenya secreta i, després de cada resposta, comprova si l'ha encertada. Pregunta almenys una vegada i torna a fer-ho fins que sent «creïlles còsmiques».</p>
+</aside>
 
 En la guia següent veurem l'escriptura concreta d'estes estructures en PSeInt.
 

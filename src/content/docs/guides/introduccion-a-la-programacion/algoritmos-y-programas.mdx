@@ -11,9 +11,10 @@ import { Badge } from '@astrojs/starlight/components';
 
 Cuando intentamos encontrar la solución a un problema, buscamos que esta sea correcta, eficaz y a la vez eficiente. Para conseguirlo, en programación, tendremos que desarrollar el algoritmo adecuado. Pero, ¿Qué es un algoritmo?
 
-:::note[Definición]
-**Algoritmo:** Conjunto ordenado y finito de operaciones que permite hallar la solución de un problema.
-:::
+<aside class="java-document-note">
+<p><strong>DEFINICIÓN</strong></p>
+<p><strong>Algoritmo:</strong> Conjunto ordenado y finito de operaciones que permite hallar la solución de un problema.</p>
+</aside>
 
 Un **algoritmo** describe los pasos necesarios para resolver un problema, sin depender de un lenguaje de programación ni de un dispositivo concreto. Por ejemplo, para calcular la media de dos números, sumamos ambos valores y dividimos el resultado entre dos. Estos pasos son los mismos tanto si los realizamos a mano como si los ejecuta un ordenador.
 
@@ -68,9 +69,10 @@ Fin
 
 En estos ejemplos usaremos `←` para indicar **asignación**: calcular lo que hay a la derecha y guardar el resultado en la variable de la izquierda.
 
-:::tip[Tu turno]
-Si se apunta una quinta persona, ¿qué parte cambia? ¿Cuántas porciones enteras recibe cada persona y cuántas sobran?
-:::
+<aside class="java-document-note">
+<p><strong>TU TURNO</strong></p>
+<p>Si se apunta una quinta persona, ¿qué parte cambia? ¿Cuántas porciones enteras recibe cada persona y cuántas sobran?</p>
+</aside>
 
 <details>
 <summary>Ver solución</summary>
@@ -99,9 +101,10 @@ En el pseudocódigo escribimos los decimales con punto. Usamos comillas simples 
 
 Estos ejemplos son valores. Al escribir `monedas ← 12`, guardamos el dato `12` en una variable.
 
-:::note[Un número también puede ser texto]
-`12` es un valor numérico con el que podemos calcular. `"12"` es una cadena de texto: para tratarla como un número, normalmente tendremos que convertirla. Un código de jugador como `"007"` se guarda como texto si queremos conservar los ceros iniciales.
-:::
+<aside class="java-document-note">
+<p><strong>UN NÚMERO TAMBIÉN PUEDE SER TEXTO</strong></p>
+<p><code>12</code> es un valor numérico con el que podemos calcular. <code>"12"</code> es una cadena de texto: para tratarla como un número, normalmente tendremos que convertirla. Un código de jugador como <code>"007"</code> se guarda como texto si queremos conservar los ceros iniciales.</p>
+</aside>
 
 Las variables y las constantes permiten dar nombre a valores; los operadores permiten trabajar con ellos. **No son tipos de datos.**
 
@@ -109,10 +112,13 @@ Las variables y las constantes permiten dar nombre a valores; los operadores per
 
 Una **variable** permite guardar un valor asociado a un nombre y actualizarlo durante la ejecución. Una **constante** tiene un valor que se mantiene fijo una vez definido.
 
-:::tip[Una caja en una estantería]
-Imagina que la **memoria** del ordenador es una estantería y cada **variable** es una caja que guarda información. El nombre de la variable es la etiqueta de la caja y su valor es lo que contiene. Al asignarle un nuevo valor, sustituimos el contenido de la caja, pero conservamos su etiqueta.
+<aside class="java-document-note">
+<p><strong>UNA CAJA EN UNA ESTANTERÍA</strong></p>
+<p>Imagina que la <strong>memoria</strong> del ordenador es una estantería y cada <strong>variable</strong> es una caja que guarda información. El nombre de la variable es la etiqueta de la caja y su valor es lo que contiene. Al asignarle un nuevo valor, sustituimos el contenido de la caja, pero conservamos su etiqueta.</p>
+
 ![Símil variables estantería](../../../../assets/introduccion/variables.png)
-:::
+
+</aside>
 
 **Ejemplo: recoger un cofre de monedas**
 
@@ -133,9 +139,10 @@ La instrucción `monedas ← monedas + PREMIO_COFRE` **no es una igualdad matem�
 
 Usaremos nombres descriptivos como `monedas` o `tieneLlave`. Escribiremos las constantes en mayúsculas como convención para reconocerlas fácilmente.
 
-:::tip[Tu turno]
-Si abrimos otro cofre y ejecutamos de nuevo `monedas ← monedas + PREMIO_COFRE`, ¿cuánto valen ahora `monedas` y `PREMIO_COFRE`?
-:::
+<aside class="java-document-note">
+<p><strong>TU TURNO</strong></p>
+<p>Si abrimos otro cofre y ejecutamos de nuevo <code>monedas ← monedas + PREMIO_COFRE</code>, ¿cuánto valen ahora <code>monedas</code> y <code>PREMIO_COFRE</code>?</p>
+</aside>
 
 <details>
 <summary>Ver solución</summary>
@@ -180,9 +187,10 @@ Primero, `monedas >= 10` produce `VERDADERO`. Después, `VERDADERO Y VERDADERO` 
 
 Tenemos 17 monedas y cada paquete contiene 5. Podemos preparar 3 paquetes completos y sobran `17 % 5`, es decir, 2 monedas. El operador `%` calcula el **resto**, no un porcentaje.
 
-:::tip[El orden importa]
-`2 + 3 * 4` da `14`, porque la multiplicación se realiza antes que la suma. `(2 + 3) * 4` da `20`. Usa paréntesis para dejar claro qué quieres calcular primero.
-:::
+<aside class="java-document-note">
+<p><strong>EL ORDEN IMPORTA</strong></p>
+<p><code>2 + 3 * 4</code> da <code>14</code>, porque la multiplicación se realiza antes que la suma. <code>(2 + 3) * 4</code> da <code>20</code>. Usa paréntesis para dejar claro qué quieres calcular primero.</p>
+</aside>
 
 ### Instrucciones
 
@@ -216,9 +224,10 @@ Puntuación: 70
 
 Aquí aparecen todos los elementos que hemos visto: **datos** de texto y numéricos, **variables** (`nombre`, `monedas`, `puntos`), una **constante** (`PUNTOS_POR_MONEDA`), un **operador** de multiplicación e **instrucciones** de entrada, asignación y salida.
 
-:::tip[Prueba una modificación]
-Añade una bonificación fija de 50 puntos por terminar la partida. ¿Qué constante añadirías y cómo cambiarías el cálculo? ¿Qué puntuación obtendría PixelNinja con sus 7 monedas?
-:::
+<aside class="java-document-note">
+<p><strong>PRUEBA UNA MODIFICACIÓN</strong></p>
+<p>Añade una bonificación fija de 50 puntos por terminar la partida. ¿Qué constante añadirías y cómo cambiarías el cálculo? ¿Qué puntuación obtendría PixelNinja con sus 7 monedas?</p>
+</aside>
 
 <details>
 <summary>Ver solución</summary>
@@ -246,9 +255,10 @@ Las **estructuras de control** organizan el orden en que se ejecutan las instruc
 
 En una **secuencia**, cada instrucción se ejecuta después de la anterior: leer las monedas, calcular los puntos y mostrar el resultado. Es el orden normal de ejecución. Las demás estructuras pueden cambiar qué instrucciones se ejecutan o cuántas veces se repiten.
 
-:::tip[Ejemplo]
-Para preparar una poción de invisibilidad, el alquimista recoge una seta luminosa, la tritura y después la mezcla con agua de luna. Cambiar el orden podría darle una sopa brillante en vez de una poción.
-:::
+<aside class="java-document-note">
+<p><strong>EJEMPLO</strong></p>
+<p>Para preparar una poción de invisibilidad, el alquimista recoge una seta luminosa, la tritura y después la mezcla con agua de luna. Cambiar el orden podría darle una sopa brillante en vez de una poción.</p>
+</aside>
 
 #### Selección: decidir qué camino seguir
 
@@ -256,17 +266,19 @@ En una **selección simple** (`Si`), el bloque se ejecuta solo si la condición 
 
 ![Esquema de selección simple: si se cumple la condición, se ejecuta el bloque](../../../../assets/introduccion/if.png)
 
-:::tip[Ejemplo]
-Si el héroe lleva un casco antidragon, el dragón le entrega una pegatina de «visitante preparado». Si no lo lleva, el dragón no hace nada especial y la aventura continúa.
-:::
+<aside class="java-document-note">
+<p><strong>EJEMPLO</strong></p>
+<p>Si el héroe lleva un casco antidragon, el dragón le entrega una pegatina de «visitante preparado». Si no lo lleva, el dragón no hace nada especial y la aventura continúa.</p>
+</aside>
 
 En una **selección doble** (`Si`...`Sino`), se ejecuta uno de dos bloques: el primero si se cumple la condición y el segundo si no se cumple. Por ejemplo, mostramos «puerta abierta» o «necesitas una llave». Después, ambos caminos se unen.
 
 ![Esquema de selección doble con dos caminos alternativos](../../../../assets/introduccion/if-else.png)
 
-:::tip[Ejemplo]
-Si el robot tiene batería, baila para saludar; si no, muestra un cartel que dice «baile aplazado». Solo realiza una de las dos acciones.
-:::
+<aside class="java-document-note">
+<p><strong>EJEMPLO</strong></p>
+<p>Si el robot tiene batería, baila para saludar; si no, muestra un cartel que dice «baile aplazado». Solo realiza una de las dos acciones.</p>
+</aside>
 
 Podemos **encadenar condiciones** cuando hay más de dos posibilidades. Se comprueban en orden y se ejecuta el bloque de la primera condición verdadera; si ninguna se cumple, puede ejecutarse un bloque final. Por ejemplo, una puntuación puede dar lugar a un premio de oro, plata o bronce.
 
@@ -274,17 +286,19 @@ Podemos **encadenar condiciones** cuando hay más de dos posibilidades. Se compr
 
 ![Esquema de condiciones encadenadas que se comprueban en orden](../../../../assets/introduccion/condiciones-encadenadas.png)
 
-:::tip[Ejemplo]
-El gremio de magos revisa la puntuación de un aprendiz: con 90 puntos o más le concede una varita legendaria; con 60 o más, una capa que cambia de color; con menos, un sombrero que cuenta chistes malos. El orden de las preguntas evita darle dos premios.
-:::
+<aside class="java-document-note">
+<p><strong>EJEMPLO</strong></p>
+<p>El gremio de magos revisa la puntuación de un aprendiz: con 90 puntos o más le concede una varita legendaria; con 60 o más, una capa que cambia de color; con menos, un sombrero que cuenta chistes malos. El orden de las preguntas evita darle dos premios.</p>
+</aside>
 
 Cuando elegimos entre varios **valores de una misma opción**, usamos una selección por casos (`Segun`): por ejemplo, la opción `1` abre el inventario y la `2` muestra el mapa. Puede existir un caso para los demás valores. Se ejecuta, como máximo, el bloque del caso elegido.
 
 ![Esquema de selección entre varios casos](../../../../assets/introduccion/switch.png)
 
-:::tip[Ejemplo]
-Una máquina expendedora intergaláctica entrega pizza de Marte si eliges la opción 1, helado de Saturno si eliges la 2 y galletas lunares si eliges la 3. Para cualquier otro número muestra «planeta desconocido».
-:::
+<aside class="java-document-note">
+<p><strong>EJEMPLO</strong></p>
+<p>Una máquina expendedora intergaláctica entrega pizza de Marte si eliges la opción 1, helado de Saturno si eliges la 2 y galletas lunares si eliges la 3. Para cualquier otro número muestra «planeta desconocido».</p>
+</aside>
 
 #### Repetición: ejecutar pasos varias veces
 
@@ -292,25 +306,28 @@ Un bucle `Para` repite un bloque un número previsto de veces. Una variable de c
 
 ![Esquema de un bucle con contador](../../../../assets/introduccion/for.png)
 
-:::tip[Ejemplo]
-Un explorador debe revisar exactamente cinco cofres de una mazmorra. Abre el primero, luego el segundo y así hasta el quinto, anotando el botín de cada uno.
-:::
+<aside class="java-document-note">
+<p><strong>EJEMPLO</strong></p>
+<p>Un explorador debe revisar exactamente cinco cofres de una mazmorra. Abre el primero, luego el segundo y así hasta el quinto, anotando el botín de cada uno.</p>
+</aside>
 
 Un bucle `Mientras` comprueba la condición **antes** de cada vuelta. Si es verdadera, ejecuta el bloque y vuelve a comprobarla; si es falsa, continúa después del bucle. Por ejemplo, seguimos jugando mientras queden vidas. Si ya no queda ninguna al empezar, el bloque no se ejecuta.
 
 ![Esquema de un bucle que comprueba la condición antes de ejecutarse](../../../../assets/introduccion/while.png)
 
-:::tip[Ejemplo]
-Un vampiro se prueba capas mientras queden capas limpias en el armario. Cada vez toma una y comprueba si quedan más; si el armario está vacío desde el principio, no se prueba ninguna.
-:::
+<aside class="java-document-note">
+<p><strong>EJEMPLO</strong></p>
+<p>Un vampiro se prueba capas mientras queden capas limpias en el armario. Cada vez toma una y comprueba si quedan más; si el armario está vacío desde el principio, no se prueba ninguna.</p>
+</aside>
 
 En una repetición que comprueba la condición **al final**, el bloque se ejecuta al menos una vez. Por ejemplo, pedimos una respuesta y repetimos hasta que sea correcta. En PSeInt escribiremos esta forma con `Repetir...Hasta Que`: termina cuando la condición final es verdadera.
 
 ![Esquema de un bucle que comprueba la condición después de ejecutarse](../../../../assets/introduccion/do-while.png)
 
-:::tip[Ejemplo]
-Un guardián pregunta al aventurero la contraseña secreta y, tras cada respuesta, comprueba si ha acertado. Pregunta al menos una vez y vuelve a hacerlo hasta oír «patatas cósmicas».
-:::
+<aside class="java-document-note">
+<p><strong>EJEMPLO</strong></p>
+<p>Un guardián pregunta al aventurero la contraseña secreta y, tras cada respuesta, comprueba si ha acertado. Pregunta al menos una vez y vuelve a hacerlo hasta oír «patatas cósmicas».</p>
+</aside>
 
 En la siguiente guía veremos la escritura concreta de estas estructuras en PSeInt.
 
