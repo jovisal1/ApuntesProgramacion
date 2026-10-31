@@ -23,13 +23,15 @@ Al principio aparecerán llaves, puntos y coma y mensajes del compilador que tod
 
 Empezaremos con algo pequeño: conseguir que nuestro primer programa muestre un mensaje. Después le daremos datos, haremos cálculos, incorporaremos decisiones y conseguiremos que responda a lo que una persona escriba por teclado. Así iremos construyendo programas cuyo comportamiento podremos explicar, probar y mejorar.
 
-Este recorrido se organiza en cinco apartados:
+Este recorrido se organiza en siete apartados:
 
 1. [Historia y características de Java](/ApuntesProgramacion/guides/introduccion-a-java/historia-y-caracteristicas/): conoceremos el lenguaje y las herramientas que necesitamos, y viviremos el primer paso del proceso completo: escribir, compilar y ejecutar nuestro propio programa.
-2. [Tipos de datos, variables y más](/ApuntesProgramacion/guides/introduccion-a-java/tipos-de-datos-variables-y-mas/): llevaremos a Java la lógica que ya hemos practicado y aprenderemos a combinar datos, operaciones y expresiones para resolver problemas.
-3. [Estructuras de control](/ApuntesProgramacion/guides/introduccion-a-java/estructuras-de-control/): tomaremos decisiones y repetiremos instrucciones con las estructuras de selección, iteración y salto.
-4. [Entrada y salida de datos](/ApuntesProgramacion/guides/introduccion-a-java/entrada-y-salida-de-datos/): haremos que nuestros programas interactúen con el usuario, reciban información y comuniquen resultados de forma clara.
-5. [Arrays](/ApuntesProgramacion/guides/introduccion-a-java/arrays/): guardaremos y recorreremos varios datos del mismo tipo, en una o varias dimensiones.
+2. [Tipos de datos, variables y constantes](/ApuntesProgramacion/guides/introduccion-a-java/tipos-de-datos-variables-y-mas/): guardaremos datos con tipos, variables y constantes.
+3. [Operadores y expresiones](/ApuntesProgramacion/guides/introduccion-a-java/operadores-y-expresiones/): calcularemos y construiremos condiciones.
+4. [Cadenas de texto y conversiones](/ApuntesProgramacion/guides/introduccion-a-java/cadenas-de-texto-y-conversiones/): trabajaremos con texto y conversiones.
+5. [Estructuras de control](/ApuntesProgramacion/guides/introduccion-a-java/estructuras-de-control/): tomaremos decisiones y repetiremos instrucciones con las estructuras de selección, iteración y salto.
+6. [Entrada y salida de datos](/ApuntesProgramacion/guides/introduccion-a-java/entrada-y-salida-de-datos/): haremos que nuestros programas interactúen con el usuario, reciban información y comuniquen resultados de forma clara.
+7. [Arrays](/ApuntesProgramacion/guides/introduccion-a-java/arrays/): guardaremos y recorreremos varios datos del mismo tipo, en una o varias dimensiones.
 
 A lo largo de la unidad seguiremos trabajando el reconocimiento de los elementos de un programa (RA1) y la escritura y depuración de código (RA3). El objetivo es que, ante un problema sencillo, podamos plantear una solución, escribirla en Java y comprobar que funciona, entendiendo por qué.
 

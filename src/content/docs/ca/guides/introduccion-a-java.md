@@ -17,13 +17,15 @@ Al principi apareixeran claus, punts i comes i missatges del compilador que enca
 
 Començarem amb una cosa xicoteta: aconseguir que el nostre primer programa mostre un missatge. Després li donarem dades, farem càlculs, incorporarem decisions i aconseguirem que responga al que una persona escriga per teclat. Així anirem construint programes el comportament dels quals podrem explicar, provar i millorar.
 
-Este recorregut s'organitza en cinc apartats:
+Este recorregut s'organitza en set apartats:
 
 1. [Història i característiques de Java](/ApuntesProgramacion/ca/guides/introduccion-a-java/historia-y-caracteristicas/): coneixerem el llenguatge i les ferramentes que necessitem, i viurem el primer pas del procés complet: escriure, compilar i executar el nostre propi programa.
-2. [Tipus de dades, variables i més](/ApuntesProgramacion/ca/guides/introduccion-a-java/tipos-de-datos-variables-y-mas/): portarem a Java la lògica que ja hem practicat i aprendrem a combinar dades, operacions i expressions per a resoldre problemes.
-3. [Estructures de control](/ApuntesProgramacion/ca/guides/introduccion-a-java/estructuras-de-control/): prendrem decisions i repetirem instruccions amb les estructures de selecció, iteració i salt.
-4. [Entrada i eixida de dades](/ApuntesProgramacion/ca/guides/introduccion-a-java/entrada-y-salida-de-datos/): farem que els nostres programes interactuen amb l'usuari, reben informació i comuniquen resultats de manera clara.
-5. [Arrays](/ApuntesProgramacion/ca/guides/introduccion-a-java/arrays/): guardarem i recorrerem diverses dades del mateix tipus, en una o diverses dimensions.
+2. [Tipus de dades, variables i constants](/ApuntesProgramacion/ca/guides/introduccion-a-java/tipos-de-datos-variables-y-mas/): guardarem dades amb tipus, variables i constants.
+3. [Operadors i expressions](/ApuntesProgramacion/ca/guides/introduccion-a-java/operadores-y-expresiones/): calcularem i construirem condicions.
+4. [Cadenes de text i conversions](/ApuntesProgramacion/ca/guides/introduccion-a-java/cadenas-de-texto-y-conversiones/): treballarem amb text i conversions.
+5. [Estructures de control](/ApuntesProgramacion/ca/guides/introduccion-a-java/estructuras-de-control/): prendrem decisions i repetirem instruccions amb les estructures de selecció, iteració i salt.
+6. [Entrada i eixida de dades](/ApuntesProgramacion/ca/guides/introduccion-a-java/entrada-y-salida-de-datos/): farem que els nostres programes interactuen amb l'usuari, reben informació i comuniquen resultats de manera clara.
+7. [Arrays](/ApuntesProgramacion/ca/guides/introduccion-a-java/arrays/): guardarem i recorrerem diverses dades del mateix tipus, en una o diverses dimensions.
 
 Al llarg de la unitat continuarem treballant el reconeixement dels elements d'un programa (RA1) i l'escriptura i depuració de codi (RA3). L'objectiu és que, davant d'un problema senzill, puguem plantejar una solució, escriure-la en Java i comprovar que funciona, entenent per què.
 
