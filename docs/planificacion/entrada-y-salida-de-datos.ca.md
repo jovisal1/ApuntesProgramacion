@@ -7,3 +7,7 @@ Crear un grup desplegable amb set pàgines: introducció; eixida per consola; en
 Eliminar «Practica amb solucions», les seues quatre activitats i solucions. Conservar la resta d’exemples i programes complets: la mitjana de notes i el menú es mantenen en Exemples complets. Repartir les taules existents de repàs i errors entre les pàgines corresponents. Mantindre les versions castellana i valenciana, els enllaços i les referències.
 
 És una reorganització del contingut existent; no es generen diapositives noves. Les finestres requerixen un escriptori gràfic per a executar-se: si l’entorn no permet provar-les, compilar l’exemple i indicar la limitació. La versió docent de Java continua pendent; Java 21 s’utilitza només per a les comprovacions.
+
+## Verificació
+
+Els 32 blocs Java conservats compilen amb Java 21. S’executen els 30 exemples de consola en 64 proves, amb entrades normals, invàlides, valors límit i fi d’entrada; es comproven huit eixides documentades. Els dos exemples gràfics de JOptionPane només es compilen: la interacció de les seues finestres no s’ha verificat. Es corregix un exemple d’escapaments duplicats en l’eixida per consola i la seua eixida esperada, en els dos idiomes.

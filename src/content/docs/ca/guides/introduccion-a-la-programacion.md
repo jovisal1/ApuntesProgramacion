@@ -15,7 +15,9 @@ Al llarg d'esta primera unitat introductòria, realitzarem els nostres desenvolu
 
 Amb els continguts d'esta unitat començarem a treballar principalment els resultats d'aprenentatge (RA) següents del mòdul de Programació:
 
-- RA1. «Reconeix l'estructura d'un programa informàtic, identificant i relacionant els elements propis del llenguatge de programació utilitzat».
-- RA3. «Escriu i depura codi, analitzant i utilitzant les estructures de control del llenguatge».
+- **RA1**. «Reconeix l'estructura d'un programa informàtic, identificant i relacionant els elements propis del llenguatge de programació utilitzat».
+- **RA3**. «Escriu i depura codi, analitzant i utilitzant les estructures de control del llenguatge».
 
 Estos resultats d'aprenentatge no finalitzen en esta unitat. Els conceptes que estudiarem ací constituïxen la base sobre la qual anirem construint programes cada vegada més complets al llarg del curs, aprofundint posteriorment en la seua implementació mitjançant un llenguatge de programació i en els principis de la programació orientada a objectes.
+
+En esta unitat els treballem de manera introductòria: identifiquem dades i instruccions (RA1) i seguim, provem i corregim algoritmes amb condicions i bucles en paper i PSeInt (RA3). La numeració correspon al [mòdul 0485 de les ensenyances mínimes de DAM i DAW](https://www.boe.es/eli/es/rd/2023/05/29/405).

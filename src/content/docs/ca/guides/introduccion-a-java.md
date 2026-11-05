@@ -27,7 +27,15 @@ Este recorregut s'organitza en set apartats:
 6. [Entrada i eixida de dades](/ApuntesProgramacion/ca/guides/introduccion-a-java/entrada-y-salida-de-datos/): farem que els nostres programes interactuen amb l'usuari, reben informació i comuniquen resultats de manera clara.
 7. [Arrays](/ApuntesProgramacion/ca/guides/introduccion-a-java/arrays/): guardarem i recorrerem diverses dades del mateix tipus, en una o diverses dimensions.
 
-Al llarg de la unitat continuarem treballant el reconeixement dels elements d'un programa (RA1) i l'escriptura i depuració de codi (RA3). L'objectiu és que, davant d'un problema senzill, puguem plantejar una solució, escriure-la en Java i comprovar que funciona, entenent per què.
+En esta unitat treballarem els resultats d’aprenentatge (RA) següents, amb l’abast dels continguts estudiats:
+
+- **RA1:** estructura dels programes, tipus, variables, constants, operadors i conversions.
+- **RA2, de manera inicial:** programes senzills amb classes predefinides com `Scanner`, i ús dels seus objectes i mètodes; encara no es desenvolupa tot el model orientat a objectes.
+- **RA3:** selecció, repetició i salts, amb seguiment, prova i depuració del codi.
+- **RA5, parcialment:** entrada i eixida per consola, formats i diàlegs senzills; els fitxers es treballaran més avant.
+- **RA6, parcialment:** arrays d’una i diverses dimensions, recorreguts i operacions amb `java.util.Arrays`; encara no s’inclouen col·leccions ni tipus genèrics.
+
+Esta relació es basa en el [mòdul 0485 de les ensenyances mínimes de DAM i DAW](https://www.boe.es/eli/es/rd/2023/05/29/405). Els RA es continuaran desenvolupant en les unitats següents. L’objectiu és que puguem plantejar una solució senzilla, escriure-la en Java i comprovar que funciona, entenent per què.
 
 <p style="text-align: center;">
   <strong>És el moment d'obrir l'editor i escriure el nostre primer programa en Java.</strong>

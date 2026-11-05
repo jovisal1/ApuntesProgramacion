@@ -33,7 +33,15 @@ Este recorrido se organiza en siete apartados:
 6. [Entrada y salida de datos](/ApuntesProgramacion/guides/introduccion-a-java/entrada-y-salida-de-datos/): haremos que nuestros programas interactúen con el usuario, reciban información y comuniquen resultados de forma clara.
 7. [Arrays](/ApuntesProgramacion/guides/introduccion-a-java/arrays/): guardaremos y recorreremos varios datos del mismo tipo, en una o varias dimensiones.
 
-A lo largo de la unidad seguiremos trabajando el reconocimiento de los elementos de un programa (RA1) y la escritura y depuración de código (RA3). El objetivo es que, ante un problema sencillo, podamos plantear una solución, escribirla en Java y comprobar que funciona, entendiendo por qué.
+En esta unidad trabajaremos los siguientes resultados de aprendizaje (RA), con el alcance de los contenidos estudiados:
+
+- **RA1:** estructura de los programas, tipos, variables, constantes, operadores y conversiones.
+- **RA2, de forma inicial:** programas sencillos con clases predefinidas como `Scanner`, y uso de sus objetos y métodos; todavía no se desarrolla todo el modelo orientado a objetos.
+- **RA3:** selección, repetición y saltos, con seguimiento, prueba y depuración del código.
+- **RA5, parcialmente:** entrada y salida por consola, formatos y diálogos sencillos; los ficheros se trabajarán más adelante.
+- **RA6, parcialmente:** arrays de una y varias dimensiones, recorridos y operaciones con `java.util.Arrays`; todavía no se incluyen colecciones ni tipos genéricos.
+
+Esta relación se basa en el [módulo 0485 de las enseñanzas mínimas de DAM y DAW](https://www.boe.es/eli/es/rd/2023/05/29/405). Los RA se seguirán desarrollando en las siguientes unidades. El objetivo es que podamos plantear una solución sencilla, escribirla en Java y comprobar que funciona, entendiendo por qué.
 
 <p style="text-align: center;">
   <strong>Es el momento de abrir el editor y escribir nuestro primer programa en Java.</strong>

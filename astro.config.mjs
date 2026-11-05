@@ -194,6 +194,48 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              label: "Funciones en Java",
+              translations: { ca: "Funcions en Java" },
+              collapsed: true,
+              items: [
+                {
+                  label: "Introducción",
+                  translations: { ca: "Introducció" },
+                  slug: "guides/funciones-en-java",
+                },
+                {
+                  label: "Declaración y llamada",
+                  translations: { ca: "Declaració i crida" },
+                  slug: "guides/funciones-en-java/declaracion-y-llamada",
+                },
+                {
+                  label: "Flujo de ejecución",
+                  translations: { ca: "Flux d’execució" },
+                  slug: "guides/funciones-en-java/flujo-de-ejecucion",
+                },
+                {
+                  label: "Ámbito de las variables",
+                  translations: { ca: "Àmbit de les variables" },
+                  slug: "guides/funciones-en-java/ambito-de-las-variables",
+                },
+                {
+                  label: "Paso de argumentos",
+                  translations: { ca: "Pas d’arguments" },
+                  slug: "guides/funciones-en-java/paso-de-argumentos",
+                },
+                {
+                  label: "Sobrecarga y varargs",
+                  translations: { ca: "Sobrecàrrega i varargs" },
+                  slug: "guides/funciones-en-java/sobrecarga-y-varargs",
+                },
+                {
+                  label: "Recursión",
+                  translations: { ca: "Recursió" },
+                  slug: "guides/funciones-en-java/recursion",
+                },
+              ],
+            },
           ],
         },
       ],
