@@ -91,6 +91,11 @@ Els nombres després de les preguntes són les respostes de l’usuari. Es conse
 
 Que `sumar` estiga escrit després de `main` no impedix cridar-lo. **L’ordre de les crides determina l’execució**, no l’ordre en què s’han col·locat els mètodes en el fitxer. No es poden declarar mètodes dins de `main`.
 
+<aside class="java-document-note">
+<p><strong>EN PARAULES SENZILLES</strong></p>
+<p>Cridar un mètode és com posar un punt de llibre en la tasca que estaves fent. Vas a resoldre la tasca del mètode i, quan acaba, tornes al punt que havies deixat pendent. En <code>int total = sumar(12, 8);</code>, primer cal obtindre <code>20</code>; després es completa l’assignació a <code>total</code>.</p>
+</aside>
+
 ## Crides dins d’altres crides
 
 Este fragment va en el mateix `main` i utilitza el mètode anterior:

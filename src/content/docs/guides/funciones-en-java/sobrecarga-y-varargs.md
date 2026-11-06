@@ -45,6 +45,11 @@ El compilador selecciona el método según los tipos y el número de argumentos.
 
 Si llamas a `sumar(2, 3.5)`, los dos argumentos son compatibles con la versión de dos `double`; el primero se convierte y el resultado es `5.5`. No se convierte automáticamente `3.5` en `int`.
 
+<aside class="java-document-note">
+<p><strong>EN PALABRAS SENCILLAS</strong></p>
+<p>Dos herramientas pueden llamarse «sumar», pero estar preparadas para entradas diferentes: una para dos enteros y otra para dos decimales. El compilador mira los tipos de los argumentos para elegir la herramienta. <strong>Cambiar solo el tipo de resultado no basta</strong>: las entradas seguirían siendo iguales y no distinguirían las dos versiones.</p>
+</aside>
+
 ## Qué no crea una sobrecarga
 
 Estos dos métodos juntos en la misma clase producen un **error deliberado**:
@@ -97,6 +102,11 @@ public class SumaVariable {
 ```
 
 La llamada sin argumentos proporciona un array vacío y el acumulador permanece a cero. También puedes pasar un array existente. En ese caso se comparte el mismo array mediante una copia de su referencia; si el método modificara casillas, el cambio sería visible fuera. Este método solo las lee y supone una referencia no nula.
+
+<aside class="java-document-note">
+<p><strong>EN PALABRAS SENCILLAS</strong></p>
+<p><code>varargs</code> es como recibir los números juntos en una bandeja. Puedes entregar ninguno, uno o varios; dentro del método se recorren como un array. En <code>sumar(1, 2, 3)</code>, la «bandeja» contiene tres enteros. No se crea una versión nueva del método para cada cantidad.</p>
+</aside>
 
 ## Reglas que hay que respetar
 

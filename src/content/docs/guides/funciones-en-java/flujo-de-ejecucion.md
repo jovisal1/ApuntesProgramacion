@@ -91,6 +91,11 @@ Los números tras las preguntas son las respuestas del usuario. Se conserva un s
 
 Que `sumar` esté escrito después de `main` no impide llamarlo. **El orden de las llamadas determina la ejecución**, no el orden en que se han colocado los métodos en el archivo. No se pueden declarar métodos dentro de `main`.
 
+<aside class="java-document-note">
+<p><strong>EN PALABRAS SENCILLAS</strong></p>
+<p>Llamar a un método es como poner un marcapáginas en la tarea que estabas haciendo. Vas a resolver la tarea del método y, cuando termina, vuelves al punto que dejaste pendiente. En <code>int total = sumar(12, 8);</code>, primero hay que obtener <code>20</code>; después se completa la asignación a <code>total</code>.</p>
+</aside>
+
 ## Llamadas dentro de otras llamadas
 
 Este fragmento va en el mismo `main` y utiliza el método anterior:

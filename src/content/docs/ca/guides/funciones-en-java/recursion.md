@@ -16,6 +16,11 @@ Tot disseny recursiu d’esta unitat tindrà:
 
 No n’hi ha prou amb escriure un cas base: les entrades permeses han d’arribar-hi. Si cada crida torna a plantejar el mateix problema sense reduir-lo, no acabarem.
 
+<aside class="java-document-note">
+<p><strong>EN PARAULES SENZILLES</strong></p>
+<p>Imagina que baixes una escala per a resoldre una tasca cada vegada més menuda. El <strong>cas base</strong> és l’escaló on ja pots respondre sense continuar baixant. Després puges i uses cada resposta per a acabar la tasca que havia quedat pendent dalt. Perquè funcione, cada crida ha d’acostar-te a eixe escaló final; baixar sense arribar-hi mai no resol el problema.</p>
+</aside>
+
 ## Factorial d’un nombre
 
 El factorial d’un enter no negatiu és el producte dels enters des d’`1` fins a eixe nombre. S’escriu `n!`. Per definició, `0! = 1`. Per exemple, `4! = 4 × 3 × 2 × 1 = 24`.

@@ -45,6 +45,11 @@ int total = sumar(puntos, 3 + 2);
 
 Este fragmento va dentro de `main` de una clase que contenga el método `sumar`. Primero se evalúan los argumentos: `puntos` aporta `12` y `3 + 2` aporta `5`. Los parámetros reciben esos valores **por posición**, no por coincidencia de nombres. El resultado `17` se guarda en `total`.
 
+<aside class="java-document-note">
+<p><strong>EN PALABRAS SENCILLAS</strong></p>
+<p>Imagina una ficha con dos huecos: «primer número» y «segundo número». Los <strong>parámetros</strong> son esos huecos con nombre; los <strong>argumentos</strong> son los datos que ponemos en ellos en cada llamada. En <code>sumar(12, 5)</code>, el primer parámetro recibe <code>12</code> y el segundo recibe <code>5</code>. Otra llamada puede llenar esos mismos huecos con otros valores.</p>
+</aside>
+
 Los argumentos deben ser compatibles con los tipos declarados. Un parámetro `double` puede recibir un `int` mediante conversión automática; un parámetro `int` no acepta directamente `2.5`. Los paréntesis son obligatorios incluso si no hay parámetros. Entre parámetros se usan comas y cada uno lleva su propio tipo.
 
 ## Devolver y mostrar son tareas diferentes
@@ -57,6 +62,11 @@ System.out.println(doble); // 14
 ```
 
 Si escribes solo `sumar(4, 3);`, la llamada se realiza, pero descartas el resultado: no se muestra automáticamente.
+
+<aside class="java-document-note">
+<p><strong>EN PALABRAS SENCILLAS</strong></p>
+<p><strong>Devolver es entregar; mostrar es enseñar en pantalla.</strong> Si pides una suma, <code>return</code> te entrega el número para que puedas guardarlo o seguir calculando. <code>println</code> lo escribe en la consola. Entregar el resultado no hace que aparezca automáticamente en pantalla.</p>
+</aside>
 
 Un método con retorno debe proporcionar un valor compatible en todos los caminos que puedan terminar normalmente. Por ejemplo, este método puede devolver `true` o `false`:
 

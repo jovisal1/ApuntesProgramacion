@@ -91,6 +91,11 @@ public class PasoArray {
 
 Los métodos anteriores suponen que el array no es `null`. `incrementar` acepta un array vacío: el bucle no realiza ninguna vuelta. En este ejemplo usamos valores pequeños para evitar el desbordamiento.
 
+<aside class="java-document-note">
+<p><strong>EN PALABRAS SENCILLAS</strong></p>
+<p>Piensa en un array como una caja y en su referencia como una tarjeta que permite encontrarla. Al llamar al método, copiamos la tarjeta: <strong>las dos tarjetas llevan a la misma caja</strong>. Cambiar una casilla es cambiar lo que hay dentro de esa caja. Reasignar el parámetro es cambiar solo la tarjeta del método para que lleve a otra caja; la tarjeta de <code>main</code> sigue llevando a la primera.</p>
+</aside>
+
 ## Devolver un array nuevo
 
 Si queremos una copia modificada y conservar el original, podemos construirla. Este método se coloca dentro de una clase y fuera de `main`:

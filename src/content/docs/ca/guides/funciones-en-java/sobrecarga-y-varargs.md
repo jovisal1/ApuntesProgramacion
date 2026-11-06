@@ -45,6 +45,11 @@ El compilador selecciona el mètode segons els tipus i el nombre d’arguments. 
 
 Si crides `sumar(2, 3.5)`, els dos arguments són compatibles amb la versió de dos `double`; el primer es convertix i el resultat és `5.5`. No es convertix automàticament `3.5` en `int`.
 
+<aside class="java-document-note">
+<p><strong>EN PARAULES SENZILLES</strong></p>
+<p>Dos eines poden dir-se «sumar», però estar preparades per a entrades diferents: una per a dos enters i una altra per a dos decimals. El compilador mira els tipus dels arguments per a triar l’eina. <strong>Canviar només el tipus de resultat no és suficient</strong>: les entrades continuarien sent iguals i no distingirien les dos versions.</p>
+</aside>
+
 ## Què no crea una sobrecàrrega
 
 Estos dos mètodes junts en la mateixa classe produïxen un **error deliberat**:
@@ -97,6 +102,11 @@ public class SumaVariable {
 ```
 
 La crida sense arguments proporciona un array buit i l’acumulador es manté a zero. També pots passar un array existent. En eixe cas es compartix el mateix array mitjançant una còpia de la seua referència; si el mètode modificara caselles, el canvi seria visible fora. Este mètode només les llig i suposa una referència no nul·la.
+
+<aside class="java-document-note">
+<p><strong>EN PARAULES SENZILLES</strong></p>
+<p><code>varargs</code> és com rebre els nombres junts en una safata. Pots entregar-ne cap, un o diversos; dins del mètode es recorren com un array. En <code>sumar(1, 2, 3)</code>, la «safata» conté tres enters. No es crea una versió nova del mètode per a cada quantitat.</p>
+</aside>
 
 ## Regles que cal respectar
 

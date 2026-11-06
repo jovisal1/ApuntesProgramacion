@@ -37,6 +37,11 @@ No podrías escribir `System.out.println(resultado);` en `main`: allí ese nombr
 
 Los parámetros ya están declarados: no se permite declarar dentro del mismo método otra variable local con el mismo nombre. Dos métodos distintos sí pueden tener variables locales llamadas `resultado`.
 
+<aside class="java-document-note">
+<p><strong>EN PALABRAS SENCILLAS</strong></p>
+<p>Imagina que cada método trabaja con su propia hoja de borrador. Un nombre escrito en la hoja de <code>duplicar</code> no aparece por sí solo en la hoja de <code>main</code>. Los parámetros permiten recibir datos y <code>return</code> permite entregar un resultado. Por eso <code>main</code> no puede leer directamente la variable local <code>resultado</code> de otro método.</p>
+</aside>
+
 ## Las llaves también delimitan el ámbito
 
 Fragmento para colocar dentro de `main`:

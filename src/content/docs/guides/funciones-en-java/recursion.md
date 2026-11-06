@@ -16,6 +16,11 @@ Todo diseño recursivo de esta unidad tendrá:
 
 No basta con escribir un caso base: las entradas permitidas deben llegar a él. Si cada llamada vuelve a plantear el mismo problema sin reducirlo, no terminaremos.
 
+<aside class="java-document-note">
+<p><strong>EN PALABRAS SENCILLAS</strong></p>
+<p>Imagina que bajas una escalera para resolver una tarea cada vez más pequeña. El <strong>caso base</strong> es el peldaño donde ya puedes responder sin seguir bajando. Después subes y usas cada respuesta para terminar la tarea que quedó pendiente arriba. Para que funcione, cada llamada debe acercarte a ese peldaño final; bajar sin llegar nunca a él no resuelve el problema.</p>
+</aside>
+
 ## Factorial de un número
 
 El factorial de un entero no negativo es el producto de los enteros desde `1` hasta ese número. Se escribe `n!`. Por definición, `0! = 1`. Por ejemplo, `4! = 4 × 3 × 2 × 1 = 24`.

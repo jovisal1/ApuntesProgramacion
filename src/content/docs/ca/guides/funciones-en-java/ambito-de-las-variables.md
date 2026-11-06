@@ -37,6 +37,11 @@ No podries escriure `System.out.println(resultado);` en `main`: allí eixe nom n
 
 Els paràmetres ja estan declarats: no es permet declarar dins del mateix mètode una altra variable local amb el mateix nom. Dos mètodes diferents sí que poden tindre variables locals anomenades `resultado`.
 
+<aside class="java-document-note">
+<p><strong>EN PARAULES SENZILLES</strong></p>
+<p>Imagina que cada mètode treballa amb el seu propi full d’esborrany. Un nom escrit en el full de <code>duplicar</code> no apareix per si mateix en el full de <code>main</code>. Els paràmetres permeten rebre dades i <code>return</code> permet entregar un resultat. Per això <code>main</code> no pot llegir directament la variable local <code>resultado</code> d’un altre mètode.</p>
+</aside>
+
 ## Les claus també delimiten l’àmbit
 
 Fragment per a col·locar dins de `main`:

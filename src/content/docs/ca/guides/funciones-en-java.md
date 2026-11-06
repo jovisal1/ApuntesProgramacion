@@ -11,8 +11,6 @@ Esta unitat se centra en **RA2**, per les crides amb paràmetres, i en una part 
 
 També reforcem **RA1** amb l’estructura i l’àmbit de les variables, **RA3** amb les condicions, els bucles i la comprovació dels exemples, **RA5** amb la lectura i l’eixida per consola de la suma i **RA6** amb el pas i el retorn d’arrays. Treballar estos aspectes no equival a completar tots els criteris de cada RA.
 
-La numeració i els criteris corresponen al [mòdul 0485 de les ensenyances mínimes de DAM i DAW](https://www.boe.es/eli/es/rd/2023/05/29/405).
-
 ## Dividir un problema en tasques
 
 Imagina un programa que calcula les puntuacions de diverses partides. En cada partida cal sumar els punts obtinguts i una bonificació. Copiar la suma en molts llocs funciona al principi, però cada canvi obliga a revisar totes les còpies. Si donem un nom a eixa operació, podem escriure-la una vegada i cridar-la amb dades diferents.
@@ -25,6 +23,11 @@ Un mètode és una peça d’un programa que pot **rebre dades**, **executar ins
 | Comprovar si s’aprova | Una nota | Un `boolean` |
 | Mostrar un menú | Cap | Cap valor |
 | Buscar una puntuació | Un array i un valor | La seua posició o `-1` |
+
+<aside class="java-document-note">
+<p><strong>DEFINICIÓ</strong></p>
+<p><strong>Mètode:</strong> bloc d’instruccions amb un nom que fa una tasca. Pensa en una recepta guardada: escriure-la deixa preparats els passos; cridar-la és demanar que se seguisquen. Pot necessitar dades per a treballar i pot retornar un resultat.</p>
+</aside>
 
 ## Funció i mètode
 

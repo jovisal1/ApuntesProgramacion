@@ -91,6 +91,11 @@ public class PasoArray {
 
 Els mètodes anteriors suposen que l’array no és `null`. `incrementar` accepta un array buit: el bucle no fa cap volta. En este exemple usem valors menuts per a evitar el desbordament.
 
+<aside class="java-document-note">
+<p><strong>EN PARAULES SENZILLES</strong></p>
+<p>Pensa en un array com una caixa i en la seua referència com una targeta que permet trobar-la. En cridar el mètode, copiem la targeta: <strong>les dos targetes porten a la mateixa caixa</strong>. Canviar una casella és canviar el que hi ha dins d’eixa caixa. Reassignar el paràmetre és canviar només la targeta del mètode perquè porte a una altra caixa; la targeta de <code>main</code> continua portant a la primera.</p>
+</aside>
+
 ## Retornar un array nou
 
 Si volem una còpia modificada i conservar l’original, podem construir-la. Este mètode es col·loca dins d’una classe i fora de `main`:

@@ -45,6 +45,11 @@ int total = sumar(puntos, 3 + 2);
 
 Este fragment va dins de `main` d’una classe que continga el mètode `sumar`. Primer s’avaluen els arguments: `puntos` aporta `12` i `3 + 2` aporta `5`. Els paràmetres reben eixos valors **per posició**, no per coincidència de noms. El resultat `17` es guarda en `total`.
 
+<aside class="java-document-note">
+<p><strong>EN PARAULES SENZILLES</strong></p>
+<p>Imagina una fitxa amb dos buits: «primer nombre» i «segon nombre». Els <strong>paràmetres</strong> són eixos buits amb nom; els <strong>arguments</strong> són les dades que hi posem en cada crida. En <code>sumar(12, 5)</code>, el primer paràmetre rep <code>12</code> i el segon rep <code>5</code>. Una altra crida pot omplir eixos mateixos buits amb altres valors.</p>
+</aside>
+
 Els arguments han de ser compatibles amb els tipus declarats. Un paràmetre `double` pot rebre un `int` mitjançant conversió automàtica; un paràmetre `int` no accepta directament `2.5`. Els parèntesis són obligatoris encara que no hi haja paràmetres. Entre paràmetres s’usen comes i cada un porta el seu tipus.
 
 ## Retornar i mostrar són tasques diferents
@@ -57,6 +62,11 @@ System.out.println(doble); // 14
 ```
 
 Si escrius només `sumar(4, 3);`, la crida es fa, però descartes el resultat: no es mostra automàticament.
+
+<aside class="java-document-note">
+<p><strong>EN PARAULES SENZILLES</strong></p>
+<p><strong>Retornar és entregar; mostrar és ensenyar en pantalla.</strong> Si demanes una suma, <code>return</code> t’entrega el nombre perquè pugues guardar-lo o continuar calculant. <code>println</code> l’escriu en la consola. Entregar el resultat no fa que aparega automàticament en pantalla.</p>
+</aside>
 
 Un mètode amb retorn ha de proporcionar un valor compatible en tots els camins que puguen acabar normalment. Per exemple, este mètode pot retornar `true` o `false`:
 

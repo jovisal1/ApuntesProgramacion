@@ -11,8 +11,6 @@ Esta unidad se centra en **RA2**, por las llamadas con parámetros, y en una par
 
 También reforzamos **RA1** con la estructura y el ámbito de las variables, **RA3** con las condiciones, los bucles y la comprobación de los ejemplos, **RA5** con la lectura y la salida por consola de la suma y **RA6** con el paso y el retorno de arrays. Trabajar estos aspectos no equivale a completar todos los criterios de cada RA.
 
-La numeración y los criterios corresponden al [módulo 0485 de las enseñanzas mínimas de DAM y DAW](https://www.boe.es/eli/es/rd/2023/05/29/405).
-
 ## Dividir un problema en tareas
 
 Imagina un programa que calcula las puntuaciones de varias partidas. En cada partida hay que sumar los puntos obtenidos y una bonificación. Copiar la suma en muchos sitios funciona al principio, pero cada cambio obliga a revisar todas las copias. Si damos un nombre a esa operación, podemos escribirla una vez y llamarla con datos diferentes.
@@ -25,6 +23,11 @@ Un método es una pieza de un programa que puede **recibir datos**, **ejecutar i
 | Comprobar si se aprueba | Una nota | Un `boolean` |
 | Mostrar un menú | Ninguno | Ningún valor |
 | Buscar una puntuación | Un array y un valor | Su posición o `-1` |
+
+<aside class="java-document-note">
+<p><strong>DEFINICIÓN</strong></p>
+<p><strong>Método:</strong> bloque de instrucciones con un nombre que realiza una tarea. Piensa en una receta guardada: escribirla deja preparados los pasos; llamarla es pedir que se sigan. Puede necesitar datos para trabajar y puede devolver un resultado.</p>
+</aside>
 
 ## Función y método
 
