@@ -19,6 +19,12 @@ Material didàctic de programació en **castellà i valencià**, amb explicacion
 
 L’apartat de testing utilitza VS Code sense Maven ni Gradle, amb JUnit Jupiter 5.13.4 i Console Standalone 1.13.4. Els [exemples editables](ejemplos/testing-junit/ca/README.md) contenen 18 tests. El JAR de JUnit es descarrega per separat, seguint la guia. El material explica assercions de valor, booleans, arrays, referències nul·les, missatges i `@DisplayName`, i inclou les quatre anotacions del cicle de vida amb dades independents per prova. Els fonts de cada idioma estan en `ejemplos/testing-junit/`; després de modificar-los, comprova que els 18 tests continuen passant.
 
+## Diapositives
+
+Les presentacions HTML, CSS i JavaScript residixen en `public/diapositivas/`, amb un índex `index.html` i versions en castellà i valencià. Es publiquen com a fitxers estàtics: `/ApuntesProgramacion/diapositivas/index.html`. Cada tema té la seua URL directa, per exemple `/ApuntesProgramacion/diapositivas/funciones-en-java-ca.html` i `/ApuntesProgramacion/diapositivas/testing-con-junit-ca.html`. El professor compartirà els enllaços en Aules; no s’afigen enllaços des dels apunts, entrades de menú ni visors integrats.
+
+Funcions té 29 diapositives i Testing en té 30 en cada idioma. Inclouen exemples desenvolupats, programes complets, esquemes de crides i tasques, raonaments desplegables i errors deliberats identificats. Testing desglossa les assercions, els seus resultats d’encert i error, els límits i el cicle de vida en VS Code sense gestor. Per a actualitzar les presentacions, editar directament esta carpeta i comprovar recursos, interaccions i compilació del lloc; no hi ha còpies externes per a sincronitzar.
+
 ## Treballar en local
 
 ### Requisits

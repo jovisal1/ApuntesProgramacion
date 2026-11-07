@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ca"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Funcions en Java</title><link rel="stylesheet" href="assets/slides.css"><script src="assets/slides.js" defer></script><script src="assets/funciones.js" defer></script></head>
+<body data-topic="3" data-lang="ca"><a class="skip" href="#presentation">Saltar a les diapositives</a><header><a class="brand" href="index.html">JAVA<span> / A CLASSE</span></a><a href="funciones-en-java-es.html" lang="es">Castellano</a></header><main id="presentation"><h1>Funcions en Java</h1>
+<section class="slide" data-slide aria-label="1. Del programa llarg a tres tasques"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Del programa llarg a tres tasques</h2><p class="lead">Llegir, calcular i mostrar tenen responsabilitats diferents.</p><p class="class-explanation">Partim de dos nombres ja llegits. Si barregem la suma amb l’eixida per consola, no podem reutilitzar el càlcul sense imprimir. Separarem les tasques per a poder cridar el càlcul des de main i, després, des d’un test.</p><details><summary>Revelar el raonament</summary><p>La part reutilitzable rep dos int i retorna un int. No necessita Scanner ni println.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>int primero = 8;
+int segundo = 5;
+System.out.println(primero + segundo);</code></pre><figure class="concept-figure"><img src="assets/funciones-tareas-ca.svg" width="840" height="270" alt="Llegir, calcular i mostrar tenen responsabilitats diferents."><figcaption>Del programa llarg a tres tasques</figcaption></figure></div></section>
+<section class="slide" data-slide aria-label="2. Dividir el treball"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Dividir el treball</h2><p class="lead">Un mètode dona nom a una tasca que podem reutilitzar.</p><p class="class-explanation">Decidim quines dades rep, quina operació fa i quin resultat retorna. Així main pot coordinar tasques menudes.</p></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>int total = sumar(10, 5);
+System.out.println(total); // 15</code></pre></div></section>
+<section class="slide" data-slide aria-label="3. Dissenyar el contracte abans del cos"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Dissenyar el contracte abans del cos</h2><p class="lead">Sumar rep dos enters i entrega la seua suma.</p><p class="class-explanation">El contracte descriu què pot esperar qui crida el mètode. Els paràmetres són les entrades; el retorn és l’eixida. Per a este exemple usem valors menuts amb un resultat que cap en int.</p><details><summary>Revelar el raonament</summary><p>EN PARAULES SENZILLES: entreguem dos nombres a una calculadora menuda i en recollim un. La pantalla la controla main.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>static int sumar(int a, int b) {
+    return a + b;
+}
+
+// main:
+int total = sumar(8, 5);
+System.out.println(total); // 13</code></pre></div></section>
+<section class="slide" data-slide aria-label="4. Llegir una declaració"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Llegir una declaració</h2><p class="lead">La capçalera explica com utilitzar el mètode.</p><p class="class-explanation">static permet cridar-lo sense crear un objecte. int indica el resultat; els dos paràmetres aporten les entrades. El cos fa el càlcul.</p></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>public static int sumar(int a, int b) {
+    return a + b;
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="5. Què significa cada peça"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Què significa cada peça</h2><p class="lead">La declaració pertany a la classe, fora de main.</p><p class="class-explanation">public permet l’accés des d’altres classes; static permet cridar sense construir un objecte. int és el tipus retornat. sumar és el nom i (int a, int b) declara les dos entrades. Les claus delimiten el cos.</p></div><div class="example"><div class="code-label">Calculadora.java · classe completa</div><pre><code>public class Calculadora {
+    public static int sumar(int a, int b) {
+        return a + b;
+    }
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="6. Paràmetres i arguments"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Paràmetres i arguments</h2><p class="lead">Els paràmetres es declaren; els arguments es proporcionen en cridar.</p><p class="class-explanation">S’avalua 3 + 2 i es copia 5 en b. Els noms no han de coincidir: importa la posició i la compatibilitat de tipus.</p></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>int puntos = 12;
+int total = sumar(puntos, 3 + 2);
+// a = 12; b = 5; total = 17</code></pre></div></section>
+<section class="slide" data-slide aria-label="7. Seguir les dades d’una crida"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Seguir les dades d’una crida</h2><p class="lead">Cada argument s’avalua i s’assigna al seu paràmetre per posició.</p><p class="class-explanation">En sumar(puntos, 3 + 2), primer obtenim 12 i 5. La nova crida té a = 12 i b = 5. El return calcula 17; només aleshores es completa l’assignació a total.</p><details><summary>Revelar el raonament</summary><p>1. Arguments: 12 i 5. → 2. Paràmetres: a = 12, b = 5. → 3. Càlcul: 17. → 4. main guarda total = 17.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>int puntos = 12;
+int total = sumar(puntos, 3 + 2);</code></pre><figure class="concept-figure"><img src="assets/funciones-llamada-ca.svg" width="840" height="270" alt="Cada argument s’avalua i s’assigna al seu paràmetre per posició."><figcaption>Seguir les dades d’una crida</figcaption></figure></div></section>
+<section class="slide" data-slide data-correct="1" aria-label="8. Retornar no és mostrar"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Retornar no és mostrar</h2><p class="lead">return entrega un valor al lloc de la crida.</p><p class="class-explanation">El mètode calcula 7, però no escriu en consola. Per a mostrar-lo hem d’utilitzar println; també podem guardar el resultat o multiplicar-lo.</p><fieldset><legend>Què apareix en consola?</legend><div class="choices"><button class="choice" type="button" data-answer="0" aria-pressed="false">7</button><button class="choice" type="button" data-answer="1" aria-pressed="false">Res</button></div></fieldset><p class="feedback" role="status"></p><details><summary>Veure l’explicació</summary><p>La crida retorna 7, però el seu resultat es descarta. El mètode no conté println.</p></details></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>public static int sumar(int a, int b) {
+    return a + b;
+}
+
+// En main:
+sumar(4, 3);</code></pre></div></section>
+<section class="slide" data-slide aria-label="9. Usar el resultat en una altra operació"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Usar el resultat en una altra operació</h2><p class="lead">El valor retornat substituïx la crida dins de l’expressió.</p><p class="class-explanation">sumar(4, 3) produïx 7. En la primera línia, eixe 7 es multiplica per 2. El mètode no decidix si guardem, imprimim o combinem el resultat: ho decidix qui el crida.</p></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>int doble = sumar(4, 3) * 2;
+System.out.println(doble); // 14
+System.out.println(sumar(1, 2)); // 3</code></pre></div></section>
+<section class="slide" data-slide aria-label="10. Una acció sense retorn"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Una acció sense retorn</h2><p class="lead">void indica que no es retorna cap valor.</p><p class="class-explanation">Este mètode rep un nom i mostra una salutació. Es crida com una instrucció; no podem assignar el seu resultat a una variable.</p></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>public static void saludar(String nombre) {
+    System.out.println(&quot;Hola, &quot; + nombre);
+}
+
+// En main:
+saludar(&quot;Ana&quot;);</code></pre></div></section>
+<section class="slide" data-slide aria-label="11. Detectar un retorn que falta"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Detectar un retorn que falta</h2><p class="lead">Un mètode int ha de retornar un int en tots els camins que acaben normalment.</p><p class="class-explanation">Amb numero = 0, l’if no entra i este mètode arriba al final sense entregar cap valor. El compilador detecta el problema abans d’executar el programa.</p><details><summary>Revelar el raonament</summary><p>Per a entrades menudes: afig return numero; després de l’if. Amb nombres no negatius, eixe és el valor absolut.</p></details></div><div class="example"><div class="code-label">Error deliberat · no compila</div><pre><code>static int absoluto(int numero) {
+    if (numero &lt; 0) {
+        return -numero;
+    }
+    // Error deliberat: falta un return.
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="12. Entrar i tornar"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Entrar i tornar</h2><p class="lead">main espera el resultat abans de completar l’assignació.</p><p class="class-explanation">Primer s’entra en sumar amb a = 2 i b = 3. return entrega 5. Després main guarda eixe valor en total i el mostra.</p></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>// main → sumar → main
+int total = sumar(2, 3);
+System.out.println(total); // 5</code></pre></div></section>
+<section class="slide" data-slide aria-label="13. Un programa complet que podem executar"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Un programa complet que podem executar</h2><p class="lead">main coordina; sumar fa el càlcul.</p><p class="class-explanation">Guarda este codi com ProgramaSuma.java. L’execució comença en main, salta a sumar i torna a l’assignació. La declaració de sumar no s’executa per estar escrita abans o després: cal una crida.</p></div><div class="example"><div class="code-label">ProgramaSuma.java · programa complet</div><pre><code>public class ProgramaSuma {
+    public static void main(String[] args) {
+        int total = sumar(8, 5);
+        System.out.println(total); // 13
+    }
+    static int sumar(int a, int b) {
+        return a + b;
+    }
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="14. Cada crida té les seues variables"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Cada crida té les seues variables</h2><p class="lead">Una variable local pertany al seu bloc; un paràmetre, a la seua crida.</p><p class="class-explanation">numero continua sent 10. valor rep una còpia i resultado només existix dins de duplicar. Per a comunicar el càlcul usem return.</p></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>public static int duplicar(int valor) {
+    int resultado = valor * 2;
+    return resultado;
+}
+
+// En main:
+int numero = 10;
+int doble = duplicar(numero); // 20</code></pre></div></section>
+<section class="slide" data-slide aria-label="15. L’àmbit seguix les claus"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>L’àmbit seguix les claus</h2><p class="lead">Una variable declarada dins d’un bloc no es pot usar fora.</p><p class="class-explanation">L’if crea un bloc interior. total només existix allí, encara que la condició siga true. Per a usar-lo després, declara’l abans de l’if i assegura’t d’assignar-li un valor en tots els camins.</p><details><summary>Revelar el raonament</summary><p>Error de compilació: total no està en l’àmbit de println. No s’arregla fent public una variable local.</p></details></div><div class="example"><div class="code-label">Error deliberat · fragment de main</div><pre><code>if (true) {
+    int total = 5;
+}
+System.out.println(total);</code></pre></div></section>
+<section class="slide" data-slide data-correct="0" aria-label="16. Copiar un valor primitiu"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Copiar un valor primitiu</h2><p class="lead">Canviar el paràmetre no reassigna la variable de qui fa la crida.</p><p class="class-explanation">calcular treballa amb la seua pròpia variable valor. En sumar-li 50 canvia la còpia, mentre numero conserva 10.</p><fieldset><legend>Què es mostra?</legend><div class="choices"><button class="choice" type="button" data-answer="0" aria-pressed="false">10</button><button class="choice" type="button" data-answer="1" aria-pressed="false">60</button></div></fieldset><p class="feedback" role="status"></p><details><summary>Veure l’explicació</summary><p>Es mostra 10: l’argument s’ha passat per valor.</p></details></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>public static void calcular(int valor) {
+    valor += 50;
+}
+
+// En main:
+int numero = 10;
+calcular(numero);
+System.out.println(numero);</code></pre></div></section>
+<section class="slide" data-slide aria-label="17. Recollir el canvi amb return"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Recollir el canvi amb return</h2><p class="lead">Si necessitem canviar numero, hem d’assignar el resultat.</p><p class="class-explanation">Sumar 50 a un paràmetre local no modifica numero. Esta versió retorna el nou valor i main el recull. L’assignació de l’última línia és la que canvia la variable de qui fa la crida.</p></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>static int aumentar(int valor) {
+    return valor + 50;
+}
+
+// main:
+int numero = 10;
+numero = aumentar(numero); // 60</code></pre></div></section>
+<section class="slide" data-slide aria-label="18. Arrays: compartir l’objecte"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Arrays: compartir l’objecte</h2><p class="lead">També es copia la referència a un array.</p><p class="class-explanation">Dos variables diferents permeten accedir al mateix array. Modificar una casella canvia eixe objecte compartit; reassignar el paràmetre només canvia la còpia de la referència.</p></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>datos[0] = 31;
+
+datos = new int[] { 0, 0 };</code></pre><figure class="concept-figure"><img src="assets/funciones-referencias-ca.svg" width="840" height="415" alt="Dos variables accedixen al mateix array; reassignar el paràmetre no canvia la variable de main."><figcaption>Es copia la referència, no les caselles.</figcaption></figure></div></section>
+<section class="slide" data-slide aria-label="19. Observar les referències"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Observar les referències</h2><p class="lead">Seguix per separat la variable i l’array al qual permet accedir.</p><p class="class-explanation">Avança per un exemple fix. Primer es modifica l’array inicial; després el paràmetre apunta a un altre array. Tornar a main permet observar què ha canviat.</p><div data-trace="array-trace"><div class="choices"><button type="button" data-back>Pas anterior</button><button type="button" data-forward>Pas següent</button><button type="button" data-reset>Reiniciar</button></div><p data-step role="status">Activa JavaScript per a recórrer la traça; el codi permet estudiar l’exemple complet.</p></div></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>int[] datos = { 3, 7 };
+cambiar(datos);
+
+// cambiar(int[] valores):
+valores[0] = 10;
+valores = new int[] { 20, 30 };
+valores[1] = 40;</code></pre><pre data-state="array-trace">main: datos → [3, 7]; en tornar → [10, 7].</pre><p class="simulation">Simulació d’un exemple fix; no executa Java.</p></div></section>
+<section class="slide" data-slide aria-label="20. Retornar un array nou"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Retornar un array nou</h2><p class="lead">Crear una còpia permet conservar les dades d’entrada.</p><p class="class-explanation">Reservem un array de la mateixa longitud i hi escrivim. Per a {2, 5} retornem {3, 6}; l’original continua amb {2, 5}. Açò serà important en provar efectes amb JUnit.</p><details><summary>Revelar el raonament</summary><p>Precondició: datos no és null i els increments caben en int. Si està buit, el bucle no entra i retorna un altre array buit.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>static int[] crearIncrementado(int[] datos) {
+    int[] copia = new int[datos.length];
+    for (int i = 0; i &lt; datos.length; i++) {
+        copia[i] = datos[i] + 1;
+    }
+    return copia;
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="21. String: rebre i retornar text"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>String: rebre i retornar text</h2><p class="lead">Reassignar un paràmetre String tampoc canvia la variable original.</p><p class="class-explanation">String és immutable: toUpperCase retorna text i no modifica la cadena original. Dins de gritar, texto passa a referenciar el resultat. main conserva la seua referència fins que assignem el valor retornat.</p></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>static String gritar(String texto) {
+    texto = texto.toUpperCase();
+    return texto;
+}
+// main:
+String nombre = &quot;Ana&quot;;
+String fuerte = gritar(nombre);
+// nombre: &quot;Ana&quot;; fuerte: &quot;ANA&quot;</code></pre></div></section>
+<section class="slide" data-slide aria-label="22. Sobrecàrrega: triar una signatura"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Sobrecàrrega: triar una signatura</h2><p class="lead">Un nom pot representar operacions amb paràmetres diferents.</p><p class="class-explanation">La signatura es distingix pel nom i els tipus dels paràmetres en ordre. Canviar només el tipus de retorn o el nom del paràmetre no crea una altra signatura.</p></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>static int sumar(int a, int b) {
+    return a + b;
+}
+static double sumar(double a, double b) {
+    return a + b;
+}
+// sumar(2, 3) → 5
+// sumar(2.5, 3.0) → 5.5</code></pre></div></section>
+<section class="slide" data-slide aria-label="23. Quina sobrecàrrega tria Java"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Quina sobrecàrrega tria Java</h2><p class="lead">Els tipus dels arguments determinen quina signatura s’utilitza.</p><p class="class-explanation">Amb dos int es tria sumar(int, int). Amb dos double es tria sumar(double, double). La variable que recull el resultat no crea una sobrecàrrega: canviar únicament el retorn no permet declarar dos mètodes iguals.</p><details><summary>Revelar el raonament</summary><p>En la tercera crida, 2 es convertix a double. No hi ha una conversió automàtica de 3.0 a int per a triar l’altra signatura.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>sumar(2, 3);       // int, int
+sumar(2.5, 3.0);   // double, double
+sumar(2, 3.0);     // double, double</code></pre></div></section>
+<section class="slide" data-slide aria-label="24. Quantitat variable d’arguments"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Quantitat variable d’arguments</h2><p class="lead">int... s’utilitza com un array dins del mètode.</p><p class="class-explanation">Només pot haver-hi un varargs i ha de ser l’últim paràmetre. Sense arguments es rep un array buit; també es pot passar un array existent.</p></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>static int sumar(int... numeros) {
+    int total = 0;
+    for (int numero : numeros) {
+        total += numero;
+    }
+    return total;
+}
+// sumar() → 0; sumar(1, 2, 3) → 6</code></pre></div></section>
+<section class="slide" data-slide aria-label="25. Varargs: de l’argument a les caselles"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Varargs: de l’argument a les caselles</h2><p class="lead">sumar(4, 6, 2) treballa amb un array de tres elements.</p><p class="class-explanation">En el mètode varargs, numeros.length val 3. L’acumulador comença en zero i canvia a 4, 10 i 12. Amb sumar() la longitud és zero i el resultat queda en zero. Estudiem este mètode per separat de les sobrecàrregues anteriors.</p></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>// Traça de sumar(4, 6, 2):
+// numeros = [4, 6, 2]
+// total = 0 → 4 → 10 → 12
+
+int[] datos = {4, 6, 2};
+int total = sumar(datos); // 12</code></pre></div></section>
+<section class="slide" data-slide aria-label="26. Recursió: reduir el problema"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Recursió: reduir el problema</h2><p class="lead">Un mètode recursiu es crida a si mateix amb un problema més menut.</p><p class="class-explanation">El cas base retorna 1 per a zero. Cada crida resta un, de manera que les entrades permeses arriben al cas base. Usem long i admetem de 0 a 20.</p></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>static long factorial(int numero) {
+    if (numero == 0) {
+        return 1L;
+    }
+    return numero * factorial(numero - 1);
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="27. Descendir i tornar"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Descendir i tornar</h2><p class="lead">Les multiplicacions esperen que acaben les crides interiors.</p><p class="class-explanation">Avança des de factorial(3) fins al cas base. Després observa els retorns: 1, 1, 2 i 6. Cada crida conserva el seu propi numero.</p><div data-trace="factorial-trace"><div class="choices"><button type="button" data-back>Pas anterior</button><button type="button" data-forward>Pas següent</button><button type="button" data-reset>Reiniciar</button></div><p data-step role="status">Activa JavaScript per a recórrer la traça; el codi permet estudiar l’exemple complet.</p></div></div><div class="example"><div class="code-label">Esquema de crides · no és codi executable</div><pre><code>factorial(3)
+= 3 * factorial(2)
+= 3 * (2 * factorial(1))
+= 3 * (2 * (1 * factorial(0)))
+= 6</code></pre><pre data-state="factorial-trace">factorial(0) → 1; factorial(1) → 1; factorial(2) → 2; factorial(3) → 6.</pre><p class="simulation">Simulació d’un exemple fix; no executa Java.</p></div></section>
+<section class="slide" data-slide aria-label="28. Recursió: dos formes de no acabar"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Recursió: dos formes de no acabar</h2><p class="lead">Cal un cas base assolible i avançar cap a ell.</p><p class="class-explanation">Cridar una altra vegada amb numero no reduïx el problema. Cridar amb un negatiu i restar un ens allunya de zero. En els dos casos s’acumulen crides fins a esgotar la pila; no els executes com si foren exemples correctes.</p><details><summary>Revelar el raonament</summary><p>Comprovar el contracte abans de cridar. Per al factorial amb long, 20! cap i 21! ja supera el seu rang. Un bucle evita les crides imbricades, però no evita el desbordament.</p></details></div><div class="example"><div class="code-label">Errors deliberats · no executar</div><pre><code>// Error deliberat: no reduïx el problema
+return numero * factorial(numero);
+
+// En la versió correcta, admetre només 0..20.</code></pre></div></section>
+<section class="slide" data-slide data-correct="1" aria-label="29. Triar i comprovar"><div class="copy"><p class="eyebrow">JAVA / MÈTODES</p><h2>Triar i comprovar</h2><p class="lead">Un mètode ha de tindre una responsabilitat i entrades ben definides.</p><p class="class-explanation">Prova dades normals i límits. Per a factorial, compara recursió i bucle amb 0, 1, 6 i 20. Un cas base sense reducció del problema no garantix que acabe.</p><fieldset><legend>Si l’array està buit, buscar retorna…</legend><div class="choices"><button class="choice" type="button" data-answer="0" aria-pressed="false">0</button><button class="choice" type="button" data-answer="1" aria-pressed="false">-1</button></div></fieldset><p class="feedback" role="status"></p><details><summary>Veure l’explicació</summary><p>El bucle no entra i es retorna -1: el valor no apareix. L’array ha de ser no nul.</p></details></div><div class="example"><div class="code-label">Fragment Java · dins d’una classe</div><pre><code>static int buscar(int[] datos, int buscado) {
+    for (int i = 0; i &lt; datos.length; i++) {
+        if (datos[i] == buscado) return i;
+    }
+    return -1;
+}</code></pre></div></section>
+</main><nav class="navigation" aria-label="Navegació de diapositives" hidden><button id="previous" type="button">← Anterior</button><p id="progress" aria-live="polite"></p><button id="next" type="button">Següent →</button><button id="fullscreen" type="button">Pantalla completa</button></nav><noscript><p>Sense JavaScript pots llegir totes les diapositives i les explicacions.</p></noscript></body></html>

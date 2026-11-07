@@ -9,3 +9,7 @@ El professor retira el bloc Projecte descarregable, les seues referències en el
 Les diapositives també se separen: Funcions en conserva 15 i Testing en té 12 en ../Diapositivas/testing-con-junit-{es,ca}.html, amb entrada pròpia en l’índex. No s’enllacen des dels apunts.
 
 Validació: Astro compila 85 pàgines; 1056 enllaços i recursos comprovats en les 16 pàgines de Testing sense incidències. Els fonts Java són idèntics als que ja superaren els 18 tests per idioma. Presentacions separades amb 15 i 12 diapositives per idioma, recursos locals vàlids i ZIP sincronitzats després d’actualitzar els seus README. La revisió visual en navegador continua pendent.
+
+## Revisió de diapositives confirmada
+
+S’amplia la presentació amb exemples desenvolupats, esquemes i raonaments pas a pas, mantenint les dos llengües. Funcions té 29 diapositives i Testing 30. Totes les presentacions i recursos es traslladen a `public/diapositivas/` per a disposar d’URL directa i compartir-la en Aules. No afegir enllaços des dels apunts, navegació de Starlight ni visors. Esta decisió substituïx la ubicació externa de lliuraments anteriors.

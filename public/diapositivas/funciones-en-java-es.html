@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Funciones en Java</title><link rel="stylesheet" href="assets/slides.css"><script src="assets/slides.js" defer></script><script src="assets/funciones.js" defer></script></head>
+<body data-topic="3" data-lang="es"><a class="skip" href="#presentation">Saltar a las diapositivas</a><header><a class="brand" href="index.html">JAVA<span> / EN CLASE</span></a><a href="funciones-en-java-ca.html" lang="ca">Valencià</a></header><main id="presentation"><h1>Funciones en Java</h1>
+<section class="slide" data-slide aria-label="1. Del programa largo a tres tareas"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>Del programa largo a tres tareas</h2><p class="lead">Leer, calcular y mostrar tienen responsabilidades distintas.</p><p class="class-explanation">Partimos de dos números ya leídos. Si mezclamos la suma con la salida por consola, no podemos reutilizar el cálculo sin imprimir. Separaremos las tareas para poder llamar al cálculo desde main y, después, desde un test.</p><details><summary>Revelar el razonamiento</summary><p>La parte reutilizable recibe dos int y devuelve un int. No necesita Scanner ni println.</p></details></div><div class="example"><div class="code-label">Fragmento Java · contexto indicado en la explicación</div><pre><code>int primero = 8;
+int segundo = 5;
+System.out.println(primero + segundo);</code></pre><figure class="concept-figure"><img src="assets/funciones-tareas-es.svg" width="840" height="270" alt="Leer, calcular y mostrar tienen responsabilidades distintas."><figcaption>Del programa largo a tres tareas</figcaption></figure></div></section>
+<section class="slide" data-slide aria-label="2. Dividir el trabajo"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Dividir el trabajo</h2><p class="lead">Un método da nombre a una tarea que podemos reutilizar.</p><p class="class-explanation">Decidimos qué datos recibe, qué operación realiza y qué resultado devuelve. Así main puede coordinar tareas pequeñas.</p></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>int total = sumar(10, 5);
+System.out.println(total); // 15</code></pre></div></section>
+<section class="slide" data-slide aria-label="3. Diseñar el contrato antes del cuerpo"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>Diseñar el contrato antes del cuerpo</h2><p class="lead">Sumar recibe dos enteros y entrega su suma.</p><p class="class-explanation">El contrato describe qué puede esperar quien llama al método. Los parámetros son las entradas; el retorno es la salida. Para este ejemplo usamos valores pequeños cuyo resultado cabe en int.</p><details><summary>Revelar el razonamiento</summary><p>EN PALABRAS SENCILLAS: le entregamos dos números a una pequeña calculadora y recogemos uno. La pantalla la controla main.</p></details></div><div class="example"><div class="code-label">Fragmento Java · contexto indicado en la explicación</div><pre><code>static int sumar(int a, int b) {
+    return a + b;
+}
+
+// main:
+int total = sumar(8, 5);
+System.out.println(total); // 13</code></pre></div></section>
+<section class="slide" data-slide aria-label="4. Leer una declaración"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Leer una declaración</h2><p class="lead">La cabecera explica cómo utilizar el método.</p><p class="class-explanation">static permite llamarlo sin crear un objeto. int indica el resultado; los dos parámetros aportan las entradas. El cuerpo realiza el cálculo.</p></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>public static int sumar(int a, int b) {
+    return a + b;
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="5. Qué significa cada pieza"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>Qué significa cada pieza</h2><p class="lead">La declaración pertenece a la clase, fuera de main.</p><p class="class-explanation">public permite el acceso desde otras clases; static permite llamar sin construir un objeto. int es el tipo devuelto. sumar es el nombre y (int a, int b) declara las dos entradas. Las llaves delimitan el cuerpo.</p></div><div class="example"><div class="code-label">Calculadora.java · clase completa</div><pre><code>public class Calculadora {
+    public static int sumar(int a, int b) {
+        return a + b;
+    }
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="6. Parámetros y argumentos"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Parámetros y argumentos</h2><p class="lead">Los parámetros se declaran; los argumentos se proporcionan al llamar.</p><p class="class-explanation">Se evalúa 3 + 2 y se copia 5 en b. Los nombres no tienen que coincidir: importa la posición y la compatibilidad de tipos.</p></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>int puntos = 12;
+int total = sumar(puntos, 3 + 2);
+// a = 12; b = 5; total = 17</code></pre></div></section>
+<section class="slide" data-slide aria-label="7. Seguir los datos de una llamada"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>Seguir los datos de una llamada</h2><p class="lead">Cada argumento se evalúa y se asigna a su parámetro por posición.</p><p class="class-explanation">En sumar(puntos, 3 + 2), primero obtenemos 12 y 5. La nueva llamada tiene a = 12 y b = 5. El return calcula 17; solo entonces se completa la asignación a total.</p><details><summary>Revelar el razonamiento</summary><p>1. Argumentos: 12 y 5. → 2. Parámetros: a = 12, b = 5. → 3. Cálculo: 17. → 4. main guarda total = 17.</p></details></div><div class="example"><div class="code-label">Fragmento Java · contexto indicado en la explicación</div><pre><code>int puntos = 12;
+int total = sumar(puntos, 3 + 2);</code></pre><figure class="concept-figure"><img src="assets/funciones-llamada-es.svg" width="840" height="270" alt="Cada argumento se evalúa y se asigna a su parámetro por posición."><figcaption>Seguir los datos de una llamada</figcaption></figure></div></section>
+<section class="slide" data-slide data-correct="1" aria-label="8. Devolver no es mostrar"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Devolver no es mostrar</h2><p class="lead">return entrega un valor al lugar de la llamada.</p><p class="class-explanation">El método calcula 7, pero no escribe en consola. Para mostrarlo debemos utilizar println; también podemos guardar el resultado o multiplicarlo.</p><fieldset><legend>¿Qué aparece en consola?</legend><div class="choices"><button class="choice" type="button" data-answer="0" aria-pressed="false">7</button><button class="choice" type="button" data-answer="1" aria-pressed="false">Nada</button></div></fieldset><p class="feedback" role="status"></p><details><summary>Ver la explicación</summary><p>La llamada devuelve 7, pero su resultado se descarta. El método no contiene println.</p></details></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>public static int sumar(int a, int b) {
+    return a + b;
+}
+
+// En main:
+sumar(4, 3);</code></pre></div></section>
+<section class="slide" data-slide aria-label="9. Usar el resultado en otra operación"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>Usar el resultado en otra operación</h2><p class="lead">El valor devuelto sustituye a la llamada dentro de la expresión.</p><p class="class-explanation">sumar(4, 3) produce 7. En la primera línea, ese 7 se multiplica por 2. El método no decide si guardamos, imprimimos o combinamos el resultado: lo decide quien lo llama.</p></div><div class="example"><div class="code-label">Fragmento Java · contexto indicado en la explicación</div><pre><code>int doble = sumar(4, 3) * 2;
+System.out.println(doble); // 14
+System.out.println(sumar(1, 2)); // 3</code></pre></div></section>
+<section class="slide" data-slide aria-label="10. Una acción sin retorno"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Una acción sin retorno</h2><p class="lead">void indica que no se devuelve ningún valor.</p><p class="class-explanation">Este método recibe un nombre y muestra un saludo. Se llama como una instrucción; no podemos asignar su resultado a una variable.</p></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>public static void saludar(String nombre) {
+    System.out.println(&quot;Hola, &quot; + nombre);
+}
+
+// En main:
+saludar(&quot;Ana&quot;);</code></pre></div></section>
+<section class="slide" data-slide aria-label="11. Detectar un retorno que falta"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>Detectar un retorno que falta</h2><p class="lead">Un método int debe devolver un int en todos los caminos que terminan normalmente.</p><p class="class-explanation">Con numero = 0, el if no entra y este método llega al final sin entregar ningún valor. El compilador detecta el problema antes de ejecutar el programa.</p><details><summary>Revelar el razonamiento</summary><p>Para entradas pequeñas: añade return numero; después del if. Con números no negativos, ese es el valor absoluto.</p></details></div><div class="example"><div class="code-label">Error deliberado · no compila</div><pre><code>static int absoluto(int numero) {
+    if (numero &lt; 0) {
+        return -numero;
+    }
+    // Error deliberado: falta un return.
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="12. Entrar y volver"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Entrar y volver</h2><p class="lead">main espera el resultado antes de completar la asignación.</p><p class="class-explanation">Primero se entra en sumar con a = 2 y b = 3. return entrega 5. Después main guarda ese valor en total y lo muestra.</p></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>// main → sumar → main
+int total = sumar(2, 3);
+System.out.println(total); // 5</code></pre></div></section>
+<section class="slide" data-slide aria-label="13. Un programa completo que podemos ejecutar"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>Un programa completo que podemos ejecutar</h2><p class="lead">main coordina; sumar realiza el cálculo.</p><p class="class-explanation">Guarda este código como ProgramaSuma.java. La ejecución empieza en main, salta a sumar y vuelve a la asignación. La declaración de sumar no se ejecuta por estar escrita antes o después: hace falta una llamada.</p></div><div class="example"><div class="code-label">ProgramaSuma.java · programa completo</div><pre><code>public class ProgramaSuma {
+    public static void main(String[] args) {
+        int total = sumar(8, 5);
+        System.out.println(total); // 13
+    }
+    static int sumar(int a, int b) {
+        return a + b;
+    }
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="14. Cada llamada tiene sus variables"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Cada llamada tiene sus variables</h2><p class="lead">Una variable local pertenece a su bloque; un parámetro, a su llamada.</p><p class="class-explanation">numero sigue siendo 10. valor recibe una copia y resultado solo existe dentro de duplicar. Para comunicar el cálculo usamos return.</p></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>public static int duplicar(int valor) {
+    int resultado = valor * 2;
+    return resultado;
+}
+
+// En main:
+int numero = 10;
+int doble = duplicar(numero); // 20</code></pre></div></section>
+<section class="slide" data-slide aria-label="15. El ámbito sigue a las llaves"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>El ámbito sigue a las llaves</h2><p class="lead">Una variable declarada dentro de un bloque no puede usarse fuera.</p><p class="class-explanation">El if crea un bloque interior. total solo existe allí, aunque la condición sea true. Para usarlo después, decláralo antes del if y asegúrate de asignarle un valor en todos los caminos.</p><details><summary>Revelar el razonamiento</summary><p>Error de compilación: total no está en el ámbito de println. No se arregla haciendo public una variable local.</p></details></div><div class="example"><div class="code-label">Error deliberado · fragmento de main</div><pre><code>if (true) {
+    int total = 5;
+}
+System.out.println(total);</code></pre></div></section>
+<section class="slide" data-slide data-correct="0" aria-label="16. Copiar un valor primitivo"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Copiar un valor primitivo</h2><p class="lead">Cambiar el parámetro no reasigna la variable del llamador.</p><p class="class-explanation">calcular trabaja con su propia variable valor. Al sumarle 50 cambia la copia, mientras numero conserva 10.</p><fieldset><legend>¿Qué se muestra?</legend><div class="choices"><button class="choice" type="button" data-answer="0" aria-pressed="false">10</button><button class="choice" type="button" data-answer="1" aria-pressed="false">60</button></div></fieldset><p class="feedback" role="status"></p><details><summary>Ver la explicación</summary><p>Se muestra 10: el argumento se ha pasado por valor.</p></details></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>public static void calcular(int valor) {
+    valor += 50;
+}
+
+// En main:
+int numero = 10;
+calcular(numero);
+System.out.println(numero);</code></pre></div></section>
+<section class="slide" data-slide aria-label="17. Recoger el cambio con return"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>Recoger el cambio con return</h2><p class="lead">Si necesitamos cambiar numero, debemos asignar el resultado.</p><p class="class-explanation">Sumar 50 a un parámetro local no modifica numero. Esta versión devuelve el nuevo valor y main lo recoge. La asignación de la última línea es la que cambia la variable del llamador.</p></div><div class="example"><div class="code-label">Fragmento Java · contexto indicado en la explicación</div><pre><code>static int aumentar(int valor) {
+    return valor + 50;
+}
+
+// main:
+int numero = 10;
+numero = aumentar(numero); // 60</code></pre></div></section>
+<section class="slide" data-slide aria-label="18. Arrays: compartir el objeto"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Arrays: compartir el objeto</h2><p class="lead">También se copia la referencia a un array.</p><p class="class-explanation">Dos variables distintas permiten acceder al mismo array. Modificar una casilla cambia ese objeto compartido; reasignar el parámetro solo cambia la copia de la referencia.</p></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>datos[0] = 31;
+
+datos = new int[] { 0, 0 };</code></pre><figure class="concept-figure"><img src="assets/funciones-referencias-es.svg" width="840" height="415" alt="Dos variables acceden al mismo array; reasignar el parámetro no cambia la variable de main."><figcaption>Se copia la referencia, no las casillas.</figcaption></figure></div></section>
+<section class="slide" data-slide aria-label="19. Observar las referencias"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Observar las referencias</h2><p class="lead">Sigue por separado la variable y el array al que permite acceder.</p><p class="class-explanation">Avanza por un ejemplo fijo. Primero se modifica el array inicial; después el parámetro apunta a otro array. Volver a main permite observar qué ha cambiado.</p><div data-trace="array-trace"><div class="choices"><button type="button" data-back>Paso anterior</button><button type="button" data-forward>Paso siguiente</button><button type="button" data-reset>Reiniciar</button></div><p data-step role="status">Activa JavaScript para recorrer la traza; el código permite estudiar el ejemplo completo.</p></div></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>int[] datos = { 3, 7 };
+cambiar(datos);
+
+// cambiar(int[] valores):
+valores[0] = 10;
+valores = new int[] { 20, 30 };
+valores[1] = 40;</code></pre><pre data-state="array-trace">main: datos → [3, 7]; al volver → [10, 7].</pre><p class="simulation">Simulación de un ejemplo fijo; no ejecuta Java.</p></div></section>
+<section class="slide" data-slide aria-label="20. Devolver un array nuevo"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>Devolver un array nuevo</h2><p class="lead">Crear una copia permite conservar los datos de entrada.</p><p class="class-explanation">Reservamos un array de la misma longitud y escribimos en él. Para {2, 5} devolvemos {3, 6}; el original sigue con {2, 5}. Esto será importante al probar efectos con JUnit.</p><details><summary>Revelar el razonamiento</summary><p>Precondición: datos no es null y los incrementos caben en int. Si está vacío, el bucle no entra y devuelve otro array vacío.</p></details></div><div class="example"><div class="code-label">Fragmento Java · contexto indicado en la explicación</div><pre><code>static int[] crearIncrementado(int[] datos) {
+    int[] copia = new int[datos.length];
+    for (int i = 0; i &lt; datos.length; i++) {
+        copia[i] = datos[i] + 1;
+    }
+    return copia;
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="21. String: recibir y devolver texto"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>String: recibir y devolver texto</h2><p class="lead">Reasignar un parámetro String tampoco cambia la variable original.</p><p class="class-explanation">String es inmutable: toUpperCase devuelve texto y no modifica la cadena original. Dentro de gritar, texto pasa a referenciar el resultado. main conserva su referencia hasta que asignemos el valor devuelto.</p></div><div class="example"><div class="code-label">Fragmento Java · contexto indicado en la explicación</div><pre><code>static String gritar(String texto) {
+    texto = texto.toUpperCase();
+    return texto;
+}
+// main:
+String nombre = &quot;Ana&quot;;
+String fuerte = gritar(nombre);
+// nombre: &quot;Ana&quot;; fuerte: &quot;ANA&quot;</code></pre></div></section>
+<section class="slide" data-slide aria-label="22. Sobrecarga: elegir una firma"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Sobrecarga: elegir una firma</h2><p class="lead">Un nombre puede representar operaciones con parámetros diferentes.</p><p class="class-explanation">La firma se distingue por el nombre y los tipos de los parámetros en orden. Cambiar solo el tipo de retorno o el nombre del parámetro no crea otra firma.</p></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>static int sumar(int a, int b) {
+    return a + b;
+}
+static double sumar(double a, double b) {
+    return a + b;
+}
+// sumar(2, 3) → 5
+// sumar(2.5, 3.0) → 5.5</code></pre></div></section>
+<section class="slide" data-slide aria-label="23. Qué sobrecarga elige Java"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>Qué sobrecarga elige Java</h2><p class="lead">Los tipos de los argumentos determinan qué firma se utiliza.</p><p class="class-explanation">Con dos int se elige sumar(int, int). Con dos double se elige sumar(double, double). La variable que recoge el resultado no crea una sobrecarga: cambiar únicamente el retorno no permite declarar dos métodos iguales.</p><details><summary>Revelar el razonamiento</summary><p>En la tercera llamada, 2 se convierte a double. No existe una conversión automática de 3.0 a int para elegir la otra firma.</p></details></div><div class="example"><div class="code-label">Fragmento Java · contexto indicado en la explicación</div><pre><code>sumar(2, 3);       // int, int
+sumar(2.5, 3.0);   // double, double
+sumar(2, 3.0);     // double, double</code></pre></div></section>
+<section class="slide" data-slide aria-label="24. Cantidad variable de argumentos"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Cantidad variable de argumentos</h2><p class="lead">int... se utiliza como un array dentro del método.</p><p class="class-explanation">Solo puede haber un varargs y debe ser el último parámetro. Sin argumentos se recibe un array vacío; también se puede pasar un array existente.</p></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>static int sumar(int... numeros) {
+    int total = 0;
+    for (int numero : numeros) {
+        total += numero;
+    }
+    return total;
+}
+// sumar() → 0; sumar(1, 2, 3) → 6</code></pre></div></section>
+<section class="slide" data-slide aria-label="25. Varargs: del argumento a las casillas"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>Varargs: del argumento a las casillas</h2><p class="lead">sumar(4, 6, 2) trabaja con un array de tres elementos.</p><p class="class-explanation">En el método varargs, numeros.length vale 3. El acumulador comienza en cero y cambia a 4, 10 y 12. Con sumar() la longitud es cero y el resultado queda en cero. Estudiamos este método por separado de las sobrecargas anteriores.</p></div><div class="example"><div class="code-label">Fragmento Java · contexto indicado en la explicación</div><pre><code>// Traza de sumar(4, 6, 2):
+// numeros = [4, 6, 2]
+// total = 0 → 4 → 10 → 12
+
+int[] datos = {4, 6, 2};
+int total = sumar(datos); // 12</code></pre></div></section>
+<section class="slide" data-slide aria-label="26. Recursión: reducir el problema"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Recursión: reducir el problema</h2><p class="lead">Un método recursivo se llama a sí mismo con un problema más pequeño.</p><p class="class-explanation">El caso base devuelve 1 para cero. Cada llamada resta uno, por lo que las entradas permitidas llegan al caso base. Usamos long y admitimos de 0 a 20.</p></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>static long factorial(int numero) {
+    if (numero == 0) {
+        return 1L;
+    }
+    return numero * factorial(numero - 1);
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="27. Descender y regresar"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Descender y regresar</h2><p class="lead">Las multiplicaciones esperan a que terminen las llamadas interiores.</p><p class="class-explanation">Avanza desde factorial(3) hasta el caso base. Después observa los retornos: 1, 1, 2 y 6. Cada llamada conserva su propio numero.</p><div data-trace="factorial-trace"><div class="choices"><button type="button" data-back>Paso anterior</button><button type="button" data-forward>Paso siguiente</button><button type="button" data-reset>Reiniciar</button></div><p data-step role="status">Activa JavaScript para recorrer la traza; el código permite estudiar el ejemplo completo.</p></div></div><div class="example"><div class="code-label">Esquema de llamadas · no es código ejecutable</div><pre><code>factorial(3)
+= 3 * factorial(2)
+= 3 * (2 * factorial(1))
+= 3 * (2 * (1 * factorial(0)))
+= 6</code></pre><pre data-state="factorial-trace">factorial(0) → 1; factorial(1) → 1; factorial(2) → 2; factorial(3) → 6.</pre><p class="simulation">Simulación de un ejemplo fijo; no ejecuta Java.</p></div></section>
+<section class="slide" data-slide aria-label="28. Recursión: dos formas de no terminar"><div class="copy"><p class="eyebrow">JAVA / EJEMPLO DESARROLLADO</p><h2>Recursión: dos formas de no terminar</h2><p class="lead">Hace falta un caso base alcanzable y avanzar hacia él.</p><p class="class-explanation">Llamar otra vez con numero no reduce el problema. Llamar con un negativo y restar uno nos aleja de cero. En ambos casos se acumulan llamadas hasta agotar la pila; no los ejecutes como si fueran ejemplos correctos.</p><details><summary>Revelar el razonamiento</summary><p>Comprobar el contrato antes de llamar. Para el factorial con long, 20! cabe y 21! ya supera su rango. Un bucle evita las llamadas anidadas, pero no evita el desbordamiento.</p></details></div><div class="example"><div class="code-label">Errores deliberados · no ejecutar</div><pre><code>// Error deliberado: no reduce el problema
+return numero * factorial(numero);
+
+// En la versión correcta, admitir solo 0..20.</code></pre></div></section>
+<section class="slide" data-slide data-correct="1" aria-label="29. Elegir y comprobar"><div class="copy"><p class="eyebrow">JAVA / MÉTODOS</p><h2>Elegir y comprobar</h2><p class="lead">Un método debe tener una responsabilidad y entradas bien definidas.</p><p class="class-explanation">Prueba datos normales y límites. Para factorial, compara recursión y bucle con 0, 1, 6 y 20. Un caso base sin reducción del problema no garantiza que termine.</p><fieldset><legend>Si el array está vacío, buscar devuelve…</legend><div class="choices"><button class="choice" type="button" data-answer="0" aria-pressed="false">0</button><button class="choice" type="button" data-answer="1" aria-pressed="false">-1</button></div></fieldset><p class="feedback" role="status"></p><details><summary>Ver la explicación</summary><p>El bucle no entra y se devuelve -1: el valor no aparece. El array debe ser no nulo.</p></details></div><div class="example"><div class="code-label">Fragmento Java · dentro de una clase</div><pre><code>static int buscar(int[] datos, int buscado) {
+    for (int i = 0; i &lt; datos.length; i++) {
+        if (datos[i] == buscado) return i;
+    }
+    return -1;
+}</code></pre></div></section>
+</main><nav class="navigation" aria-label="Navegación de diapositivas" hidden><button id="previous" type="button">← Anterior</button><p id="progress" aria-live="polite"></p><button id="next" type="button">Siguiente →</button><button id="fullscreen" type="button">Pantalla completa</button></nav><noscript><p>Sin JavaScript puedes leer todas las diapositivas y las explicaciones.</p></noscript></body></html>

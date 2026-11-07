@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ca"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Testing amb JUnit</title><link rel="stylesheet" href="assets/slides.css"><script src="assets/slides.js" defer></script></head>
+<body data-topic="3" data-lang="ca"><a class="skip" href="#presentation">Saltar a les diapositives</a><header><a class="brand" href="index.html">JAVA<span> / A CLASSE</span></a><a href="testing-con-junit-es.html" lang="es">Castellano</a></header><main id="presentation"><h1>Testing amb JUnit</h1>
+<section class="slide" data-slide aria-label="1. Provar una tasca menuda"><div class="copy"><p class="eyebrow">JAVA / JUNIT</p><h2>Provar una tasca menuda</h2><p class="lead">Un test unitari fixa una entrada i el resultat esperat.</p><p class="class-explanation">JUnit crida el mètode i comprova el resultat per nosaltres. Podem repetir la prova després de canviar el codi; els casos triats determinen quins errors podem detectar.</p></div><div class="example"><div class="code-label">Fragment de l’exemple · imports i context en els apunts</div><pre><code>assertEquals(5, Operaciones.sumar(2, 3));</code></pre><figure class="concept-figure"><img src="assets/testing-caso-ca.svg" width="840" height="365" alt="Un test unitari fixa una entrada i el resultat esperat."><figcaption>Provar una tasca menuda</figcaption></figure></div></section>
+<section class="slide" data-slide aria-label="2. Primer fixem què ha de fer sumar"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Primer fixem què ha de fer sumar</h2><p class="lead">El resultat esperat es decidix amb el problema, abans d’executar.</p><p class="class-explanation">Per a 2 i 3 esperem 5. Per a 8 i 0 esperem 8. Si prenem com a esperat allò que retorna el programa, una implementació incorrecta podria confirmar-se a si mateixa.</p></div><div class="example"><div class="code-label">src/Operaciones.java · classe completa</div><pre><code>public class Operaciones {
+    public static int sumar(int a, int b) {
+        return a + b;
+    }
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="3. Preparar el projecte"><div class="copy"><p class="eyebrow">JAVA / JUNIT</p><h2>Preparar el projecte</h2><p class="lead">Codi i tests en carpetes separades; JUnit dins de lib.</p><p class="class-explanation">En VS Code, obrim la carpeta completa i configurem src, test i el JAR. Test Runner for Java executa els tests; no necessitem Maven, Gradle ni un main en la classe de proves.</p></div><div class="example"><div class="code-label">Estructura del projecte</div><pre><code>src/Operaciones.java
+test/OperacionesTest.java
+lib/junit-platform-console-standalone-1.13.4.jar
+.vscode/settings.json</code></pre></div></section>
+<section class="slide" data-slide aria-label="4. Connectar les carpetes amb VS Code"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Connectar les carpetes amb VS Code</h2><p class="lead">L’editor necessita trobar tant els fonts com el JAR.</p><p class="class-explanation">Obri la carpeta completa amb Extension Pack for Java. Guarda este fitxer en .vscode/settings.json; el JAR autònom 1.13.4 dels apunts ha d’estar en lib. sourcePaths incorpora els tests com a codi Java i referencedLibraries resol JUnit.</p></div><div class="example"><div class="code-label">.vscode/settings.json · configuració</div><pre><code>{
+  &quot;java.project.sourcePaths&quot;: [&quot;src&quot;, &quot;test&quot;],
+  &quot;java.project.outputPath&quot;: &quot;bin&quot;,
+  &quot;java.project.referencedLibraries&quot;: [
+    &quot;lib/**/*.jar&quot;
+  ]
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="5. Una classe de test completa"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Una classe de test completa</h2><p class="lead">Els imports connecten les anotacions i assercions amb JUnit Jupiter.</p><p class="class-explanation">@Test pertany a org.junit.jupiter.api. L’import static permet escriure assertEquals sense anteposar Assertions. La classe de prova no necessita main: l’executor troba i crida els seus mètodes de test.</p></div><div class="example"><div class="code-label">test/OperacionesTest.java · classe completa</div><pre><code>import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class OperacionesTest {
+    @Test
+    void sumarDosPositivos() {
+        assertEquals(5, Operaciones.sumar(2, 3));
+    }
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="6. Marcar i comprovar"><div class="copy"><p class="eyebrow">JAVA / JUNIT</p><h2>Marcar i comprovar</h2><p class="lead">@Test identifica una prova; l’asserció expressa el que ha d’ocórrer.</p><p class="class-explanation">El mètode de test retorna void i no és static. El primer argument d’assertEquals és l’esperat, i el segon és el resultat de la crida.</p></div><div class="example"><div class="code-label">Fragment de l’exemple · imports i context en els apunts</div><pre><code>@Test
+void sumarDosPositivosDevuelveSuSuma() {
+    int obtenido = Operaciones.sumar(2, 3);
+    assertEquals(5, obtenido);
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="7. Preparar, executar i comprovar"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Preparar, executar i comprovar</h2><p class="lead">Un test conta una història de tres passos.</p><p class="class-explanation">Preparar fixa les dades. Executar crida el mètode que volem provar. Comprovar compara el resultat amb una referència coneguda. Mantindre visibles estes tres parts ajuda a localitzar l’origen d’un error.</p></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>@Test
+void sumarDosPositivos() {
+    int a = 2, b = 3;
+    int obtenido = Operaciones.sumar(a, b);
+    assertEquals(5, obtenido);
+}</code></pre><figure class="concept-figure"><img src="assets/testing-pasos-ca.svg" width="840" height="270" alt="Un test conta una història de tres passos."><figcaption>Preparar, executar i comprovar</figcaption></figure></div></section>
+<section class="slide" data-slide aria-label="8. assertEquals: un valor concret"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>assertEquals: un valor concret</h2><p class="lead">assertEquals(esperado, obtenido) expressa igualtat de valors.</p><p class="class-explanation">Amb enters, 5 i 5 coincidixen; 5 i -1 no. Mantindre l’esperat en primer lloc permet llegir l’informe correctament. El missatge opcional explica quina promesa ha fallat.</p><details><summary>Revelar el raonament</summary><p>Passa si sumar retorna 5. Si resta i retorna -1, falla: expected &lt;5&gt; but was &lt;-1&gt;. Un println no produïx esta comprovació.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>assertEquals(5, Operaciones.sumar(2, 3),
+    &quot;2 + 3 = 5&quot;);</code></pre></div></section>
+<section class="slide" data-slide aria-label="9. assertTrue: esperem una condició certa"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>assertTrue: esperem una condició certa</h2><p class="lead">Una propietat booleana es comprova sense inventar un nombre esperat.</p><p class="class-explanation">esPar(8) ha de retornar true perquè el residu de dividir 8 entre 2 és zero. Si esPar retorna false, el test falla. L’asserció no crida main ni llig una resposta de la consola.</p><details><summary>Revelar el raonament</summary><p>Passa: true. Error deliberat: usar numero % 2 != 0 retorna false i fa fallar esta comprovació.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>// Dins de Operaciones:
+public static boolean esPar(int numero) {
+    return numero % 2 == 0;
+}
+
+// Dins de un @Test:
+assertTrue(Operaciones.esPar(8));</code></pre></div></section>
+<section class="slide" data-slide aria-label="10. assertFalse: false pot ser el correcte"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>assertFalse: false pot ser el correcte</h2><p class="lead">Un test passa quan la resposta coincidix amb la promesa.</p><p class="class-explanation">Per a 7, esPar ha de respondre false. assertFalse espera eixa resposta; no significa que vulguem que el test falle. Provar un parell i un imparell detecta un mètode que retornara sempre true.</p><details><summary>Revelar el raonament</summary><p>Passa si retorna false. Falla si retorna true. EN PARAULES SENZILLES: preguntar «és parell?» i rebre «no» pot ser exactament la resposta correcta.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>@Test
+void rechazaUnImpar() {
+    assertFalse(Operaciones.esPar(7));
+}</code></pre></div></section>
+<section class="slide" data-slide data-correct="0" aria-label="11. Triar casos diferents"><div class="copy"><p class="eyebrow">JAVA / JUNIT</p><h2>Triar casos diferents</h2><p class="lead">Els límits solen descobrir errors que un cas normal no revela.</p><p class="class-explanation">Una nota vàlida està entre 0 i 10, els dos inclosos. Provar 5 no distingix entre >= 0 i > 0; provar zero sí que permet detectar eixe canvi.</p><fieldset><legend>Quina entrada detecta que hem exclòs zero?</legend><div class="choices"><button class="choice" type="button" data-answer="0" aria-pressed="false">0</button><button class="choice" type="button" data-answer="1" aria-pressed="false">5</button></div></fieldset><p class="feedback" role="status"></p><details><summary>Veure l’explicació</summary><p>Zero ha d’admetre’s; la condició > 0 el rebutja. Cinc passa amb les dos condicions i no distingix l’error.</p></details></div><div class="example"><div class="code-label">Fragment de l’exemple · imports i context en els apunts</div><pre><code>assertTrue(Operaciones.esNotaValida(0));
+assertTrue(Operaciones.esNotaValida(10));
+assertFalse(Operaciones.esNotaValida(-0.1));
+assertFalse(Operaciones.esNotaValida(10.1));</code></pre></div></section>
+<section class="slide" data-slide aria-label="12. Triar casos que distingisquen errors"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Triar casos que distingisquen errors</h2><p class="lead">Provar diverses vegades el mateix tipus d’entrada aporta poca informació nova.</p><p class="class-explanation">En esNotaValida admetem de 0 a 10, inclosos. Un cas interior comprova la situació normal. Els extrems i els seus veïns detecten límits mal escrits; cada cas té el seu motiu.</p><details><summary>Revelar el raonament</summary><p>Amb nota &gt; 0, el test de 0 falla; amb nota &lt; 10, el de 10 falla. El cas 5 passa amb els dos errors.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>// Entrada    Esperat     Motiu
+//   5         true       interior
+//   0         true       límit inferior
+//  10         true       límit superior
+//  -0.1       false      fora per baix
+//  10.1       false      fora per dalt</code></pre></div></section>
+<section class="slide" data-slide aria-label="13. Cadenes: els espais també compten"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Cadenes: els espais també compten</h2><p class="lead">assertEquals compara el contingut de String.</p><p class="class-explanation">El contracte de prepararSaludo promet «Hola, » seguit del nom. Un espai absent és un resultat diferent. Comparar amb == no és ací la forma d’expressar igualtat de contingut.</p><details><summary>Revelar el raonament</summary><p>Passa amb &quot;Hola, Ana&quot;. Falla amb &quot;Hola,Ana&quot; o &quot;Hola, Luis&quot;. El test ens obliga a concretar el format promés.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>assertEquals(&quot;Hola, Ana&quot;,
+    Operaciones.prepararSaludo(&quot;Ana&quot;));</code></pre></div></section>
+<section class="slide" data-slide aria-label="14. Comprovar també els efectes"><div class="copy"><p class="eyebrow">JAVA / JUNIT</p><h2>Comprovar també els efectes</h2><p class="lead">Un mètode que crea una còpia ha de conservar l’array original.</p><p class="class-explanation">assertArrayEquals revisa les caselles. Comprovem el resultat i l’original perquè retornar valors correctes no és suficient si hem canviat dades que havien de conservar-se.</p></div><div class="example"><div class="code-label">Fragment de l’exemple · imports i context en els apunts</div><pre><code>int[] original = {2, 5};
+int[] nuevo = Operaciones.crearIncrementado(original);
+assertArrayEquals(new int[] {3, 6}, nuevo);
+assertArrayEquals(new int[] {2, 5}, original);</code></pre></div></section>
+<section class="slide" data-slide aria-label="15. assertArrayEquals: revisar cada casella"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>assertArrayEquals: revisar cada casella</h2><p class="lead">Es comparen la longitud, els valors i el seu ordre.</p><p class="class-explanation">Per al resultat esperat {3, 6}, {6, 3} falla en l’índex 0 i {3} falla per longitud. Dos arrays diferents poden contindre les mateixes dades; assertEquals no recorre les seues caselles.</p><details><summary>Revelar el raonament</summary><p>Passa encara que siguen dos arrays diferents. EN PARAULES SENZILLES: revisem el contingut de dos caixes, casella per casella.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>int[] esperado = {3, 6};
+int[] obtenido = {3, 6};
+assertArrayEquals(esperado, obtenido);</code></pre></div></section>
+<section class="slide" data-slide aria-label="16. Un resultat correcte pot ocultar un efecte incorrecte"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Un resultat correcte pot ocultar un efecte incorrecte</h2><p class="lead">Incrementar l’original i retornar-lo incomplix la promesa de crear una còpia.</p><p class="class-explanation">Amb {2, 5}, una implementació defectuosa pot retornar {3, 6} i superar la primera asserció. La segona detecta que també ha canviat l’original. Si la primera falla, la segona ja no s’executa normalment.</p><details><summary>Revelar el raonament</summary><p>La correcció és escriure en un array nou, com en Funcions. No n’hi ha prou que el resultat semble correcte.</p></details></div><div class="example"><div class="code-label">Error deliberat · compila, incomplix el contracte</div><pre><code>// Error deliberat dentro del método:
+for (int i = 0; i &lt; datos.length; i++) {
+    datos[i]++;
+}
+return datos;</code></pre></div></section>
+<section class="slide" data-slide aria-label="17. Llegir un error"><div class="copy"><p class="eyebrow">JAVA / JUNIT</p><h2>Llegir un error</h2><p class="lead">Expected descriu el que s’ha demanat; was mostra l’obtingut.</p><p class="class-explanation">Si sumar resta per error, 2 i 3 produïxen -1. El test esperava 5. La línia de l’asserció ajuda a trobar la comprovació; la causa està en el mètode d’aplicació.</p><details><summary>Revelar la correcció</summary><p>La tasca és sumar. Corregix a return a + b; i repetix tots els tests. No canvies l’esperat a -1.</p></details></div><div class="example"><div class="code-label">Error deliberat i extracte de l’informe</div><pre><code>// Error deliberat en sumar:
+return a - b;
+
+expected: &lt;5&gt; but was: &lt;-1&gt;</code></pre></div></section>
+<section class="slide" data-slide aria-label="18. Corregir i repetir"><div class="copy"><p class="eyebrow">JAVA / JUNIT</p><h2>Corregir i repetir</h2><p class="lead">Una correcció ha de conservar els comportaments que ja funcionaven.</p><p class="class-explanation">Recuperem la suma, recompilem i executem tota la bateria. Això ajuda a detectar regressions. No canviem l’esperat per a dissimular un error.</p></div><div class="example"><div class="code-label">Fragment de l’exemple · imports i context en els apunts</div><pre><code>// Suma correcta:
+return a + b;
+
+// Totes les proves han de tornar a passar.</code></pre><figure class="concept-figure"><img src="assets/testing-ciclo-ca.svg" width="840" height="365" alt="Una correcció ha de conservar els comportaments que ja funcionaven."><figcaption>Corregir i repetir</figcaption></figure></div></section>
+<section class="slide" data-slide aria-label="19. Zero tests no és èxit"><div class="copy"><p class="eyebrow">JAVA / JUNIT</p><h2>Zero tests no és èxit</h2><p class="lead">Abans d’interpretar el resultat, comprova que les proves s’han executat.</p><p class="class-explanation">El primer exemple conté un test; el comptador augmenta en afegir més proves. Si no n’apareix cap, revisa l’anotació, els imports i la configuració de carpetes i biblioteca.</p></div><div class="example"><div class="code-label">Fragment de l’exemple · imports i context en els apunts</div><pre><code>@Test // org.junit.jupiter.api.Test
+void sumarCeroConservaElNumero() {
+    assertEquals(8, Operaciones.sumar(8, 0));
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="20. Executar i llegir el comptador en VS Code"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Executar i llegir el comptador en VS Code</h2><p class="lead">Executa el test amb Run Test o des del panell Testing.</p><p class="class-explanation">Amb la classe inicial s’ha d’executar una prova. Després d’afegir més mètodes @Test, el comptador augmenta. Una barra sense errors amb zero proves no demostra el comportament; revisa descobriment, imports i biblioteca abans d’interpretar el resultat.</p></div><div class="example"><div class="code-label">Lectura orientativa del resultat</div><pre><code>// Exemple inicial, sense errors:
+// Tests found:      1
+// Tests started:    1
+// Tests successful: 1
+// Tests failed:     0</code></pre></div></section>
+<section class="slide" data-slide aria-label="21. Triar l’asserció"><div class="copy"><p class="eyebrow">JAVA / JUNIT</p><h2>Triar l’asserció</h2><p class="lead">Cada comprovació respon a una pregunta diferent.</p><p class="class-explanation">assertEquals compara un valor; assertTrue i assertFalse esperen un booleà. assertArrayEquals revisa les caselles en ordre. Tria segons el comportament que ha de complir el mètode.</p></div><div class="example"><div class="code-label">Fragments didàctics · requerixen el seu context</div><pre><code>assertEquals(5, obtenido);
+assertTrue(esValida);
+assertFalse(esImpar);
+assertArrayEquals(esperado, nuevo);</code></pre></div></section>
+<section class="slide" data-slide aria-label="22. Decimals: fixar una tolerància"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Decimals: fixar una tolerància</h2><p class="lead">assertEquals(esperado, obtenido, tolerancia) admet una diferència menuda.</p><p class="class-explanation">La mitjana de 0.1 i 0.2 es pot representar com 0.15000000000000002. Acceptem una diferència de fins a 0.000001 per a este exemple. Triem el marge segons el problema, abans de veure un error.</p><details><summary>Revelar el raonament</summary><p>Passa amb l’error menut de representació. Falla si el mètode retorna 0.3. Augmentar la tolerància fins a ocultar eixe error falsejaria la prova.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>assertEquals(0.15,
+    Operaciones.calcularMedia(0.1, 0.2),
+    0.000001);</code></pre></div></section>
+<section class="slide" data-slide data-correct="1" aria-label="23. Buit i null són diferents"><div class="copy"><p class="eyebrow">JAVA / JUNIT</p><h2>Buit i null són diferents</h2><p class="lead">Una referència no nul·la no garantix un contingut correcte.</p><p class="class-explanation">assertNotNull comprova que existix una referència. assertNull comprova l’absència acordada, com una cerca sense coincidències. Un array buit no és null: encara té longitud zero.</p><fieldset><legend>assertNull(new int[0]) passa?</legend><div class="choices"><button class="choice" type="button" data-answer="0" aria-pressed="false">Sí</button><button class="choice" type="button" data-answer="1" aria-pressed="false">No</button></div></fieldset><p class="feedback" role="status"></p><details><summary>Veure l’explicació</summary><p>No: existix un array buit. assertNull espera null, no una longitud de zero.</p></details></div><div class="example"><div class="code-label">Fragments didàctics · requerixen el seu context</div><pre><code>int[] datos = new int[0];
+assertNotNull(datos);
+assertArrayEquals(new int[0], datos);</code></pre></div></section>
+<section class="slide" data-slide aria-label="24. assertNotNull: existix, però què conté?"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>assertNotNull: existix, però què conté?</h2><p class="lead">Comprovar la referència és diferent de comprovar les dades.</p><p class="class-explanation">crearIncrementado(new int[0]) ha de retornar un array buit. assertNotNull passa amb qualsevol array existent, fins i tot {99}. La segona asserció expressa que a més esperem zero elements.</p><details><summary>Revelar el raonament</summary><p>Si retorna null, falla la primera. Si retorna {99}, passa la primera i falla la segona. Una caixa buida continua sent una caixa.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>int[] obtenido =
+    Operaciones.crearIncrementado(new int[0]);
+assertNotNull(obtenido);
+assertArrayEquals(new int[0], obtenido);</code></pre></div></section>
+<section class="slide" data-slide aria-label="25. assertNull: l’absència està acordada"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>assertNull: l’absència està acordada</h2><p class="lead">Una cerca sense coincidències pot retornar null com a resultat correcte.</p><p class="class-explanation">buscarNombre retorna el nom trobat o null si no apareix. Provem absència i presència: un mètode que retornara sempre null passaria només el primer cas, però incompliria el segon.</p><details><summary>Revelar el raonament</summary><p>L’absència passa només amb null: ni &quot;&quot; ni &quot;Eva&quot; equivalen a null. Precondició de l’exemple: array i nom buscat no nuls.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>String[] nombres = {&quot;Ana&quot;, &quot;Luis&quot;};
+assertNull(Operaciones.buscarNombre(nombres, &quot;Eva&quot;));
+assertEquals(&quot;Ana&quot;,
+    Operaciones.buscarNombre(nombres, &quot;Ana&quot;));</code></pre></div></section>
+<section class="slide" data-slide aria-label="26. Preparar cada prova"><div class="copy"><p class="eyebrow">JAVA / JUNIT</p><h2>Preparar cada prova</h2><p class="lead">BeforeEach entrega dades noves a cada test.</p><p class="class-explanation">Els mètodes anotats no són tests addicionals. BeforeAll i AfterAll s’executen una vegada per classe; BeforeEach i AfterEach envolten cada prova. En esta configuració, només els dos globals són static.</p></div><div class="example"><div class="code-label">Fragments didàctics · requerixen el seu context</div><pre><code>@BeforeEach
+void prepararDatos() {
+    datos = new int[] {2, 5};
+}</code></pre><figure class="concept-figure"><img src="assets/testing-vida-ca.svg" width="840" height="500" alt="BeforeEach entrega dades noves a cada test."><figcaption>Preparar cada prova</figcaption></figure></div></section>
+<section class="slide" data-slide aria-label="27. BeforeEach: cada test comença de nou"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>BeforeEach: cada test comença de nou</h2><p class="lead">La preparació comuna crea dades independents abans de cada prova.</p><p class="class-explanation">JUnit crea per defecte una instància per test. El camp datos pertany a eixa instància i BeforeEach l’inicialitza. Un test pot modificar el seu array sense preparar l’entrada del següent; no hem de dependre de l’ordre d’execució.</p><details><summary>Revelar el raonament</summary><p>Afegir import org.junit.jupiter.api.BeforeEach. Este fragment va dins d’una classe de tests amb els imports de Test i Assertions.</p></details></div><div class="example"><div class="code-label">Fragment Java · context indicat en l’explicació</div><pre><code>private int[] datos;
+
+@BeforeEach
+void prepararDatos() {
+    datos = new int[] {2, 5};
+}
+@Test
+void tieneDosElementos() {
+    assertEquals(2, datos.length);
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="28. Quatre moments, dos proves"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Quatre moments, dos proves</h2><p class="lead">All s’aplica a la classe; Each envolta cada test.</p><p class="class-explanation">BeforeAll i AfterAll són static en el cicle predeterminat. BeforeEach i AfterEach no són static. Per a dos tests, hi ha una preparació global, dos preparacions individuals, dos tancaments individuals i un tancament global.</p><details><summary>Revelar el raonament</summary><p>A i B il·lustren un ordre possible, no una garantia. Els mètodes de preparació no compten com a tests addicionals.</p></details></div><div class="example"><div class="code-label">Esquema d’execució · no és codi Java</div><pre><code>BeforeAll
+  BeforeEach → test A → AfterEach
+  BeforeEach → test B → AfterEach
+AfterAll</code></pre></div></section>
+<section class="slide" data-slide aria-label="29. Descriure no és comprovar"><div class="copy"><p class="eyebrow">JAVA / JUNIT</p><h2>Descriure no és comprovar</h2><p class="lead">DisplayName posa un nom llegible; l’asserció verifica la promesa.</p><p class="class-explanation">Conserva @Test perquè JUnit reconega la prova. Un missatge opcional d’assertEquals explica l’error, però no canvia el resultat esperat ni convertix un println en una comprovació.</p></div><div class="example"><div class="code-label">Fragments didàctics · requerixen el seu context</div><pre><code>@Test
+@DisplayName(&quot;Sumar dos positius&quot;)
+void sumarDosPositivosDevuelveSuSuma() {
+    assertEquals(5, Operaciones.sumar(2, 3));
+}</code></pre></div></section>
+<section class="slide" data-slide aria-label="30. Separar un error de test d’un error de compilació"><div class="copy"><p class="eyebrow">JAVA / EXEMPLE DESENVOLUPAT</p><h2>Separar un error de test d’un error de compilació</h2><p class="lead">Un import sense resoldre impedix executar; una asserció fallida compara un resultat.</p><p class="class-explanation">Si no es reconeix org.junit.jupiter.api, revisa el JAR i la configuració. Si l’informe mostra expected i was, el test sí que ha arribat a comprovar un valor. Primer identifica en quina fase estem per a corregir el problema adequat.</p><details><summary>Revelar el raonament</summary><p>Després de corregir el mètode, torna a executar tota la bateria. Superar els nostres casos aporta evidència; no demostra que hàgem previst totes les entrades possibles.</p></details></div><div class="example"><div class="code-label">Missatges orientatius · fases diferents</div><pre><code>// Compilació: package ... does not exist
+// Descobriment: 0 tests found
+// Asserció: expected &lt;5&gt; but was &lt;-1&gt;</code></pre></div></section>
+</main><nav class="navigation" aria-label="Navegació de diapositives" hidden><button id="previous" type="button">← Anterior</button><p id="progress" aria-live="polite"></p><button id="next" type="button">Següent →</button><button id="fullscreen" type="button">Pantalla completa</button></nav><noscript><p>Sense JavaScript pots llegir totes les diapositives i les explicacions.</p></noscript></body></html>
