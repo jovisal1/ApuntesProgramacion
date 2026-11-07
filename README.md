@@ -1,5 +1,7 @@
 # Apuntes de Programación · 1.º DAW y DAM
 
+[Llegir este README en valencià](README.ca.md).
+
 Material didáctico de programación en **castellano y valenciano**, con explicaciones, ejemplos, diagramas y ejercicios. El sitio está construido con Astro, Starlight y el tema Nova.
 
 - [Consultar los apuntes en castellano](https://jovisal1.github.io/ApuntesProgramacion/)
@@ -11,6 +13,11 @@ Material didáctico de programación en **castellano y valenciano**, con explica
 | --- | --- |
 | Introducción a la programación | Conceptos iniciales, algoritmos y programas, y práctica con PSeInt. |
 | Introducción a Java | Historia y características, tipos de datos, variables, constantes, operadores, estructuras de control, arrays, cadenas y entrada/salida. |
+| Funciones en Java | Métodos, declaración y llamada, flujo de ejecución, ámbito de las variables, paso de argumentos, sobrecarga, `varargs` y recursión. Incluye esquemas y aclaraciones destacadas con comparaciones cotidianas. |
+| [Testing con JUnit](src/content/docs/guides/testing-con-junit.md) | Unidad independiente: preparación sin gestor, primera prueba, ejecución, casos de prueba, aserciones, ciclo de vida e interpretación de fallos. |
+
+
+El apartado de testing utiliza VS Code sin Maven ni Gradle, con JUnit Jupiter 5.13.4 y Console Standalone 1.13.4. Los [ejemplos editables](ejemplos/testing-junit/es/README.md) contienen 18 tests. El JAR de JUnit se descarga por separado, siguiendo la guía. El material explica aserciones de valor, booleanos, arrays, referencias nulas, mensajes y `@DisplayName`, e incluye las cuatro anotaciones del ciclo de vida con datos independientes por prueba. Los fuentes de cada idioma están en `ejemplos/testing-junit/`; después de modificarlos, comprueba que los 18 tests siguen pasando.
 
 ## Trabajar en local
 
@@ -94,6 +101,7 @@ sidebar:
 3. Si es un apartado nuevo, incorpóralo a `sidebar` en `astro.config.mjs`, con su `slug` y la etiqueta valenciana en `translations.ca`. La navegación de este proyecto se define manualmente.
 4. Guarda las imágenes en `src/assets/` y enlázalas con una ruta relativa desde la página. Conserva las atribuciones de los recursos que las requieran.
 5. Ejecuta `npm run build` y revisa ambas versiones con `npm run preview`.
+6. Siempre que actualices el contenido de los apuntes, actualiza también este README y [su versión valenciana](README.ca.md) con los cambios relevantes en contenidos, organización, recursos o convenciones.
 
 ### Castellano y valenciano
 
@@ -125,6 +133,8 @@ Utiliza el mismo formato HTML en todas las unidades, con la clase `java-document
 ```
 
 Conserva un título descriptivo en cada caja y tradúcelo en la página valenciana, por ejemplo, `IDEA CLAU`. Usa `<strong>` para las negritas y `<code>` para el código en línea dentro del HTML. Para listas, utiliza `<ul>` y `<li>`.
+
+Incluye de vez en cuando definiciones y aclaraciones sencillas con comparaciones cotidianas, destacadas con `DEFINICIÓN` o `EN PALABRAS SENCILLAS` (`DEFINICIÓ` o `EN PARAULES SENZILLES` en valenciano). Mantén el término técnico y explica cómo se corresponde con la comparación.
 
 No utilices las directivas `:::tip`, `:::note` o `:::caution`: las cajas comparten el estilo definido en `src/styles/custom.css` mediante `java-document-note`.
 

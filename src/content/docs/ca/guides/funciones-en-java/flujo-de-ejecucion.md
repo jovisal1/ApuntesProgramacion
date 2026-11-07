@@ -119,3 +119,5 @@ No n’hi ha prou que el programa compile: cal comprovar el resultat. Pots crida
 | `sumar(-2, -3)` | `-5` |
 
 Usa entrades amb un resultat que càpia en `int`. Extraure una operació a un mètode no evita el desbordament numèric.
+
+En [testing amb JUnit](/ApuntesProgramacion/ca/guides/testing-con-junit/) automatitzarem estes comprovacions en un projecte Java sense gestor de dependències.

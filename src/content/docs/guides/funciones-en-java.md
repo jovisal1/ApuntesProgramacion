@@ -59,6 +59,6 @@ En `sumar(10, 5)` pedimos que se ejecute el método con los valores `10` y `5`. 
 
 ## Qué aprenderás a hacer
 
-Aprenderás a elegir las entradas y la salida de cada método, declarar su cabecera y seguir el recorrido de las llamadas. Después explicarás por qué algunas modificaciones son visibles fuera del método y otras no; finalmente utilizarás sobrecarga, argumentos variables y recursión.
+Aprenderás a elegir las entradas y la salida de cada método, declarar su cabecera y seguir el recorrido de las llamadas. Después explicarás por qué algunas modificaciones son visibles fuera del método y otras no; utilizarás sobrecarga, argumentos variables y recursión.
 
 Necesitas manejar [variables y tipos](/ApuntesProgramacion/guides/introduccion-a-java/tipos-de-datos-variables-y-mas/), [condiciones y bucles](/ApuntesProgramacion/guides/introduccion-a-java/estructuras-de-control/), [entrada y salida](/ApuntesProgramacion/guides/introduccion-a-java/entrada-y-salida-de-datos/) y [arrays](/ApuntesProgramacion/guides/introduccion-a-java/arrays/). Los ejemplos completos indicarán su archivo; los fragmentos necesitarán el contexto que se indique.

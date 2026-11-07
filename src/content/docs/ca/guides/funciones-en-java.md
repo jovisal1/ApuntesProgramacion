@@ -59,6 +59,6 @@ En `sumar(10, 5)` demanem que s’execute el mètode amb els valors `10` i `5`. 
 
 ## Què aprendràs a fer
 
-Aprendràs a triar les entrades i l’eixida de cada mètode, declarar-ne la capçalera i seguir el recorregut de les crides. Després explicaràs per què algunes modificacions són visibles fora del mètode i altres no; finalment utilitzaràs sobrecàrrega, arguments variables i recursió.
+Aprendràs a triar les entrades i l’eixida de cada mètode, declarar-ne la capçalera i seguir el recorregut de les crides. Després explicaràs per què algunes modificacions són visibles fora del mètode i altres no; utilitzaràs sobrecàrrega, arguments variables i recursió.
 
 Necessites manejar [variables i tipus](/ApuntesProgramacion/ca/guides/introduccion-a-java/tipos-de-datos-variables-y-mas/), [condicions i bucles](/ApuntesProgramacion/ca/guides/introduccion-a-java/estructuras-de-control/), [entrada i eixida](/ApuntesProgramacion/ca/guides/introduccion-a-java/entrada-y-salida-de-datos/) i [arrays](/ApuntesProgramacion/ca/guides/introduccion-a-java/arrays/). Els exemples complets indicaran el seu fitxer; els fragments necessitaran el context que s’indique.

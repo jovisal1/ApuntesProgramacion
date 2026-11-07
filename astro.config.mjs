@@ -236,6 +236,53 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              label: "Testing con JUnit",
+              translations: { ca: "Testing amb JUnit" },
+              collapsed: true,
+              items: [
+                {
+                  label: "Introducción",
+                  translations: { ca: "Introducció" },
+                  slug: "guides/testing-con-junit",
+                },
+                {
+                  label: "Preparar el proyecto",
+                  translations: { ca: "Preparar el projecte" },
+                  slug: "guides/testing-con-junit/preparar-proyecto",
+                },
+                {
+                  label: "Primera prueba",
+                  translations: { ca: "Primera prova" },
+                  slug: "guides/testing-con-junit/primera-prueba",
+                },
+                {
+                  label: "Ejecutar las pruebas",
+                  translations: { ca: "Executar les proves" },
+                  slug: "guides/testing-con-junit/ejecutar-pruebas",
+                },
+                {
+                  label: "Elegir casos de prueba",
+                  translations: { ca: "Triar casos de prova" },
+                  slug: "guides/testing-con-junit/casos-de-prueba",
+                },
+                {
+                  label: "Métodos de aserción",
+                  translations: { ca: "Mètodes d’asserció" },
+                  slug: "guides/testing-con-junit/aserciones",
+                },
+                {
+                  label: "Ciclo de vida",
+                  translations: { ca: "Cicle de vida" },
+                  slug: "guides/testing-con-junit/ciclo-de-vida",
+                },
+                {
+                  label: "Fallos y correcciones",
+                  translations: { ca: "Errors i correccions" },
+                  slug: "guides/testing-con-junit/fallos-y-correcciones",
+                },
+              ],
+            },
           ],
         },
       ],
